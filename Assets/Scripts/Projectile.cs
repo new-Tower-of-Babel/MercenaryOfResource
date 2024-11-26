@@ -3,27 +3,34 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [field: SerializeField]
-    public float MoveSpeed { get; set; }
-    
-    [field: SerializeField]
-    public float LifeTime { get; set; }
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float lifeTime;
 
     private Rigidbody rb;
     private float startedTime;
 
+    
+    public void Setup(Vector3 position, Quaternion rotation)
+    {
+        transform.position = position;
+        transform.rotation = rotation;
+        
+        startedTime = Time.time;
+        rb.velocity = transform.forward * moveSpeed;
+    }
+
+    
     private void Awake()
     {
          rb = GetComponent<Rigidbody>();
-         rb.velocity = transform.forward * MoveSpeed;
-         startedTime = Time.time;
     }
-
+    
     private void Update()
     {
-        if (Time.time - startedTime >= LifeTime)
+        if (Time.time - startedTime >= lifeTime)
         {
-            Destroy (gameObject);
+            ObjectPool.Instance.Despawn (gameObject);
+            gameObject.SetActive (false);
         }
     }
 }

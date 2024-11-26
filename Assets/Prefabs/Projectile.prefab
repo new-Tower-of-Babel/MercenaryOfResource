@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4be36065b40bc4c8d66c0d688e0886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 50
-  <LifeTime>k__BackingField: 2
+  moveSpeed: 50
+  lifeTime: 2
 --- !u!1 &6617163327449789000
 GameObject:
   m_ObjectHideFlags: 0

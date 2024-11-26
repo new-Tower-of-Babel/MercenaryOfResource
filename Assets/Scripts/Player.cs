@@ -47,7 +47,9 @@ public class Player : MonoBehaviour
                 lastFiredTime = Time.time;
                 if (projectilePrefab != null)
                 {
-                    Instantiate (projectilePrefab, firePoint.position, transform.rotation);
+                    var obj = ObjectPool.Instance.Spawn ("Projectile");
+                    obj.GetComponent<Projectile>().Setup (firePoint.position, transform.rotation);
+                    obj.SetActive (true);
                 }
             }
             
