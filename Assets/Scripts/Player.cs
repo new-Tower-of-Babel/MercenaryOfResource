@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,11 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float fireDelay = 0.3f;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
 
     private Rigidbody rb;
 
     private Vector3 aimDir;
-    private float fireDelayCounter = 0f;
+    private float lastFiredTime = 0f;
 
     private void Awake()
     {
@@ -40,6 +42,14 @@ public class Player : MonoBehaviour
     {
         if (GameInput.Instance.IsAiming)
         {
+            if (Time.time >= lastFiredTime + fireDelay)
+            {
+                lastFiredTime = Time.time;
+                if (projectilePrefab != null)
+                {
+                    Instantiate (projectilePrefab, firePoint.position, transform.rotation);
+                }
+            }
             
         }
     }
@@ -48,5 +58,4 @@ public class Player : MonoBehaviour
     {
         aimDir = mouseWorldPos - transform.position;
     }
-
 }
