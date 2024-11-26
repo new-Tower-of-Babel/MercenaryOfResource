@@ -948,7 +948,7 @@ PrefabInstance:
     - target: {fileID: 3381729855970429715, guid: 888f3f7777f385b499e30123a5c932e2,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Gunslinger
       objectReference: {fileID: 0}
     - target: {fileID: 7440953424719412445, guid: 888f3f7777f385b499e30123a5c932e2,
         type: 3}
