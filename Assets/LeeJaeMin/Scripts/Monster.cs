@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour
     }
     protected float playerDistance;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
