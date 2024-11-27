@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GunslingerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     private GunslingerStatsSO stats;
 }
