@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats
 {
-    private GunslingerStatsSO stats;
-    
-    
+    public GunslingerStatsSO gunslingerStats;
+    public WeaponStatsSO weaponStats;
 }
