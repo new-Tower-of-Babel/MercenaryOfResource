@@ -5,16 +5,23 @@ using Random = UnityEngine.Random;
 
 public class MonsterSpawner : MonoBehaviour
 {
+    public static MonsterSpawner Instance { get; private set; }
+    
     private List<GameObject> activeMonsters = new();
 
     public IReadOnlyList<GameObject> ActiveMonsters => activeMonsters;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void SpawnMonster()
     {
         GameObject monster = ObjectPool.Instance.Spawn ("StandardMonster");
-        monster.SetActive (true);
         monster.transform.position = GetSpawnPosition();
         monster.GetComponent<MonsterBase>().OnDied.AddListener (MonsterBase_OnDied);
+        monster.SetActive (true);
         activeMonsters.Add (monster);
     }
 

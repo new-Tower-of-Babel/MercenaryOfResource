@@ -12,9 +12,9 @@ public class MonsterBase : MonoBehaviour
 
     public void Die()
     {
-        gameObject.SetActive (false);
         ObjectPool.Instance.Despawn (gameObject);
         OnDied?.Invoke(gameObject);
+        gameObject.SetActive (false);
     }
 
     public void TakeDamage (int amount)

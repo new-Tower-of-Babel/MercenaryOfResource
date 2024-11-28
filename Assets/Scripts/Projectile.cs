@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float lifeTime;
+    [SerializeField] private TrailRenderer trailRenderer;
 
     private Rigidbody rb;
     private float startedTime;
@@ -17,6 +18,8 @@ public class Projectile : MonoBehaviour
         
         startedTime = Time.time;
         rb.velocity = transform.forward * moveSpeed;
+        
+        trailRenderer.Clear();
     }
 
     
