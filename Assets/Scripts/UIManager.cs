@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : SingletonBase<UIManager>
 {
-    // 프로젝트 - 자료구조
     private Dictionary<string, UIBase> _uiDic = new Dictionary<string, UIBase>();
 
     public T GetUI<T>() where T : UIBase
     {
         var uiName = typeof(T).Name;
 
-        // dic 체크
-        if (IsExist<T>())    // 있다 -> 반환
+        if (IsExist<T>())
             return _uiDic[uiName] as T;
         else
-            return CreateUI<T>();    // 없다 -> 새로 만듬 반환
+            return CreateUI<T>();
     }
 
     private T CreateUI<T>() where T : UIBase
