@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 10
   firePoint: {fileID: 0}
+  engagementDistance: 15
 --- !u!1 &7161915021599685955
 GameObject:
   m_ObjectHideFlags: 0
