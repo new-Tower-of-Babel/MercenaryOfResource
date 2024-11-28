@@ -3,22 +3,25 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Gunslinger : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotateSpeed = 10f;
-    [SerializeField] private float fireDelay = 0.3f;
-    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
 
     private Rigidbody rb;
 
     private Vector3 aimDir;
     private float lastFiredTime = 0f;
+    private WeaponBase weapon;
+    private GunslingerStatsSO gunslingerStats;
+    private WeaponStatsSO weaponStats;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        weapon = new Revolver();
+        gunslingerStats = PlayerStatsManager.GunslingerStats;
+        weaponStats = PlayerStatsManager.WeaponStats;
     }
 
     private void Start()
@@ -31,7 +34,7 @@ public class Gunslinger : MonoBehaviour
         // move
         Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3 (inputVector.x, 0f, inputVector.y);
-        rb.velocity = moveDir * moveSpeed;
+        rb.velocity = moveDir * gunslingerStats.moveSpeed;
         
         // turn
         Vector3 dir = GameInput.Instance.IsAiming ? aimDir : moveDir;
@@ -42,15 +45,10 @@ public class Gunslinger : MonoBehaviour
     {
         if (GameInput.Instance.IsAiming)
         {
-            if (Time.time >= lastFiredTime + fireDelay)
+            if (Time.time >= lastFiredTime + 1f / weaponStats.fireRate)
             {
                 lastFiredTime = Time.time;
-                if (projectilePrefab != null)
-                {
-                    var obj = ObjectPool.Instance.Spawn ("Projectile");
-                    obj.GetComponent<Projectile>().Setup (firePoint.position, transform.rotation);
-                    obj.SetActive (true);
-                }
+                weapon.Fire (firePoint.position, transform.rotation);
             }
             
         }
