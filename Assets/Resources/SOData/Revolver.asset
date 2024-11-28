@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 14
   projectilesPerShot: 1
-  fireRate: 7
+  fireRate: 4
   reloadTime: 0.96
   maxAmmo: 6
   criticalDamageChance: 0.12
