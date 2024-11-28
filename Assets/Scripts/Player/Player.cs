@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        GameInput.Instance.OnAimAction += GameInput_OnAimAction;
+        GameInput.Instance.OnAimAt += GameInput_OnAimAt;
     }
 
     private void FixedUpdate()
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         Attack();
     }
     
-    private void GameInput_OnAimAction (Vector3 mouseWorldPos)
+    private void GameInput_OnAimAt (Vector3 mouseWorldPos)
     {
         aimDir = mouseWorldPos - transform.position;
     }

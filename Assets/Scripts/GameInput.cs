@@ -6,12 +6,14 @@ public class GameInput : MonoBehaviour
 {
     public static GameInput Instance { get; private set; }
 
-    public event Action<Vector3> OnAimAction = (mouseWorldPos) => { };
+    public event Action<Vector3> OnAimAt = (mouseWorldPos) => { };
+    public bool IsAiming { get; private set; } 
+    
+    
     
     private Controls controls;
     private Camera mainCamera;
     
-    public bool IsAiming { get; private set; } 
 
     private void Awake()
     {
@@ -22,7 +24,6 @@ public class GameInput : MonoBehaviour
         controls = new Controls();
         controls.Player.AimStart.started += AimStarted;
         controls.Player.AimStart.canceled += AimCanceled;
-        controls.Player.Aim.performed += Aim;
         controls.Player.Enable();
     }
 
@@ -31,7 +32,6 @@ public class GameInput : MonoBehaviour
         controls.Player.Disable();
         controls.Player.AimStart.started -= AimStarted;
         controls.Player.AimStart.canceled -= AimCanceled;
-        controls.Player.Aim.performed -= Aim;
     }
 
     private void Aim (InputAction.CallbackContext context)
@@ -43,17 +43,19 @@ public class GameInput : MonoBehaviour
         if (plane.Raycast (mouseCameraRay, out float distance))
         {
             Vector3 mouseWorldPos = mouseCameraRay.GetPoint (distance);
-            OnAimAction?.Invoke (mouseWorldPos);
+            OnAimAt?.Invoke (mouseWorldPos);
         }
     }
 
     private void AimStarted (InputAction.CallbackContext context)
     {
+        controls.Player.Aim.performed += Aim;
         IsAiming = true;
     }
     
     private void AimCanceled (InputAction.CallbackContext context)
     {
+        controls.Player.Aim.performed -= Aim;
         IsAiming = false;
     }
     
