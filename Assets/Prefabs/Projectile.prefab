@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 50
   lifeTime: 2
+  trailRenderer: {fileID: 5526359714124569350}
 --- !u!1 &6617163327449789000
 GameObject:
   m_ObjectHideFlags: 0

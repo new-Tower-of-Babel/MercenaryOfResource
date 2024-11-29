@@ -9,26 +9,26 @@ public class ObjectPool : MonoBehaviour
     
     
     [System.Serializable]
-    private class PoolInfo
+    protected class PoolInfo
     {
         public string name;
         public GameObject prefab;
         public int initialSize;
     }
 
-    private class Pool
+    protected class Pool
     {
         public GameObject prefab;
         public Queue<GameObject> objects;
     }
     
 
-    [SerializeField] private PoolInfo[] poolInfoArray;
+    [SerializeField] protected PoolInfo[] poolInfoArray;
 
-    private Dictionary<string, Pool> poolDic;
+    protected Dictionary<string, Pool> poolDic;
 
     
-    private void Awake()
+    protected void Awake()
     {
         Instance = this;
 

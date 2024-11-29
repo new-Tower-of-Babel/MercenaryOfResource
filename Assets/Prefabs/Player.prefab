@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7062213078347271017}
   m_Layer: 0
-  m_Name: Meshs
+  m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,10 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b833ba30b4b6794bacfbbabf8f7cc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotateSpeed: 10
-  fireDelay: 0.3
-  projectilePrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  engagementDistance: 15
 --- !u!1 &7161915021599685955
 GameObject:
   m_ObjectHideFlags: 0
