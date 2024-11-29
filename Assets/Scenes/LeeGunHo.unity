@@ -668,12 +668,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &1473706097 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6796258760847212427, guid: 888f3f7777f385b499e30123a5c932e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 3438249864222798041}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647882714
 GameObject:
   m_ObjectHideFlags: 3
@@ -949,22 +943,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gunslinger
-      objectReference: {fileID: 0}
-    - target: {fileID: 7440953424719412445, guid: 888f3f7777f385b499e30123a5c932e2,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1473706097}
-    - target: {fileID: 7440953424719412445, guid: 888f3f7777f385b499e30123a5c932e2,
-        type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 2954201655412845858, guid: 886a98e5ad56b4d40a885f44f2aabc80,
-        type: 3}
-    - target: {fileID: 7440953424719412445, guid: 888f3f7777f385b499e30123a5c932e2,
-        type: 3}
-      propertyPath: engagementDistance
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

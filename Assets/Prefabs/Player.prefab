@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 10
-  firePoint: {fileID: 0}
-  engagementDistance: 15
+  firePoint: {fileID: 6796258760847212427}
+  engagementDistance: 10
 --- !u!1 &7161915021599685955
 GameObject:
   m_ObjectHideFlags: 0
