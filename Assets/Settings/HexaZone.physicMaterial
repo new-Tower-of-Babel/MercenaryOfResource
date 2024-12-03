@@ -6,7 +6,7 @@ PhysicMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerPhysics
+  m_Name: HexaZone
   dynamicFriction: 0
   staticFriction: 1
   bounciness: 0

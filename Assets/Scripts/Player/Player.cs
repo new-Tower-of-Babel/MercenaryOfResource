@@ -69,6 +69,16 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Attack();
+    }
+    
+    private void GameInput_OnAimAt (Vector3 mouseWorldPos)
+    {
+        aimDirection = (mouseWorldPos - transform.position).normalized;
+    }
+
+    private void Attack()
+    {
         if (!CanAttack)
             return;
         
@@ -90,10 +100,6 @@ public class Player : MonoBehaviour
         weapon.Fire (firePoint.position, transform.rotation);
     }
     
-    private void GameInput_OnAimAt (Vector3 mouseWorldPos)
-    {
-        aimDirection = (mouseWorldPos - transform.position).normalized;
-    }
     
     private bool GetClosestMonster(out GameObject monster, out Vector3 direction)
     {
