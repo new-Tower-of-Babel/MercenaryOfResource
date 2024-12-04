@@ -1,10 +1,8 @@
 using UnityEngine;
 
-
-
+[CreateAssetMenu(menuName = "SOData/MonsterStats")]
 public class MonsterStatsSO : ScriptableObject
 {
-    public int maxHealth;
-    public float moveSpeed;
-    public float attackDelay;
+    public int health;
+    public float speed;
 }

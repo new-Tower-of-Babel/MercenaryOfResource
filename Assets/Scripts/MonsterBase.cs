@@ -10,12 +10,6 @@ public class MonsterBase : MonoBehaviour
 
     private int testHealth = 10;
 
-    public void Die()
-    {
-        ObjectPool.Instance.Despawn (gameObject);
-        OnDied?.Invoke(gameObject);
-        gameObject.SetActive (false);
-    }
 
     public void TakeDamage (int amount)
     {
@@ -24,5 +18,12 @@ public class MonsterBase : MonoBehaviour
         {
             Die();            
         }
+    }
+
+    public void Die()
+    {
+        ObjectPool.Instance.Despawn (gameObject);
+        OnDied?.Invoke(gameObject);
+        gameObject.SetActive (false);
     }
 }
