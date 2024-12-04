@@ -11,6 +11,8 @@ public class MonsterSpawner : MonoBehaviour
 
     public IReadOnlyList<GameObject> ActiveMonsters => activeMonsters;
 
+    public int MonsterCount => activeMonsters.Count;
+
     private void Awake()
     {
         Instance = this;

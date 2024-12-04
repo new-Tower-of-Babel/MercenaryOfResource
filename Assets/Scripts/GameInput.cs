@@ -24,14 +24,18 @@ public class GameInput : MonoBehaviour
         controls = new Controls();
         controls.Player.AimStart.started += AimStarted;
         controls.Player.AimStart.canceled += AimCanceled;
+        controls.Player.Interact.started += Interact;
         controls.Player.Enable();
     }
+
+
 
     private void OnDestroy()
     {
         controls.Player.Disable();
         controls.Player.AimStart.started -= AimStarted;
         controls.Player.AimStart.canceled -= AimCanceled;
+        controls.Player.Interact.started -= Interact;
     }
 
     private void Aim (InputAction.CallbackContext context)
@@ -63,5 +67,10 @@ public class GameInput : MonoBehaviour
     {
         Vector2 inputVector = controls.Player.Move.ReadValue<Vector2>();
         return inputVector.normalized;
+    }
+    
+    private void Interact (InputAction.CallbackContext context)
+    {
+        HexaZone.GetCurrent()?.Interact();        
     }
 }
