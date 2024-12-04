@@ -17,5 +17,6 @@ public class SkillDataManagaer : SingletonBase<SkillDataManagaer>
 
     public static int skill_Grenade_Level = 0;
     public static int skill_Mine_Level = 0;
-    
+
+    public static string currentSkill;
 }
