@@ -71,6 +71,6 @@ public class GameInput : MonoBehaviour
     
     private void Interact (InputAction.CallbackContext context)
     {
-        HexaZone.GetCurrent()?.Interact();        
+        HexaZone.GetCurrentContacting()?.Interact();        
     }
 }

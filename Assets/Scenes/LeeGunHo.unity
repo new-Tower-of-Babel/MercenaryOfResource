@@ -800,6 +800,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HexaZone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6013425115675164789, guid: c7076a46077e71d4f8494c324e3f4a2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2001,6 +2006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HexaZone (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013425115675164789, guid: c7076a46077e71d4f8494c324e3f4a2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4621,6 +4631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HexaZone (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013425115675164789, guid: c7076a46077e71d4f8494c324e3f4a2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
