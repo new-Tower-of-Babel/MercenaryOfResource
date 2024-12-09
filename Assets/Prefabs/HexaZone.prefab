@@ -325,6 +325,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockText: {fileID: 1556197471387817782}
+  m_TreePrefab: {fileID: 7611771709360649721, guid: 0bfb9e8aac19bed44bbaf3014f75784b,
+    type: 3}
+  m_RockPrefab: {fileID: 0}
+  m_ChestPrefab: {fileID: 0}
 --- !u!1 &6041611428239987694
 GameObject:
   m_ObjectHideFlags: 0

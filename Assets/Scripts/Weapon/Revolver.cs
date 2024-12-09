@@ -11,7 +11,6 @@ public class Revolver : WeaponBase
     public override void Fire (Vector3 position, Quaternion rotation)
     {
         var obj = ObjectPool.Instance.Spawn ("Projectile");
-        obj.GetComponent<Projectile>().Setup (position, rotation);
-        obj.SetActive (true);
+        obj.GetComponent<Projectile>().Setup (stats, position, rotation);
     }
 }
