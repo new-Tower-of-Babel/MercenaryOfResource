@@ -7,38 +7,11 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+
+
 public class HexaZone : MonoBehaviour
 {
-    private static List<HexaZone> s_ContactingList = new();
     private static Vector3[] s_BottomLocalVertices;
-    
-    public static bool TryGetCurrentContacting(out HexaZone zone)
-    {
-        zone = null;
-        
-        if (s_ContactingList.Count == 0)
-            return false;
-
-        int lastIndex = s_ContactingList.Count - 1;
-        zone = s_ContactingList[lastIndex];
-        return true;
-    }
-
-    public static HexaZone GetCurrentContacting()
-    {
-        HexaZone zone;
-        
-        if (TryGetCurrentContacting (out zone))
-            return zone;
-        else
-            return null;
-    }
-
-    public static void Clear()
-    {
-        s_ContactingList.Clear();
-    }
-  
     
     [SerializeField] private TextMeshPro m_UnlockText;
     [Title("Prefabs")]
@@ -47,7 +20,6 @@ public class HexaZone : MonoBehaviour
     [SerializeField, AssetsOnly] private GameObject m_ChestPrefab;
     
     private MeshCollider m_MeshCollider;
-
     private Vector3 m_RandomDebugPoint;
 
     private void Awake()
@@ -73,8 +45,10 @@ public class HexaZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag ("Player"))
         {
-            GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (false);
-            s_ContactingList.Add (this);
+            HexaZoneManager manager = HexaZoneManager.GetInstance();
+            
+            manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (false);
+            manager.AddContacting (this);
             m_UnlockText.gameObject.SetActive (true);
         }
     }
@@ -83,15 +57,14 @@ public class HexaZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag ("Player"))
         {
-            int index = s_ContactingList.FindIndex (x => x == this);
-            
+            HexaZoneManager manager = HexaZoneManager.GetInstance();
+            int index = manager.FindContactingIndex (this);
             if (index != -1)
             {
-                s_ContactingList[index].m_UnlockText.gameObject.SetActive (false);
-                s_ContactingList.RemoveAt (index);
+                manager.GetContacting (index).m_UnlockText.gameObject.SetActive (false);
+                manager.RemoveContactingAt (index);
             }
-            
-            GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
+            manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
         }
     }
 
@@ -106,13 +79,10 @@ public class HexaZone : MonoBehaviour
         
         // Destroy this Object //
         
-        int index = s_ContactingList.FindIndex (x => x == this);
-            
-        if (index != -1)
-            s_ContactingList.RemoveAt (index);
-        
-        GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
-        
+        HexaZoneManager manager = HexaZoneManager.GetInstance();
+        int index = manager.FindContactingIndex (this);
+        if (index != -1) manager.RemoveContactingAt (index);
+        manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
         Destroy (gameObject);
     }
 
