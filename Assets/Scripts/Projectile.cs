@@ -9,10 +9,12 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody rb;
     private float startedTime;
+    private WeaponStatsSO weaponStats;
 
     
-    public void Setup(Vector3 position, Quaternion rotation)
+    public void Setup(WeaponStatsSO weaponStats, Vector3 position, Quaternion rotation)
     {
+        this.weaponStats = weaponStats;
         transform.position = position;
         transform.rotation = rotation;
         
@@ -20,6 +22,8 @@ public class Projectile : MonoBehaviour
         rb.velocity = transform.forward * moveSpeed;
         
         trailRenderer.Clear();
+        
+        gameObject.SetActive (true);
     }
 
     
