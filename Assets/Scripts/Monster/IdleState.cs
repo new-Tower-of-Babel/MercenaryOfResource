@@ -1,35 +1,32 @@
 ﻿using UnityEngine;
 
-public class IdleState : IState
+public class IdleState : IZombieState
 {
     private Zombie zombie;
 
-    public IdleState(Zombie zombie)
+    private bool hasPlayedIdleAnimation = false;    // Check Idle anim execute count
+
+    public void EnterState(Zombie zombie)
     {
         this.zombie = zombie;
-    }
+        Debug.Log("Entering Idle state");
 
-    public void Enter()
-    {
-        //zombie.GetAnimator().SetFloat("Speed", 0);
-    }
-
-    public void Update()
-    {
-        AnimatorStateInfo stateInfo = zombie.GetAnimator().GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.IsName("Idle") && stateInfo.normalizedTime >= 1.0f)
+        if (!hasPlayedIdleAnimation)
         {
-            zombie.ChangeState(zombie.chasingState);
-        }
-
-        if (Vector3.Distance(zombie.transform.position, zombie.GetPlayer().position) < 10f)
-        {
-            zombie.ChangeState(zombie.chasingState);
+            // Idle anim trigger
+            zombie.animator.SetTrigger("Idle");
+            hasPlayedIdleAnimation = true;
         }
     }
 
-    public void Exit()
+    public void UpdateState()
     {
+        // Change to chase state
+        zombie.SwitchState(zombie.chaseState);
+    }
 
+    public void ExitState()
+    {
+        Debug.Log("Exiting Idle state");
     }
 }

@@ -1,74 +1,91 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Xml;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
-    //public Animator Animator { get; private set; }
-    //public CharacterController Controller { get; private set; }
-    ////public ZombieAnimationData AnimationData { get; private set; }
-
-    //private void Awake()
-    //{
-    //    Animator = GetComponentInChildren<Animator>();
-    //    Controller = GetComponent<CharacterController>();
-    //}
-
-    //private void Start()
-    //{
-    //    //AnimationData.Initialize();
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //}
-
-    private IState currentState;
-
-    public float health = 100f;
-    public Transform player;
-    private Animator animator;
+    private IZombieState currentState;  // Manage Current State
+    public Transform player;            // Player position
+    public Animator animator;           // Animator
+    public NavMeshAgent agent;          // NavMeshAgent
 
     public IdleState idleState;
-    public ChasingState chasingState;
-    public AttackingState attackingState;
+    public ChaseState chaseState;
+    public AttackState attackState;
+    public HitState hitState;
     public DeadState deadState;
+
+    [Header("Zombie Stat")]
+    private float attackRange = 1.5f;
+    private float health = 10.0f;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();    // Get animator
+        agent = GetComponent<NavMeshAgent>();   // Get NavMeshAgent
+    }
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        // Find player position
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
 
-        idleState = new IdleState(this);
-        chasingState = new ChasingState(this);
-        attackingState = new AttackingState(this);
-        deadState = new DeadState(this);
+        // Initialize states
+        idleState = new IdleState();
+        chaseState = new ChaseState();
+        attackState = new AttackState();
+        hitState = new HitState();
+        deadState = new DeadState();
 
-        currentState = idleState;
-        currentState.Enter();
+        SwitchState(idleState); // Set Idle state first time
     }
 
     void Update()
     {
-        currentState.Update();
+        // Check state change and apply
+        currentState?.UpdateState();
     }
 
-    public void ChangeState(IState newState)
+    public void SwitchState(IZombieState newState)
     {
-        currentState.Exit();
-        currentState = newState;
-        currentState.Enter();
-    }
+        // Call current state's ExitState method
+        currentState?.ExitState();
 
-    public Transform GetPlayer() => player;
-    public Animator GetAnimator() => animator;
+        // Change to new state
+        currentState = newState;
+        currentState.EnterState(this);
+    }
 
     public void TakeDamage(float damage)
     {
-        if (currentState != deadState)
+        // Decrease health
+        health -= damage;
+        Debug.Log($"Zombie took {damage} damage. Current health: {health}");
+
+        // Change hit or dead state depending on health condition
+        if (health <= 0)
         {
-            health -= damage;
-            if (health <= 0)
-            {
-                ChangeState(deadState);
-            }
+            Die();
         }
+        else
+        {
+            SwitchState(hitState);
+        }
+    }
+
+    public void Die()
+    {
+        SwitchState(deadState); // Change dead state
+    }
+
+    public bool IsPlayerInAttackRange()
+    {
+        return Vector3.Distance(transform.position, player.position) <= attackRange;
     }
 }

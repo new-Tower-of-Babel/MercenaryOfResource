@@ -1,25 +1,41 @@
-﻿public class DeadState : IState
+﻿using System.Collections;
+using UnityEngine;
+
+public class DeadState : IZombieState
 {
     private Zombie zombie;
 
-    public DeadState(Zombie zombie)
+    public void EnterState(Zombie zombie)
     {
         this.zombie = zombie;
+        Debug.Log("Entering Dead state");
+
+        // Dead anim trigger
+        zombie.animator.SetTrigger("Dead");
+
+        // Disable zombie after animation using coroutine
+        zombie.StartCoroutine(DisableZombieAfterAnimation());
     }
 
-    public void Enter()
+    public void UpdateState()
     {
-        zombie.GetAnimator().SetBool("IsDead", true);
-        zombie.enabled = false;
+        // Do nothing at dead state
     }
 
-    public void Update()
+    public void ExitState()
     {
-
+        Debug.Log("Exiting Dead state");
     }
 
-    public void Exit()
+    private IEnumerator DisableZombieAfterAnimation()
     {
+        // Get current animation state information
+        AnimatorStateInfo stateInfo = zombie.animator.GetCurrentAnimatorStateInfo(0);
 
+        // Wait animation time
+        yield return new WaitForSeconds(stateInfo.length);
+
+        // Disable zombie object
+        zombie.gameObject.SetActive(false);
     }
 }
