@@ -1,12 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : SingletonBase<AudioManager>
 {
-    private GameObject _bgmObj;
-    private GameObject _sfxObj;
-
     private AudioSource _bgmSource;
-    private AudioSource _sfxSource;
+    private AudioSourcePool _audioSourcePool;
 
     [Header("BGM")]
     [SerializeField] private AudioClip bgmClip;
@@ -15,54 +13,56 @@ public class AudioManager : SingletonBase<AudioManager>
     [SerializeField] private AudioClip clickSfx;
 
 
-    private void Start()
+    public override void Awake()
     {
-        SetAudioSource();
-        SetAudioClip();
-
-        _bgmSource.volume = 0.2f;
-        _sfxSource.volume = 0.2f;
+        base.Awake();
+        _audioSourcePool = FindObjectOfType<AudioSourcePool>();
     }
 
-    private void SetAudioSource()
+    void Start()
     {
-        // AudioManager의 자식으로 AudioSource 컴포넌트 가진 @BGM 생성
-        _bgmObj = new GameObject("@BGM");
-        _bgmObj.transform.parent = transform;
-        _bgmSource = _bgmObj.AddComponent<AudioSource>();
-
-        // AudioManager의 자식으로 AudioSource 컴포넌트 가진 @SFX 생성
-        _sfxObj = new GameObject("@SFX");
-        _sfxObj.transform.parent = transform;
-        _sfxSource = _sfxObj.AddComponent<AudioSource>();
+        SetBGMSource();
     }
 
-    private void SetAudioClip()
+    private void SetBGMSource()
     {
+        // Add audioSource component
+        _bgmSource = gameObject.AddComponent<AudioSource>();
 
+        // Set bgm property
+        _bgmSource.loop = true;
+        _bgmSource.volume = 0.15f;
     }
 
     public void PlayBGM(AudioClip clip)
     {
         if (_bgmSource.clip != clip)
         {
+            _bgmSource.Stop();
             _bgmSource.clip = clip;
-            _bgmSource.loop = true;
             _bgmSource.Play();
         }
     }
 
     public void PlaySFX(AudioClip clip)
     {
-        _sfxSource.PlayOneShot(clip);
+        // Get audioSource from pool
+        AudioSource audioSource = _audioSourcePool.GetAudioSource();
+        audioSource.PlayOneShot(clip);  // Play one time
+
+        // Return to pool after SfX end
+        StartCoroutine(ReturnAudioSourceAfterPlay(audioSource));
     }
 
-    public void PlayStartBGM() => PlayBGM(bgmClip);
+    private IEnumerator ReturnAudioSourceAfterPlay(AudioSource audioSource)
+    {
+        // Wait for sound ending
+        yield return new WaitForSeconds(audioSource.clip.length);
+        _audioSourcePool.ReturnAudioSource(audioSource);    // return to pool
+    }
+
+    // examples
     public void PlayClickSFX() => PlaySFX(clickSfx);
-
-    public float GetBGMVolume() => _bgmSource.volume;
-    public void SetBGMVolume(float volume) => _bgmSource.volume = volume;
-
-    public float GetSFXVolume() => _sfxSource.volume;
-    public void SetSFXVolume(float volume) => _sfxSource.volume = volume;
+    //public void PlayHitSFX() => PlaySFX(hitSfx);
+    //public void PlayAttackSFX() => PlaySFX(attackSfx);
 }
