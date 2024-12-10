@@ -44,7 +44,7 @@ public class SkillBtnManager : MonoBehaviour
         string btnName = clickedButton.name;
         string skillName = ToLowerFirstChar(btnName);
         UpgradeCheck(skillName);
-        SkillDataManagaer.currentSkill = skillName;
+        //SkillDataManagaer.currentSkill = skillName;
 
         string skillInfo = clickedButton.GetComponentInChildren<TextMeshProUGUI>().text;
         
@@ -54,20 +54,20 @@ public class SkillBtnManager : MonoBehaviour
 
     void UpgradeCheck(string skillName)
     {
-        if (!SkillDataManagaer.Skills[skillName])
-        {
-            upgradeBtn.SetActive(true);
-        }
-        else
-        {
-            upgradeBtn.SetActive(false);
-        }
+        // if (!SkillDataManagaer.Skills[skillName])
+        // {
+        //     upgradeBtn.SetActive(true);
+        // }
+        // else
+        // {
+        //     upgradeBtn.SetActive(false);
+        // }
     }
 
     public void UpgradeBtn()
     {
         //todo.소유한 자본에 따라서 가능하게끔 변경할것 if
-        SkillDataManagaer.Skills[SkillDataManagaer.currentSkill] = true;
+        //SkillDataManagaer.Skills[SkillDataManagaer.currentSkill] = true;
         upgradeBtn.SetActive(false);
     }
 }
