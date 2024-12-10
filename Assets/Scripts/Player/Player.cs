@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     private State state;
 
     public bool CanAttack { get; set; } = true;
+
+    public bool IsShooting => shooting;
     
     private void Awake()
     {
