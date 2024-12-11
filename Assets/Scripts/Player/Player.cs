@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
     public bool CanAttack { get; set; } = true;
 
     public bool IsShooting => shooting;
+
+    public Vector3 AimDirection => aimDirection;
+    
+    public Vector3 TargetDirection => targetDirection;
+    
     
     private void Awake()
     {
