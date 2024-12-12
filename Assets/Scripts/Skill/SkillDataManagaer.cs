@@ -1,98 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class SkillDataManagaer : MonoBehaviour
+
+public interface ISkill
+{
+    int SkillKey { get; }
+    Dictionary<int,bool> AntecedentSkills { get; }
+}
+public class SkillDataManagaer
 {
     public static List<int> haveSkillKey = new List<int>();
-    /*public static Dictionary<string, bool> Skills = new Dictionary<string, bool>
+    
+    public static bool haveSkillCheck(int skillKey)
     {
-        { "skill_AttackPower_Level", false },
-        { "skill_HP_Level", false },
-        { "skill_DefensePower_Level", false },
-        { "skill_AttackSpeed_Level", false },
-        { "skill_Grenade_Level", false },
-        { "skill_Mine_Level", false }
-    };
+        Debug.Log($"1");
+        for (int i = 0; i < haveSkillKey.Count; i++)
+        {
+            Debug.Log($"2");
+            if (haveSkillKey[i] == skillKey)
+            {
+                Debug.Log($"3");
+                return true;
+            }
+        }
+        Debug.Log($"4");
+        return false;
+    }
 
-    public static string currentSkill;*/
-}
+    public static bool AntecedentSkillsCheck(bool skillCheck, Dictionary<int,bool> currentAntecedentSkills)
+    {
+        Debug.Log($"5");
+        if (skillCheck) return true;
+        else
+        {
+            Debug.Log($"6");
+            foreach (var skillkey in currentAntecedentSkills)
+            {
+                Debug.Log($"7");
+                for (int i = 0; i < haveSkillKey.Count; i++)
+                {
+                    Debug.Log($"8");
+                    if (skillkey.Key==haveSkillKey[i])
+                    {
+                        Debug.Log($"9");
+                        currentAntecedentSkills[skillkey.Key] = true;
+                    }
+                }
+            }
 
-public class SkillTreeAMoveSpeed1
-{
-    public static int skillKey { get; } = 1101;
-}
+            for (int i = 0; i < currentAntecedentSkills.Count; i++)
+            {
+                for (int j = 0; j < haveSkillKey.Count; j++)
+                {
+                }
+            }
 
-public class SkillTreeAMoveSpeed2
-{
-    public static readonly int skillKey = 1102;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeAMoveSpeed1.skillKey };
-}
-
-public class SkillTreeAMoveSpeed3
-{
-    public static readonly int skillKey = 1103;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeAMoveSpeed2.skillKey };
-}
-
-public class SkillTreeACarryQuantity1
-{
-    public static readonly int skillKey = 1201;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeAMoveSpeed1.skillKey };
-}
-
-public class SkillTreeACarryQuantity2
-{
-    public static readonly int skillKey = 1202;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeACarryQuantity1.skillKey };
-}
-
-public class SkillTreeBCollectPower1
-{
-    public static readonly int skillKey = 2101;
-}
-
-public class SkillTreeBCollectPower2
-{
-    public static readonly int skillKey = 2102;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeBCutlogSpeed1.skillKey, SkillTreeBMiningSpeed1.skillKey };
-}
-
-public class SkillTreeBCollectPower3
-{
-    public static readonly int skillKey = 2103;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeBCutlogSpeed2.skillKey, SkillTreeBMiningSpeed2.skillKey };
-}
-
-public class SkillTreeBCutlogSpeed1
-{
-    public static readonly int skillKey = 2201;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeBCollectPower1.skillKey };
-}
-
-public class SkillTreeBCutlogSpeed2
-{
-    public static readonly int skillKey = 2202;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeBCollectPower2.skillKey };
-}
-
-public class SkillTreeBMiningSpeed1
-{
-    public static readonly int skillKey = 2301;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeBCollectPower1.skillKey };
-}
-
-public class SkillTreeBMiningSpeed2
-{
-    public static readonly int skillKey = 2301;
-    public static readonly List<int> antecedentSkill = 
-        new List<int>() { SkillTreeBCollectPower2.skillKey };
+            foreach (var checking in currentAntecedentSkills)
+            {
+                if (!checking.Value) return true;
+            }
+            Debug.Log($"10");
+            return false;
+        }
+    }
 }
