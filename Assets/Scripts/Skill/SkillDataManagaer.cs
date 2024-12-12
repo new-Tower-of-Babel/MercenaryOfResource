@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public interface ISkill
@@ -34,27 +35,20 @@ public class SkillDataManagaer
         else
         {
             Debug.Log($"6");
-            foreach (var skillkey in currentAntecedentSkills)
+            var skillList = currentAntecedentSkills.Keys.ToList();
+            foreach (var skillkey in skillList)
             {
                 Debug.Log($"7");
                 for (int i = 0; i < haveSkillKey.Count; i++)
                 {
                     Debug.Log($"8");
-                    if (skillkey.Key==haveSkillKey[i])
+                    if (skillkey==haveSkillKey[i])
                     {
                         Debug.Log($"9");
-                        currentAntecedentSkills[skillkey.Key] = true;
+                        currentAntecedentSkills[skillkey] = true;
                     }
                 }
             }
-
-            for (int i = 0; i < currentAntecedentSkills.Count; i++)
-            {
-                for (int j = 0; j < haveSkillKey.Count; j++)
-                {
-                }
-            }
-
             foreach (var checking in currentAntecedentSkills)
             {
                 if (!checking.Value) return true;

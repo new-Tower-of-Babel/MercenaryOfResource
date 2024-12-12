@@ -42,7 +42,6 @@ public class SkillBtnManager : MonoBehaviour
         skillInfoText.text = skillInfo;
         skillInfoPanel.SetActive(true);
 
-        //GameObject currentObject = clickedButton.GetComponent<GameObject>();
         currentSkillKey = GetSkillKey<ISkill>(clickedButton.GameObject());
         currentSkillAntecedentSkills = getSkillAntecedentSkills<ISkill>(clickedButton.GameObject());
         UpgradeCheck(currentSkillKey);

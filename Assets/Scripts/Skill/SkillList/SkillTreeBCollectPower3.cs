@@ -7,6 +7,6 @@ public class SkillTreeBCollectPower3 : MonoBehaviour, ISkill
         new Dictionary<int,bool>
         {
             { 2202,false },
-            {2302,false}
+            { 2302,false }
         };//SkillTreeBCutlogSpeed2,SkillTreeBMiningSpeed2
 }
