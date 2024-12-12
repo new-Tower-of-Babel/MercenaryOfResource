@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 916b1858c46749b46aca6b2f9b40eaff, type: 2}
 --- !u!1 &15933511
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +299,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451673546144265150, guid: 4f440b14d1a86d14db531eb41925f85a,
+        type: 3}
+      propertyPath: poolInfoArray.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 3008723673159764544, guid: 4b164c78ca58cbb40b452c1c3f98cb70,
+        type: 3}
     - target: {fileID: 8898943682452535598, guid: 4f440b14d1a86d14db531eb41925f85a,
         type: 3}
       propertyPath: m_Name
@@ -321,6 +327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511982890689543147, guid: 50a5ee1b585a39748b0d60dc5862a677,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8663089447134537895, guid: 50a5ee1b585a39748b0d60dc5862a677,
         type: 3}
