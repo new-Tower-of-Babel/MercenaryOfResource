@@ -30,6 +30,13 @@ public class Player : MonoBehaviour
     private State state;
 
     public bool CanAttack { get; set; } = true;
+
+    public bool IsShooting => shooting;
+
+    public Vector3 AimDirection => aimDirection;
+    
+    public Vector3 TargetDirection => targetDirection;
+    
     
     private void Awake()
     {
@@ -140,4 +147,6 @@ public class Player : MonoBehaviour
             return true;
         }
     }
+    
+    
 }
