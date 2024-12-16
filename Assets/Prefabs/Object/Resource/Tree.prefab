@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 4017735839838233393}
   - component: {fileID: 279946463741737592}
   - component: {fileID: 7989578798804838672}
+  - component: {fileID: 8946807627636569800}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -232,6 +233,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8946807627636569800
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352529347919111801}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7611771709360649721
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4206688826997031402}
-  - component: {fileID: 5119280486937383839}
+  - component: {fileID: 2623386706892622975}
   - component: {fileID: 7126471637197488533}
   m_Layer: 0
   m_Name: Tree
@@ -267,7 +291,7 @@ Transform:
   - {fileID: 839160417943710265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &5119280486937383839
+--- !u!136 &2623386706892622975
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,11 +306,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.2
   m_Height: 6
   m_Direction: 1
   m_Center: {x: 0, y: 3, z: 0}
@@ -305,5 +329,5 @@ MonoBehaviour:
   type: 2
   maxHealth: 60
   curHealth: 0
-  resourceRing: {fileID: 2934740789077660775}
-  detectionRadius: 3
+  fragmentPrefab: {fileID: 171701026564044654, guid: 5211916d2d463404c883d4bde7e69d22,
+    type: 3}

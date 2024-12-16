@@ -88,4 +88,12 @@ public class Zombie : MonoBehaviour
     {
         return Vector3.Distance(transform.position, player.position) <= attackRange;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<Projectile>(out var bullet))
+        {
+            TakeDamage(bullet.weaponStats.damage);
+        }
+    }
 }

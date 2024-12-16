@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody rb;
     private float startedTime;
-    private WeaponStatsSO weaponStats;
+    public WeaponStatsSO weaponStats;
 
     
     public void Setup(WeaponStatsSO weaponStats, Vector3 position, Quaternion rotation)
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     
     private void Awake()
     {
-         rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     
     private void Update()

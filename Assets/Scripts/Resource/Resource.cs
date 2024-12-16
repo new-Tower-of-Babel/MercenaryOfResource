@@ -12,8 +12,9 @@ public class Resource : MonoBehaviour
     public int curHealth;
 
     //public GameObject healthBar;
-    public GameObject resourceRing;
-    public float detectionRadius = 3f;
+    //public GameObject resourceRing;
+
+    public GameObject fragmentPrefab;
 
     void Start()
     {
@@ -23,27 +24,14 @@ public class Resource : MonoBehaviour
         //healthBar.GetComponent<Slider>().value = curHealth;
 
         //healthBar.SetActive(false);
-        resourceRing.SetActive(false);
+        //resourceRing.SetActive(false);
     }
 
     void Update()
     {
-        //// 플레이어와 자원의 거리 계산
-        //float distance = Vector3.Distance(자원 위치, 플레이어 위치);
+        // 플레이어가 콜라이더 상태에 있으면 나무 주위에 원을 표시
 
-        //// 플레이어가 범위 내에 있으면 원을 표시
-        //if (distance <= detectionRadius)
-        //{
-        //    healthBar.SetActive(true);
-        //    resourceRing.SetActive(true);
-        //}
-        //else
-        //{
-        //    healthBar.SetActive(false);
-        //    resourceRing.SetActive(false);
-        //}
-
-        //// 체력을 표시하는 UI 업데이트
+        // 체력을 표시하는 UI 업데이트
         //healthBar.GetComponent<Slider>().value = curHealth;
     }
 
@@ -51,9 +39,18 @@ public class Resource : MonoBehaviour
     {
         this.curHealth -= damage;
 
-        if(this.curHealth < 0)
+        if(this.curHealth <= 0)
         {
             Destroy(this.gameObject);
+            FragmentResource();
         }
+    }
+
+    private void FragmentResource()
+    {
+        // 파편화된 오브젝트 생성
+        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        GameObject fragment = Instantiate(fragmentPrefab, spawnPosition, Quaternion.identity);
+        fragment.GetComponent<ResourceFragment>().type = this.type;
     }
 }
