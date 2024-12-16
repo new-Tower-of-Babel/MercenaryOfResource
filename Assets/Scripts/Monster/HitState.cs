@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class HitState : IZombieState
 {
@@ -11,6 +12,7 @@ public class HitState : IZombieState
 
         // Hit anim trigger
         zombie.animator.SetTrigger("Hit");
+        zombie.StartCoroutine(ZombieHitAnimation());
     }
 
     public void UpdateState()
@@ -22,5 +24,14 @@ public class HitState : IZombieState
     public void ExitState()
     {
         Debug.Log("Exiting Hit state");
+    }
+
+    private IEnumerator ZombieHitAnimation()
+    {
+        // Get current animation state information
+        AnimatorStateInfo stateInfo = zombie.animator.GetCurrentAnimatorStateInfo(0);
+
+        // Wait animation time
+        yield return new WaitForSeconds(stateInfo.length);
     }
 }
