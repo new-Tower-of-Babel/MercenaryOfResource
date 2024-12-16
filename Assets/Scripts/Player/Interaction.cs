@@ -19,7 +19,7 @@ public class Interaction : MonoBehaviour
     // 자원과 근접했을 때 상호작용할 자원을 설정
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Tree")  // 자원 객체에만 반응
+        if (other.TryGetComponent<Resource>(out var resource))  // 자원 객체에만 반응
         {
             currentResource = other.GetComponent<Resource>();  // 자원 스크립트 참조
         }
@@ -27,9 +27,6 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "Tree")  // 자원 객체에서 벗어나면
-        {
-            currentResource = null;  // 상호작용할 자원을 null로 설정
-        }
+        currentResource = null;  // 상호작용할 자원을 null로 설정
     }
 }
