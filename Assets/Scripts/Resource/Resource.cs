@@ -11,28 +11,63 @@ public class Resource : MonoBehaviour
     public int maxHealth;
     public int curHealth;
 
-    //public GameObject healthBar;
-    //public GameObject resourceRing;
+    public GameObject healthBar;
+    public GameObject resourceRing;
+    public bool isvisible = false;
 
     public GameObject fragmentPrefab;
+
+    void Awake()
+    {
+        
+    }
 
     void Start()
     {
         curHealth = maxHealth;
 
-        //healthBar.GetComponent<Slider>().maxValue = maxHealth;
-        //healthBar.GetComponent<Slider>().value = curHealth;
+        healthBar.GetComponent<Slider>().maxValue = maxHealth;
+        healthBar.GetComponent<Slider>().value = curHealth;
 
-        //healthBar.SetActive(false);
-        //resourceRing.SetActive(false);
+        healthBar.SetActive(false);
+        resourceRing.SetActive(false);
     }
 
     void Update()
     {
-        // 플레이어가 콜라이더 상태에 있으면 나무 주위에 원을 표시
+        if (isvisible)
+        {
+            // 체력을 표시하는 UI 업데이트
+            healthBar.GetComponent<Slider>().value = curHealth;
+        }
+    }
 
-        // 체력을 표시하는 UI 업데이트
-        //healthBar.GetComponent<Slider>().value = curHealth;
+    private void OnTriggerEnter(Collider other)
+    {
+        Toggle(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Toggle(other);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 10) // ex) HarvestTool layer == 10
+        {
+            TakeDamage(10);
+        }
+    }
+
+    private void Toggle(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isvisible = !isvisible;
+            healthBar.SetActive(isvisible);
+            resourceRing.SetActive(isvisible);
+        }
     }
 
     public void TakeDamage(int damage)
