@@ -177,8 +177,8 @@ Transform:
   m_GameObject: {fileID: 6352529347919111801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 0.6, y: 2, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4206688826997031402}
@@ -310,10 +310,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2
-  m_Height: 6
+  m_Radius: 0.9
+  m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &7126471637197488533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,5 +329,8 @@ MonoBehaviour:
   type: 2
   maxHealth: 60
   curHealth: 0
+  healthBar: {fileID: 0}
+  resourceRing: {fileID: 0}
+  isvisible: 0
   fragmentPrefab: {fileID: 171701026564044654, guid: 5211916d2d463404c883d4bde7e69d22,
     type: 3}
