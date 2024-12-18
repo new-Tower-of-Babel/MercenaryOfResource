@@ -12,6 +12,7 @@ public class DeadState : IZombieState
 
         // Dead anim trigger
         zombie.animator.SetTrigger("Dead");
+        zombie.animator.SetInteger("DeadMotion", Random.Range(0, 2));
 
         // Disable zombie after animation using coroutine
         zombie.StartCoroutine(DisableZombieAfterAnimation());

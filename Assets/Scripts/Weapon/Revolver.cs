@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Revolver : WeaponBase
 {
-    private void Awake()
+    public Revolver()
     {
-        stats = ResourceManager.LoadSOData<WeaponStatsSO> ("Revolver");
+        stats = ResourceManager.LoadSOData<WeaponStatsSO>("Revolver");
     }
 
     public override void Fire (Vector3 position, Quaternion rotation)
