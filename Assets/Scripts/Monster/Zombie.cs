@@ -68,12 +68,14 @@ public class Zombie : MonoBehaviour
         health -= damage;
         Debug.Log($"Zombie took {damage} damage. Current health: {health}");
 
-        SwitchState(hitState);
-
         // Change hit or dead state depending on health condition
         if (health <= 0)
         {
             Die();
+        }
+        else
+        {
+            SwitchState(hitState);
         }
     }
 

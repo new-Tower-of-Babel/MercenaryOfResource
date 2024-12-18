@@ -11,9 +11,9 @@ public class Resource : MonoBehaviour
     public int maxHealth;
     public int curHealth;
 
-    public GameObject healthBar;
-    public GameObject resourceRing;
-    public bool isvisible = false;
+    //public GameObject healthBar;
+    //public GameObject resourceRing;
+    private bool isvisible = false;
 
     public GameObject fragmentPrefab;
 
@@ -26,11 +26,11 @@ public class Resource : MonoBehaviour
     {
         curHealth = maxHealth;
 
-        healthBar.GetComponent<Slider>().maxValue = maxHealth;
-        healthBar.GetComponent<Slider>().value = curHealth;
+        //healthBar.GetComponent<Slider>().maxValue = maxHealth;
+        //healthBar.GetComponent<Slider>().value = curHealth;
 
-        healthBar.SetActive(false);
-        resourceRing.SetActive(false);
+        //healthBar.SetActive(false);
+        //resourceRing.SetActive(false);
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class Resource : MonoBehaviour
         if (isvisible)
         {
             // 체력을 표시하는 UI 업데이트
-            healthBar.GetComponent<Slider>().value = curHealth;
+            //healthBar.GetComponent<Slider>().value = curHealth;
         }
     }
 
@@ -65,8 +65,8 @@ public class Resource : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isvisible = !isvisible;
-            healthBar.SetActive(isvisible);
-            resourceRing.SetActive(isvisible);
+            //healthBar.SetActive(isvisible);
+            //resourceRing.SetActive(isvisible);
         }
     }
 
