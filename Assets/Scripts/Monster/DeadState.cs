@@ -38,5 +38,6 @@ public class DeadState : IZombieState
 
         // Disable zombie object
         zombie.gameObject.SetActive(false);
+        zombie.Initialize();
     }
 }
