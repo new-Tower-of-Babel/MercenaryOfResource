@@ -32,12 +32,15 @@ public class DayCycle : MonoBehaviour
 
     void Update()
     {
-        // 낮의 경우 시간이 경과한 만큼 currentTime을 증가시킴
-        currentTime += Time.deltaTime;
-        if (currentTime >= dayDuration)
+        if (!isNight)
         {
-            isNight = true;
-            StartCoroutine(ChangeLightGradually(dayColor, nightColor, dayIntensity, nightIntensity));
+            // 낮의 경우 시간이 경과한 만큼 currentTime을 증가시킴
+            currentTime += Time.deltaTime;
+            if (currentTime >= dayDuration)
+            {
+                isNight = true;
+                StartCoroutine(ChangeLightGradually(dayColor, nightColor, dayIntensity, nightIntensity));
+            }
         }
     }
 
