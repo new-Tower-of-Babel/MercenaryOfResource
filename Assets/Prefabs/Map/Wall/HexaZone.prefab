@@ -325,9 +325,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockText: {fileID: 1556197471387817782}
-  m_TreePrefab: {fileID: 7611771709360649721, guid: 0bfb9e8aac19bed44bbaf3014f75784b,
-    type: 3}
-  m_RockPrefab: {fileID: 0}
+  m_TreePrefabs:
+  - {fileID: 7580471601662171481, guid: 63a5f17ccb76ff144af51186ac9c9e6d, type: 3}
+  - {fileID: 544622132041563216, guid: fd9dba27c4ed8694bb0036944bbde3c6, type: 3}
+  - {fileID: 976756946309965154, guid: 1f6e11d7b90b7f448bb94f82b5353eec, type: 3}
+  - {fileID: 4650224562784124702, guid: c43900613ab586d4a8d2b6f7654f5979, type: 3}
+  - {fileID: 1723990099309727769, guid: 0a90d1db348114e4aba1284f9bbe2936, type: 3}
+  - {fileID: 6293546073708562915, guid: 6544bdfde22e2734b899ab12d755cc80, type: 3}
+  - {fileID: 2275656811756819154, guid: c0f4b6d3bf9e8b14ebd220e6fe3b5745, type: 3}
+  m_RockPrefabs:
+  - {fileID: 2404056256402700542, guid: c3fcef4fb1126a64f932d8cfc65948ea, type: 3}
+  - {fileID: 4973001311481918494, guid: c4aaeba171f116f4e8e326e1e983b85a, type: 3}
   m_ChestPrefab: {fileID: 0}
 --- !u!1 &6041611428239987694
 GameObject:

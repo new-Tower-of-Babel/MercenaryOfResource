@@ -32,8 +32,8 @@ public class ResourceFragment : MonoBehaviour
         _lineRenderer.endWidth = 0.1f;
 
         // 밧줄 색상
-        _lineRenderer.startColor = new Color(139f / 255f, 69f / 255f, 19f / 255f);
-        _lineRenderer.endColor = new Color(139f / 255f, 69f / 255f, 19f / 255f);
+        _lineRenderer.startColor = new Color(63f / 255f, 31f / 255f, 15f / 255f);
+        _lineRenderer.endColor = new Color(639f / 31f, 69f / 255f, 15f / 255f);
 
         _lineRenderer.enabled = false;
     }

@@ -14,9 +14,10 @@ public class HexaZone : MonoBehaviour
     private static Vector3[] s_BottomLocalVertices;
     
     [SerializeField] private TextMeshPro m_UnlockText;
+    [FormerlySerializedAs ("m_TreePrefab")]
     [Title("Prefabs")]
-    [SerializeField, AssetsOnly] private GameObject m_TreePrefab;
-    [SerializeField, AssetsOnly] private GameObject m_RockPrefab;
+    [SerializeField, AssetsOnly] private GameObject[] m_TreePrefabs;
+    [SerializeField, AssetsOnly] private GameObject[] m_RockPrefabs;
     [SerializeField, AssetsOnly] private GameObject m_ChestPrefab;
     
     private MeshCollider m_MeshCollider;
@@ -74,7 +75,22 @@ public class HexaZone : MonoBehaviour
 
         Vector3 randomPos = GetRandomPointInHexagon();
 
-        Instantiate (m_TreePrefab, randomPos, Quaternion.identity);
+        bool tree_spawned = false;
+        
+        if (m_TreePrefabs.Length > 0) {
+            if (Random.value < 0.5f) {
+                int randNum = Random.Range (0, m_TreePrefabs.Length);
+                Instantiate (m_TreePrefabs[randNum], randomPos, Quaternion.identity);
+                tree_spawned = true;
+            }
+        }
+        
+        if (m_RockPrefabs.Length > 0) {
+            if (!tree_spawned && Random.value < 0.5f) {
+                int randNum = Random.Range (0, m_RockPrefabs.Length);
+                Instantiate (m_RockPrefabs[randNum], randomPos, Quaternion.identity);
+            }
+        }
         
         
         // Destroy this Object //
