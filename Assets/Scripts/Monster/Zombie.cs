@@ -4,6 +4,7 @@ using System.Xml;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Zombie : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Zombie : MonoBehaviour
     public AttackState attackState;
     public HitState hitState;
     public DeadState deadState;
+
+    public UnityEvent<GameObject> OnDied;
 
     [Header("Zombie Stat")]
     private float attackRange = 1.5f;
@@ -82,6 +85,8 @@ public class Zombie : MonoBehaviour
     public void Die()
     {
         SwitchState(deadState); // Change dead state
+        OnDied?.Invoke(gameObject);
+        ObjectPool.Instance.Despawn(gameObject);
     }
 
     public bool IsPlayerInAttackRange()

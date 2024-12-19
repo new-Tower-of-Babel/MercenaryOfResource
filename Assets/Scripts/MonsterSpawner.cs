@@ -13,6 +13,8 @@ public class MonsterSpawner : MonoBehaviour
 
     public int MonsterCount => activeMonsters.Count;
 
+    public event Action OnAllMonstersDied;
+
     private void Awake()
     {
         Instance = this;
@@ -22,7 +24,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         GameObject monster = ObjectPool.Instance.Spawn ("StandardMonster");
         monster.transform.position = GetSpawnPosition();
-        //monster.GetComponent<MonsterBase>().OnDied.AddListener (MonsterBase_OnDied);
+        monster.GetComponent<Zombie>().OnDied.AddListener (MonsterBase_OnDied);
         monster.SetActive (true);
         activeMonsters.Add (monster);
     }
@@ -37,5 +39,11 @@ public class MonsterSpawner : MonoBehaviour
     private void MonsterBase_OnDied(GameObject obj)
     {
         activeMonsters.Remove (obj);
+
+        Debug.Log(activeMonsters.Count);
+        if (activeMonsters.Count <= 0)
+        {
+            OnAllMonstersDied?.Invoke();
+        }
     }
 }
