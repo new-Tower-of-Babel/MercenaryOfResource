@@ -65,6 +65,12 @@ public class Zombie : MonoBehaviour
         currentState.EnterState(this);
     }
 
+    public void Initialize()
+    {
+        health = 10.0f;
+        SwitchState(idleState);
+    }
+
     public void TakeDamage(float damage)
     {
         // Decrease health
