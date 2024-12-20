@@ -23,7 +23,7 @@ public class Zombie : MonoBehaviour
 
     [Header("Zombie Stat")]
     private float attackRange = 1.5f;
-    private float health = 10.0f;
+    private float health = 70.0f;
 
     void Awake()
     {
@@ -105,6 +105,8 @@ public class Zombie : MonoBehaviour
         if(other.TryGetComponent<Projectile>(out var bullet))
         {
             TakeDamage(bullet.weaponStats.damage);
+            other.gameObject.SetActive(false);
+            ObjectPool.Instance.Despawn(other.gameObject);
         }
     }
 }
