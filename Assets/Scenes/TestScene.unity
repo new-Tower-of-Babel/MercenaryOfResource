@@ -1302,6 +1302,12 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &1360288199 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8703186093462766145, guid: 888f3f7777f385b499e30123a5c932e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 276065837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1432368572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1541,6 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentResource: {fileID: 0}
+  m_Animator: {fileID: 1360288199}
 --- !u!1001 &2095706497
 PrefabInstance:
   m_ObjectHideFlags: 0
