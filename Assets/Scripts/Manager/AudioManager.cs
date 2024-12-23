@@ -10,7 +10,12 @@ public class AudioManager : SingletonBase<AudioManager>
     [SerializeField] private AudioClip bgmClip;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip clickSfx;
+    [SerializeField] private AudioClip clickSFX;
+    [SerializeField] private AudioClip fireSFX;
+    [SerializeField] private AudioClip playerHitSFX;
+    [SerializeField] private AudioClip playerDeadSFX;
+    [SerializeField] private AudioClip monsterHitSFX;
+    [SerializeField] private AudioClip monsterDeadSFX;
 
 
     public override void Awake()
@@ -62,7 +67,10 @@ public class AudioManager : SingletonBase<AudioManager>
     }
 
     // examples
-    public void PlayClickSFX() => PlaySFX(clickSfx);
-    //public void PlayHitSFX() => PlaySFX(hitSfx);
-    //public void PlayAttackSFX() => PlaySFX(attackSfx);
+    public void PlayClickSFX() => PlaySFX(clickSFX);
+    public void PlayFireSFX() => PlaySFX(fireSFX);
+    public void PlayPlayerHitSFX() => PlaySFX(playerHitSFX);
+    public void PlayPlayerDeadSFX() => PlaySFX(playerDeadSFX);
+    public void PlayMonsterHitSFX() => PlaySFX(monsterHitSFX);
+    public void PlayMonsterDeadSFX() => PlaySFX(monsterDeadSFX);
 }
