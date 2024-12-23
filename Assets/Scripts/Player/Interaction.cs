@@ -1,32 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    public Resource currentResource;
+    [ReadOnly] public Resource currentResource;
+    [SerializeField] private Animator m_Animator;
 
     private void Update()
     {
-        // ÀÚ¿ø°ú »óÈ£ÀÛ¿ë °¡´ÉÇÑÁö Ã¼Å©
+        // ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
         if (currentResource != null && Input.GetKeyDown(KeyCode.E))
         {
-            // E Å°¸¦ ´­·¶À» ¶§ ÀÚ¿øÀÇ Ã¼·ÂÀ» ±ð±â
-            currentResource.TakeDamage(10);  // ÀÚ¿ø¿¡ 10¸¸Å­ ÇÇÇØ¸¦ ÁÜ
+            // E Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+            currentResource.TakeDamage(10);  // ï¿½Ú¿ï¿½ï¿½ï¿½ 10ï¿½ï¿½Å­ ï¿½ï¿½ï¿½Ø¸ï¿½ ï¿½ï¿½
+            if (currentResource.type == Resource.ResourceType.Stone)
+            {
+                m_Animator.SetTrigger ("Pickaxing");
+            }
+            else if (currentResource.type == Resource.ResourceType.Wood)
+            {
+                m_Animator.SetTrigger ("Axing");
+            }
+            
         }
     }
 
-    // ÀÚ¿ø°ú ±ÙÁ¢ÇßÀ» ¶§ »óÈ£ÀÛ¿ëÇÒ ÀÚ¿øÀ» ¼³Á¤
+    // ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Resource>(out var resource))  // ÀÚ¿ø °´Ã¼¿¡¸¸ ¹ÝÀÀ
+        if (other.TryGetComponent<Resource>(out var resource))  // ï¿½Ú¿ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
-            currentResource = other.GetComponent<Resource>();  // ÀÚ¿ø ½ºÅ©¸³Æ® ÂüÁ¶
+            currentResource = other.GetComponent<Resource>();  // ï¿½Ú¿ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        currentResource = null;  // »óÈ£ÀÛ¿ëÇÒ ÀÚ¿øÀ» null·Î ¼³Á¤
+        currentResource = null;  // ï¿½ï¿½È£ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }
