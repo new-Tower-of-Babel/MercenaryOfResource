@@ -31,8 +31,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
-        float x = Random.Range (-10f, 10f);
-        float z = Random.Range (-10f, 10f);
+        float x = Random.Range (-40f, 40f);
+        float z = Random.Range (-40f, 40f);
         return new Vector3 (x, 0f, z);
     }
     
