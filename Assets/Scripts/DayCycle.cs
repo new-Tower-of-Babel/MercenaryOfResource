@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DayCycle : MonoBehaviour
@@ -17,6 +18,8 @@ public class DayCycle : MonoBehaviour
 
     private bool isNight = false;       // 밤인지 낮인지 확인
     private bool monsterSpawned = false;    // 몬스터 스폰 여부 확인
+
+    private static int round = 1;
 
     void OnEnable()
     {
@@ -77,11 +80,12 @@ public class DayCycle : MonoBehaviour
         if (isNight && !monsterSpawned)
         {
             // 몬스터 5마리 생성
-            for (int i = 0; i < 5; i++)  // 몬스터 5마리 생성
+            for (int i = 0; i < 6 + 4 * round; i++)  // 몬스터 5마리 생성
             {
                 MonsterSpawner.Instance.SpawnMonster();
             }
             monsterSpawned = true; // 몬스터가 스폰되었음을 기록
+            round += 1;
         }
     }
 }
