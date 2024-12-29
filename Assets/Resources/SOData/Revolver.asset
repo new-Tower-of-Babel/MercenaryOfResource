@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da91a61642970f4cabc35a3770cc0e0, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
+  WeaponName: Revolver
   damage: 14
   projectilesPerShot: 1
   fireRate: 4

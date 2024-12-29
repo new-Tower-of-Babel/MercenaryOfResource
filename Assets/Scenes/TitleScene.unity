@@ -241,6 +241,56 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &375896680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375896682}
+  - component: {fileID: 375896681}
+  m_Layer: 0
+  m_Name: SelectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &375896681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375896680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6113a3fd10fba284381c9ce46a645e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSoList:
+  - {fileID: 11400000, guid: 09cc5838f3dab494f931871066bec374, type: 2}
+  - {fileID: 11400000, guid: fa75fb402b8af234ab0ab598ebddd1cc, type: 2}
+  weaponSoList:
+  - {fileID: 11400000, guid: fe74136a647fc2748a1e1934348e8441, type: 2}
+  - {fileID: 11400000, guid: fcfe2fffdd3db504fb6a6203e460ed87, type: 2}
+--- !u!4 &375896682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375896680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.118965, y: -1905.7462, z: 1043.3257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401841627
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,3 +976,4 @@ SceneRoots:
   - {fileID: 221854336}
   - {fileID: 627681728}
   - {fileID: 709692579}
+  - {fileID: 375896682}

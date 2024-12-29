@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23ec02e0f304ee499123a7e9606bba1, type: 3}
   m_Name: OldMan
   m_EditorClassIdentifier: 
+  CharacterName: OldMan
   maxHealth: 5
   moveSpeed: 3.5
   axeDamage: 26

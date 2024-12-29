@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 15933512}
-  dayDuration: 6
+  dayDuration: 30
 --- !u!1001 &24713718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,19 +612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8266087269360678045, guid: 888f3f7777f385b499e30123a5c932e2,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3381729855970429715, guid: 888f3f7777f385b499e30123a5c932e2,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1932529012}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 888f3f7777f385b499e30123a5c932e2, type: 3}
 --- !u!1001 &505818937
 PrefabInstance:
@@ -3486,12 +3477,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!95 &1360288199 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8703186093462766145, guid: 888f3f7777f385b499e30123a5c932e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 276065837}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1432368572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3712,26 +3697,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af720bc21c992fc4eb00988ab3f57469, type: 3}
---- !u!1 &1932529007 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3381729855970429715, guid: 888f3f7777f385b499e30123a5c932e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 276065837}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1932529012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932529007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb2db7acde5cf641a589155cfebbef0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentResource: {fileID: 0}
-  m_Animator: {fileID: 1360288199}
 --- !u!1001 &2095706497
 PrefabInstance:
   m_ObjectHideFlags: 0
