@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -7,6 +8,7 @@ public class Interaction : MonoBehaviour
 {
     [ReadOnly] public Resource currentResource;
     [SerializeField] private Animator m_Animator;
+    [SerializeField]private PlayData playData;
 
     private void Update()
     {
