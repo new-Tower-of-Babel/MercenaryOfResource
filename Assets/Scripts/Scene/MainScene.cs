@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainScene : SceneBase
 {
-    public MainScene() : base("TestScene")
+    public MainScene() : base("MainScene")
     {
         
     }
