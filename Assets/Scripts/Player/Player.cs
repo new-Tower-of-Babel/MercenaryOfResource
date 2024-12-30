@@ -25,9 +25,11 @@ public class Player : MonoBehaviour
     private Vector3 aimDirection;
     private float lastFiredTime = 0f;
     private WeaponBase weapon;
-    private GunslingerStatsSO gunslingerStats;
-    private WeaponStatsSO weaponStats;
+    //private GunslingerStatsSO gunslingerStats;
+    //private WeaponStatsSO weaponStats;
     private State state;
+
+    [SerializeField]private PlayData playData;
 
     public bool CanAttack { get; set; } = true;
 
@@ -42,8 +44,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         weapon = new Revolver();
-        gunslingerStats = PlayerStatsManager.GunslingerStats;
-        weaponStats = PlayerStatsManager.WeaponStats;
+        //gunslingerStats = PlayerStatsManager.GunslingerStats;
+        //weaponStats = PlayerStatsManager.WeaponStats;
     }
 
     private void Start()
@@ -56,7 +58,8 @@ public class Player : MonoBehaviour
         // move
         Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3 (inputVector.x, 0f, inputVector.y);
-        rb.velocity = moveDir * gunslingerStats.moveSpeed;
+        //rb.velocity = moveDir * gunslingerStats.moveSpeed;
+        rb.velocity = moveDir * playData.moveSpeed;
         
         // turn
         Vector3 dir;
@@ -100,7 +103,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (Time.time < lastFiredTime + 1f / weaponStats.fireRate)
+        if (Time.time < lastFiredTime + 1f / playData.fireRate)
             return;
 
         lastFiredTime = Time.time;

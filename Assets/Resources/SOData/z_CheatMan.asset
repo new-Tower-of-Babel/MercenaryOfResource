@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c23ec02e0f304ee499123a7e9606bba1, type: 3}
-  m_Name: OldMan
+  m_Name: z_CheatMan
   m_EditorClassIdentifier: 
-  CharacterName: OldMan
-  maxHealth: 5
-  moveSpeed: 3.5
-  axeDamage: 26
-  pickaxeDamage: 26
-  rockHarvestingSpeed: 0.86
-  woodHarvestingSpeed: 0.86
-  resourceCarryLimit: 7
+  maxHealth: 10
+  moveSpeed: 10
+  axeDamage: 100
+  pickaxeDamage: 100
+  rockHarvestingSpeed: 1
+  woodHarvestingSpeed: 1
+  resourceCarryLimit: 10

@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23ec02e0f304ee499123a7e9606bba1, type: 3}
-  m_Name: OldMan
+  m_Script: {fileID: 11500000, guid: 3da91a61642970f4cabc35a3770cc0e0, type: 3}
+  m_Name: z_CheatWeapon
   m_EditorClassIdentifier: 
-  CharacterName: OldMan
-  maxHealth: 5
-  moveSpeed: 3.5
-  axeDamage: 26
-  pickaxeDamage: 26
-  rockHarvestingSpeed: 0.86
-  woodHarvestingSpeed: 0.86
-  resourceCarryLimit: 7
+  damage: 100
+  projectilesPerShot: 1
+  fireRate: 10
+  reloadTime: 0.1
+  maxAmmo: 10
+  criticalDamageChance: 1
+  bulletBounceChance: 1
