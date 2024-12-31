@@ -612,7 +612,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playData
       value: 
-      objectReference: {fileID: 1871449726}
+      objectReference: {fileID: 0}
     - target: {fileID: 3381729855970429715, guid: 888f3f7777f385b499e30123a5c932e2,
         type: 3}
       propertyPath: m_Name
@@ -622,7 +622,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playData
       value: 
-      objectReference: {fileID: 1871449726}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5952,7 +5952,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playData
       value: 
-      objectReference: {fileID: 1871449726}
+      objectReference: {fileID: 0}
     - target: {fileID: 6029378036064979877, guid: 1504189e4b9fbec448feb4777e7c59f0,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6724,50 +6724,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af720bc21c992fc4eb00988ab3f57469, type: 3}
---- !u!1 &1871449725
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1871449727}
-  - component: {fileID: 1871449726}
-  m_Layer: 0
-  m_Name: PlayData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1871449726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871449725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e4e147e3dc47e46bcb7af132868f22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1871449727
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871449725}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.118965, y: -1905.7462, z: 1043.3257}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2095706497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6937,6 +6893,5 @@ SceneRoots:
   - {fileID: 6870750000497352244}
   - {fileID: 24713718}
   - {fileID: 181530693}
-  - {fileID: 1871449727}
   - {fileID: 1437391176}
   - {fileID: 813331343}
