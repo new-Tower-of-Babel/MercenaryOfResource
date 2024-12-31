@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     //private WeaponStatsSO weaponStats;
     private State state;
 
-    [SerializeField]private PlayData playData;
+    //[SerializeField]private PlayData playData;
 
     public bool CanAttack { get; set; } = true;
 
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3 (inputVector.x, 0f, inputVector.y);
         //rb.velocity = moveDir * gunslingerStats.moveSpeed;
-        rb.velocity = moveDir * playData.moveSpeed;
+        rb.velocity = moveDir * PlayDataManager.Instance.characterPlayData.moveSpeed;
         
         // turn
         Vector3 dir;
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (Time.time < lastFiredTime + 1f / playData.fireRate)
+        if (Time.time < lastFiredTime + 1f / PlayDataManager.Instance.weaponPlayData.fireRate)
             return;
 
         lastFiredTime = Time.time;

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ResourceDisply : MonoBehaviour
 {
-    [SerializeField] private PlayData playData;
+    //[SerializeField] private PlayData playData;
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI skullText;
     [SerializeField] private TextMeshProUGUI goldText;
@@ -16,9 +16,9 @@ public class ResourceDisply : MonoBehaviour
 
     private void Update()
     {
-        skullText.text = playData.skull.ToString();
-        goldText.text = playData.gold.ToString();
-        stoneText.text = playData.stone.ToString();
-        woodText.text = playData.wood.ToString();
+        skullText.text = PlayDataManager.Instance.resourcePlayData.skull.ToString();
+        goldText.text = PlayDataManager.Instance.resourcePlayData.gold.ToString();
+        stoneText.text = PlayDataManager.Instance.resourcePlayData.stone.ToString();
+        woodText.text = PlayDataManager.Instance.resourcePlayData.wood.ToString();
     }
 }

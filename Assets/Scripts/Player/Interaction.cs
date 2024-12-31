@@ -8,7 +8,6 @@ public class Interaction : MonoBehaviour
 {
     [ReadOnly] public Resource currentResource;
     [SerializeField] private Animator m_Animator;
-    [SerializeField]private PlayData playData;
 
     private void Update()
     {
