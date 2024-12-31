@@ -8,11 +8,11 @@ public class BaseCamp : MonoBehaviour
     {
         if (other.TryGetComponent<ResourceFragment>(out var rf))
         {
-            // ÀÚ¿ø È¹µæ
+            // ï¿½Ú¿ï¿½ È¹ï¿½ï¿½
             //other.gameObject.SetActive(false);
 
-            Debug.Log("resource collected!");
-            Destroy(other.gameObject); // ÆÄÆí Á¦°Å
+            Debug.Log(rf.type);
+            Destroy(other.gameObject); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 }
