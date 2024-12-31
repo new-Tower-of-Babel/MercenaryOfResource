@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class ChaseState : IZombieState
+public class ChaseState : ChaseStateBase
 {
-    private Zombie zombie;
+    private ZombieBase zombie;
 
     private float speed = 1.0f;
 
-    public void EnterState(Zombie zombie)
+    public void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Chase state");

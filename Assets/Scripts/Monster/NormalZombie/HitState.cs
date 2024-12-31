@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class HitState : IZombieState
+public class HitState : HitStateBase
 {
-    private Zombie zombie;
+    private ZombieBase zombie;
 
-    public void EnterState(Zombie zombie)
+    public void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Hit state");

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class IdleState : IZombieState
+public class IdleState : IdleStateBase
 {
-    private Zombie zombie;
+    private ZombieBase zombie;
 
     private bool hasPlayedIdleAnimation = false;    // Check Idle anim execute count
 
-    public void EnterState(Zombie zombie)
+    public void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Idle state");
