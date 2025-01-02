@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 15933512}
-  dayDuration: 600
+  dayDuration: 30
 --- !u!1001 &24713718
 PrefabInstance:
   m_ObjectHideFlags: 0
