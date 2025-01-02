@@ -7,13 +7,13 @@ public class AttackState : AttackStateBase
     private float attackCooldown = 2.0f;
     private float attackTimer = 0.0f;
 
-    public void EnterState(ZombieBase zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Attack state");
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         attackTimer -= Time.deltaTime;
 
@@ -29,7 +29,7 @@ public class AttackState : AttackStateBase
         }
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Attack state");
         zombie.animator.SetBool("Attack", false);

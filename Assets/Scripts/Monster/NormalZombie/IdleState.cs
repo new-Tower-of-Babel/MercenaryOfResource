@@ -6,7 +6,7 @@ public class IdleState : IdleStateBase
 
     private bool hasPlayedIdleAnimation = false;    // Check Idle anim execute count
 
-    public void EnterState(ZombieBase zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Idle state");
@@ -19,13 +19,13 @@ public class IdleState : IdleStateBase
         }
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         // Change to chase state
         zombie.SwitchState(zombie.chaseState);
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Idle state");
     }

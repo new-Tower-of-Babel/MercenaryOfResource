@@ -46,7 +46,5 @@ public class NormalZombie : ZombieBase
         this.moveSpeed = 3.0f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
-
-        SwitchState(idleState);
     }
 }

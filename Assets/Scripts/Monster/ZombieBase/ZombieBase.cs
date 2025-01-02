@@ -25,10 +25,10 @@ public abstract class ZombieBase : MonoBehaviour
     public UnityEvent<GameObject> OnDied;
 
     // Zombie stat
-    protected float health;
-    protected float moveSpeed;
-    protected float attackSpeed;
-    protected float attackRange;
+    public float health;
+    public float moveSpeed;
+    public float attackSpeed;
+    public float attackRange;
 
     private Vector3 velocity;       // velocity
     private float gravity = -9.8f;  // gravity value
@@ -66,7 +66,7 @@ public abstract class ZombieBase : MonoBehaviour
         controller.Move(velocity * Time.fixedDeltaTime);
     }
 
-    public virtual void SwitchState(IZombieState newState)
+    public void SwitchState(IZombieState newState)
     {
         // Call current state's ExitState method
         currentState?.ExitState();

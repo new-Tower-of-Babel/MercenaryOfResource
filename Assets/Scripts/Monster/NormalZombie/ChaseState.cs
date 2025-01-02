@@ -7,7 +7,7 @@ public class ChaseState : ChaseStateBase
 
     private float speed = 1.0f;
 
-    public void EnterState(ZombieBase zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Chase state");
@@ -16,7 +16,7 @@ public class ChaseState : ChaseStateBase
         zombie.animator.SetBool("Walk", true);
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         // Chase player code
         zombie.agent.SetDestination(zombie.player.position);
@@ -28,7 +28,7 @@ public class ChaseState : ChaseStateBase
         }
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Chase state");
         zombie.agent.ResetPath();

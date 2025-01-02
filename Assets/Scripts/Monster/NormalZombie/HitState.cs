@@ -5,7 +5,7 @@ public class HitState : HitStateBase
 {
     private ZombieBase zombie;
 
-    public void EnterState(ZombieBase zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Hit state");
@@ -15,13 +15,13 @@ public class HitState : HitStateBase
         zombie.StartCoroutine(ZombieHitAnimation());
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         // State change
         zombie.SwitchState(zombie.chaseState);
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Hit state");
     }

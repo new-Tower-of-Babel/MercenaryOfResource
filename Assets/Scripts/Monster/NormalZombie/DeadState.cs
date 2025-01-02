@@ -5,7 +5,7 @@ public class DeadState : DeadStateBase
 {
     private ZombieBase zombie;
 
-    public void EnterState(ZombieBase zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Dead state");
@@ -18,12 +18,12 @@ public class DeadState : DeadStateBase
         zombie.StartCoroutine(DisableZombieAfterAnimation());
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         // Do nothing at dead state
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Dead state");
     }

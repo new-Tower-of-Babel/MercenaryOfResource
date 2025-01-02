@@ -2,17 +2,17 @@
 
 public class IdleStateBase : IZombieState
 {
-    public void EnterState(ZombieBase zombie)
+    public virtual void EnterState(ZombieBase zombie)
     {
 
     }
 
-    public void ExitState()
+    public virtual void ExitState()
     {
 
     }
 
-    public void UpdateState()
+    public virtual void UpdateState()
     {
 
     }
