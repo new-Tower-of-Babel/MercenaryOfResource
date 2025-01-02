@@ -77,11 +77,11 @@ public class Resource : MonoBehaviour
         if(this.curHealth <= 0)
         {
             Destroy(this.gameObject);
-            FragmentResource();
+            CreateFragments();
         }
     }
 
-    private void FragmentResource()
+    private void CreateFragments()
     {
         // 파편화된 오브젝트 생성
         Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);

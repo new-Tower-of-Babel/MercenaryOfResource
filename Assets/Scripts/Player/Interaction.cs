@@ -15,15 +15,16 @@ public class Interaction : MonoBehaviour
         // �ڿ��� ��ȣ�ۿ� �������� üũ
         if (currentResource != null && Input.GetKeyDown(KeyCode.E))
         {
-            // E Ű�� ������ �� �ڿ��� ü���� ���
-            currentResource.TakeDamage(10);  // �ڿ��� 10��ŭ ���ظ� ��
+            // E Ű�� ������ �� �ڿ��� ü���� ���?
             if (currentResource.type == Resource.ResourceType.Stone)
             {
                 m_Animator.SetTrigger ("Pickaxing");
+                currentResource.TakeDamage(playData.pickaxeDamage);
             }
             else if (currentResource.type == Resource.ResourceType.Wood)
             {
                 m_Animator.SetTrigger ("Axing");
+                currentResource.TakeDamage (playData.axeDamage);
             }
             
         }
