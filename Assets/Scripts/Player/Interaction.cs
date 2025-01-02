@@ -11,8 +11,6 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        CharacterPlayData damageData = PlayDataManager.Instance.characterPlayData;
-
         // �ڿ��� ��ȣ�ۿ� �������� üũ
         if (currentResource != null && Input.GetKeyDown(KeyCode.E))
         {
@@ -20,12 +18,12 @@ public class Interaction : MonoBehaviour
             if (currentResource.type == Resource.ResourceType.Stone)
             {
                 m_Animator.SetTrigger ("Pickaxing");
-                currentResource.TakeDamage(damageData.pickaxeDamage);
+                currentResource.TakeDamage(playData.pickaxeDamage);
             }
             else if (currentResource.type == Resource.ResourceType.Wood)
             {
                 m_Animator.SetTrigger ("Axing");
-                currentResource.TakeDamage (damageData.axeDamage);
+                currentResource.TakeDamage (playData.axeDamage);
             }
             
         }
