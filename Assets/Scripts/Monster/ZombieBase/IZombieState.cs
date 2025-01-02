@@ -1,6 +1,6 @@
 ﻿public interface IZombieState
 {
-    void EnterState(Zombie zombie);
+    void EnterState(ZombieBase zombie);
     void UpdateState();
     void ExitState();
 }

@@ -346,6 +346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 2197610687534250929, guid: f825afb77f951c944b319333d8c2fc32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3451935239407846040, guid: f825afb77f951c944b319333d8c2fc32,
         type: 3}
       propertyPath: m_Pivot.x

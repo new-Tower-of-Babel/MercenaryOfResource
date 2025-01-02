@@ -2205,7 +2205,7 @@ GameObject:
   - component: {fileID: 2879387810880226660}
   - component: {fileID: 9116868232715466312}
   - component: {fileID: 9058124799336165990}
-  - component: {fileID: 88814157039472728}
+  - component: {fileID: 3727427591553323212}
   m_Layer: 7
   m_Name: Kurniawan
   m_TagString: Untagged
@@ -2301,7 +2301,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &88814157039472728
+--- !u!114 &3727427591553323212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2316,9 +2316,14 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 0}
   agent: {fileID: 0}
+  controller: {fileID: 0}
   OnDied:
     m_PersistentCalls:
       m_Calls: []
+  health: 0
+  moveSpeed: 0
+  attackSpeed: 0
+  attackRange: 0
 --- !u!1 &8467794334637563162
 GameObject:
   m_ObjectHideFlags: 0

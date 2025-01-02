@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class ChaseState : IZombieState
+public class ChaseState : ChaseStateBase
 {
-    private Zombie zombie;
+    private ZombieBase zombie;
 
     private float speed = 1.0f;
 
-    public void EnterState(Zombie zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Chase state");
@@ -16,7 +16,7 @@ public class ChaseState : IZombieState
         zombie.animator.SetBool("Walk", true);
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         // Chase player code
         zombie.agent.SetDestination(zombie.player.position);
@@ -28,7 +28,7 @@ public class ChaseState : IZombieState
         }
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Chase state");
         zombie.agent.ResetPath();

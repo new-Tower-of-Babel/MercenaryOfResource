@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class HitState : IZombieState
+public class HitState : HitStateBase
 {
-    private Zombie zombie;
+    private ZombieBase zombie;
 
-    public void EnterState(Zombie zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Hit state");
@@ -15,13 +15,13 @@ public class HitState : IZombieState
         zombie.StartCoroutine(ZombieHitAnimation());
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         // State change
         zombie.SwitchState(zombie.chaseState);
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Hit state");
     }

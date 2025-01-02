@@ -6,8 +6,8 @@ public class GunslingerStatsSO : ScriptableObject
     public string CharacterName;
     public int maxHealth;
     public float moveSpeed;
-    public float axeDamage;
-    public float pickaxeDamage;
+    public int axeDamage;
+    public int pickaxeDamage;
     public float rockHarvestingSpeed;
     public float woodHarvestingSpeed;
     public int resourceCarryLimit;

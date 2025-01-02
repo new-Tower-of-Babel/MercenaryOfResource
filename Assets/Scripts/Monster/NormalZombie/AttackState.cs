@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 
-public class AttackState : IZombieState
+public class AttackState : AttackStateBase
 {
-    private Zombie zombie;
+    private ZombieBase zombie;
 
     private float attackCooldown = 2.0f;
     private float attackTimer = 0.0f;
 
-    public void EnterState(Zombie zombie)
+    public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
         Debug.Log("Entering Attack state");
     }
 
-    public void UpdateState()
+    public override void UpdateState()
     {
         attackTimer -= Time.deltaTime;
 
@@ -29,7 +29,7 @@ public class AttackState : IZombieState
         }
     }
 
-    public void ExitState()
+    public override void ExitState()
     {
         Debug.Log("Exiting Attack state");
         zombie.animator.SetBool("Attack", false);
