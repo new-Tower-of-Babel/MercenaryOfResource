@@ -17,6 +17,7 @@ public class CharacterPlayData : MonoBehaviour
     private void Start()
     {
         startCharacterStatsSeting();
+        nowHealth = maxHealth;
     }
     private void startCharacterStatsSeting()
     {

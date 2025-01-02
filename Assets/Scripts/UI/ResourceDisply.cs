@@ -13,6 +13,7 @@ public class ResourceDisply : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI stoneText;
     [SerializeField] private TextMeshProUGUI woodText;
+    [SerializeField] private TextMeshProUGUI healthText;
 
     private void Update()
     {
@@ -20,5 +21,7 @@ public class ResourceDisply : MonoBehaviour
         goldText.text = PlayDataManager.Instance.resourcePlayData.gold.ToString();
         stoneText.text = PlayDataManager.Instance.resourcePlayData.stone.ToString();
         woodText.text = PlayDataManager.Instance.resourcePlayData.wood.ToString();
+        healthText.text = " x " + PlayDataManager.Instance.characterPlayData.nowHealth.ToString();
+
     }
 }

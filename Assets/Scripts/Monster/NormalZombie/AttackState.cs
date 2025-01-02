@@ -38,6 +38,7 @@ public class AttackState : AttackStateBase
     private void Attack()
     {
         Debug.Log("Zombie attacks player!");
+        PlayDataManager.Instance.characterPlayData.nowHealth--;
 
         // Logic involved with attack
         // Attack anim
