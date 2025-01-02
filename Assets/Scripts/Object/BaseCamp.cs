@@ -11,7 +11,12 @@ public class BaseCamp : MonoBehaviour
             // �ڿ� ȹ��
             //other.gameObject.SetActive(false);
 
-            Debug.Log(rf.type);
+            if (rf.type == Resource.ResourceType.Wood)
+                PlayDataManager.Instance.resourcePlayData.wood++;
+            else if (rf.type == Resource.ResourceType.Gold)
+                PlayDataManager.Instance.resourcePlayData.gold++;
+            else if (rf.type == Resource.ResourceType.Stone)
+                PlayDataManager.Instance.resourcePlayData.stone++;
             Destroy(other.gameObject); // ���� ����
         }
     }
