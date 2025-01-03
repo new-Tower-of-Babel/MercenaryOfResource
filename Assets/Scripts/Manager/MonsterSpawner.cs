@@ -40,7 +40,6 @@ public class MonsterSpawner : MonoBehaviour
     {
         activeMonsters.Remove (obj);
 
-        Debug.Log(activeMonsters.Count);
         if (activeMonsters.Count <= 0)
         {
             OnAllMonstersDied?.Invoke();
