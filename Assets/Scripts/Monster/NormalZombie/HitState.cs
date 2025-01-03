@@ -3,12 +3,9 @@ using UnityEngine;
 
 public class HitState : HitStateBase
 {
-    private ZombieBase zombie;
-
     public override void EnterState(ZombieBase zombie)
     {
-        this.zombie = zombie;
-        Debug.Log("Entering Hit state");
+        base.EnterState(zombie);
 
         // Hit anim trigger
         zombie.animator.SetTrigger("Hit");
@@ -17,13 +14,12 @@ public class HitState : HitStateBase
 
     public override void UpdateState()
     {
-        // State change
-        zombie.SwitchState(zombie.chaseState);
+        base.UpdateState();
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exiting Hit state");
+        base.ExitState();
     }
 
     private IEnumerator ZombieHitAnimation()

@@ -3,12 +3,9 @@ using UnityEngine;
 
 public class DeadState : DeadStateBase
 {
-    private ZombieBase zombie;
-
     public override void EnterState(ZombieBase zombie)
     {
-        this.zombie = zombie;
-        Debug.Log("Entering Dead state");
+        base.EnterState(zombie);
 
         // Dead anim trigger
         zombie.animator.SetTrigger("Dead");
@@ -20,12 +17,12 @@ public class DeadState : DeadStateBase
 
     public override void UpdateState()
     {
-        // Do nothing at dead state
+        base.UpdateState();
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exiting Dead state");
+        base.ExitState();
     }
 
     private IEnumerator DisableZombieAfterAnimation()

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public CharacterPlayData conditionData;
 
     public bool isPause = false;
     public bool isClear = false;
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        conditionData = PlayDataManager.Instance.characterPlayData;
     }
 
     // Update is called once per frame
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
         {
             TimeToggle();
         }
+
+        isGameOver = conditionData.nowHealth <= 0;
     }
 
     private void TimeToggle()

@@ -41,7 +41,6 @@ public class MonsterSpawner : MonoBehaviour
         activeMonsters.Remove (obj);
         PlayDataManager.Instance.resourcePlayData.skull++;
 
-        Debug.Log(activeMonsters.Count);
         if (activeMonsters.Count <= 0)
         {
             OnAllMonstersDied?.Invoke();
