@@ -34,8 +34,6 @@ public class AttackState : AttackStateBase
 
     protected override void Attack()
     {
-        Debug.Log("Zombie attacks player!");
-
         // Logic involved with attack
         // Attack anim
         zombie.animator.SetBool("Attack", true);

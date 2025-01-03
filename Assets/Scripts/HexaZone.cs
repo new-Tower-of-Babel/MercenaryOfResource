@@ -50,6 +50,15 @@ public class HexaZone : MonoBehaviour
             
             manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (false);
             manager.AddContacting (this);
+            if (PlayDataManager.Instance.resourcePlayData.skull >= 5)
+            {
+                m_UnlockText.color= Color.white;
+            }
+            else
+            {
+                m_UnlockText.color = Color.red;
+            }
+            
             m_UnlockText.gameObject.SetActive (true);
         }
     }
@@ -65,6 +74,7 @@ public class HexaZone : MonoBehaviour
                 manager.GetContacting (index).m_UnlockText.gameObject.SetActive (false);
                 manager.RemoveContactingAt (index);
             }
+
             manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
         }
     }

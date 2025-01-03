@@ -71,9 +71,13 @@ public class GameInput : MonoBehaviour
     
     private void Interact (InputAction.CallbackContext context)
     {
-        HexaZoneManager
-           .GetInstance()
-           .GetCurrentContacting()?
-           .Interact();        
+        if (PlayDataManager.Instance.resourcePlayData.skull >= 5)
+        {
+            HexaZoneManager
+                .GetInstance()
+                .GetCurrentContacting()?
+                .Interact();
+            PlayDataManager.Instance.resourcePlayData.skull -= 5;
+        }        
     }
 }
