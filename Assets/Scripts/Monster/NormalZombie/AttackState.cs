@@ -2,15 +2,12 @@
 
 public class AttackState : AttackStateBase
 {
-    private ZombieBase zombie;
-
     private float attackCooldown = 2.0f;
     private float attackTimer = 0.0f;
 
     public override void EnterState(ZombieBase zombie)
     {
-        this.zombie = zombie;
-        Debug.Log("Entering Attack state");
+        base.EnterState(zombie);
     }
 
     public override void UpdateState()
@@ -31,14 +28,12 @@ public class AttackState : AttackStateBase
 
     public override void ExitState()
     {
-        Debug.Log("Exiting Attack state");
+        base.ExitState();
         zombie.animator.SetBool("Attack", false);
     }
 
-    private void Attack()
+    protected override void Attack()
     {
-        Debug.Log("Zombie attacks player!");
-
         // Logic involved with attack
         // Attack anim
         zombie.animator.SetBool("Attack", true);
