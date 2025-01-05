@@ -6,7 +6,10 @@ using UnityEngine;
 public interface ISkill
 {
     int SkillKey { get; }
+    int needwood { get; }
+    int needstone { get; }
     Dictionary<int,bool> AntecedentSkills { get; }
+    
 }
 public class SkillDataManagaer
 {
