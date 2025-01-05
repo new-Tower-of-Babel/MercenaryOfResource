@@ -10,5 +10,6 @@ public class SkillTreeBCutlogSpeed1 : MonoBehaviour, ISkill
     public int needstone { get; } = 1;
     public void Upgrade()
     {
+        PlayDataManager.Instance.characterPlayData.woodHarvestingSpeed += 0.5f;
     }
 }

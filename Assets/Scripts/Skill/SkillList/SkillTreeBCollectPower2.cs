@@ -14,5 +14,7 @@ public class SkillTreeBCollectPower2 : MonoBehaviour, ISkill
     public int needstone { get; } = 2;
     public void Upgrade()
     {
+        PlayDataManager.Instance.characterPlayData.axeDamage += 10;
+        PlayDataManager.Instance.characterPlayData.pickaxeDamage += 10;
     }
 }

@@ -10,5 +10,6 @@ public class SkillTreeAMoveSpeed3 : MonoBehaviour, ISkill
     public int needstone { get; } = 2;
     public void Upgrade()
     {
+        PlayDataManager.Instance.characterPlayData.moveSpeed += 1f;
     }
 }

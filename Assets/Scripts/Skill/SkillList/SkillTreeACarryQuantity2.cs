@@ -10,5 +10,6 @@ public class SkillTreeACarryQuantity2 : MonoBehaviour, ISkill
     public int needstone { get; } = 2;
     public void Upgrade()
     {
+        PlayDataManager.Instance.characterPlayData.resourceCarryLimit += 1;
     }
 }
