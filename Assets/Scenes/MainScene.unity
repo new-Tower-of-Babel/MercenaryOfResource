@@ -779,42 +779,125 @@ PrefabInstance:
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 840
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065686555306347155, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'MoveSpeed Level 3
+
+
+        Move Speed Up
+
+
+        NeedResource
+
+        Wood
+        : 2
+
+        Stone : 2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395610301458298086, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'MoveSpeed Level 2
+
+
+        Move Speed Up
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570674159730650295, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CollectPower Level 2
+
+
+        CollectPower Up
+
+        AxeDamage &
+        PickAxeDamage  Up
+
+
+        NeedResource
+
+        Wood : 2
+
+        Stone
+        : 2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051152067981664820, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'MiningSpeed Level 1
+
+
+        PickAxeSpeed Up
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074915654443084689, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CarryQuantity Level 1
+
+
+        CarryQuantity +1
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
       objectReference: {fileID: 0}
     - target: {fileID: 3233651487404803219, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
@@ -916,25 +999,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3617913283861204890, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CarryQuantity Level 2
+
+
+        CarryQuantity +1
+
+
+        NeedResource
+
+        Wood
+        : 2
+
+        Stone : 2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3631493823450206432, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'MoveSpeed Level 1
+
+
+        Move Speed Up
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
+      objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4863925447099030549, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
@@ -946,70 +1061,161 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpgradeBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 5314831162651139039, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CutlogSpeed Level 2
+
+
+        AxeSpeed Up
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606734979361627720, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'MiningSpeed Level 2
+
+
+        PickAxeSpeed Up
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
+      objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136934945409173990, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CollectPower Level 1
+
+
+        CollectPower Up
+
+        AxeDamage &
+        PickAxeDamage  Up
+
+
+        NeedResource
+
+        Wood : 2
+
+        Stone
+        : 2'
       objectReference: {fileID: 0}
     - target: {fileID: 7140252593120338353, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_Name
       value: UITab
       objectReference: {fileID: 0}
+    - target: {fileID: 7140252593120338353, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1320
       objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578131224703620229, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CutlogSpeed Level 1
+
+
+        AxeSpeed Up
+
+
+        NeedResource
+
+        Wood
+        : 1
+
+        Stone : 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037201103971276162, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'CollectPower Level 3
+
+
+        CollectPower Up
+
+        AxeDamage &
+        PickAxeDamage  Up
+
+
+        NeedResource
+
+        Wood : 2
+
+        Stone
+        : 2'
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
