@@ -37,7 +37,7 @@ public class SkillBtnManager : MonoBehaviour
     {
         if (selectedBtn != null)
         {
-            selectedBtn.GetComponent<Image>().color = Color.white;
+            selectedBtn.GetComponent<Image>().color = Color.black;
         }
 
         clickedButton.GetComponent<Image>().color = Color.green;
