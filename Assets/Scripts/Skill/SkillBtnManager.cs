@@ -14,12 +14,18 @@ public class SkillBtnManager : MonoBehaviour
     
     private Button selectedBtn;
     private int currentSkillKey;
+    private int currentNeedWood;
+    private int currentNeedStone;
     public Dictionary<int,bool> currentSkillAntecedentSkills;
 
+    public ResourcePlayData resourcePlayData; 
+
     [SerializeField] GameObject upgradeBtn;
+    
 
     void Start()
     {
+        resourcePlayData = PlayDataManager.Instance.resourcePlayData;
         upgradeBtn.SetActive(false);
         foreach (Button btn in SkillBtn)
         {
@@ -40,6 +46,8 @@ public class SkillBtnManager : MonoBehaviour
         skillInfoText.text = skillInfo;
 
         currentSkillKey = GetSkillKey<ISkill>(clickedButton.GameObject());
+        currentNeedWood = GetSkillNeedWood<ISkill>(clickedButton.GameObject());
+        currentNeedStone = GetSkillNeedStone<ISkill>(clickedButton.GameObject());
         currentSkillAntecedentSkills = getSkillAntecedentSkills<ISkill>(clickedButton.GameObject());
         UpgradeCheck(currentSkillKey);
     }
@@ -53,6 +61,17 @@ public class SkillBtnManager : MonoBehaviour
     {
         T skillComponet = target.GetComponent<T>();
         return skillComponet.AntecedentSkills;
+    }
+
+    public int GetSkillNeedWood<T>(GameObject target) where T : ISkill
+    {
+        T skillComponet = target.GetComponent<T>();
+        return skillComponet.needwood;
+    }
+    public int GetSkillNeedStone<T>(GameObject target) where T : ISkill
+    {
+        T skillComponet = target.GetComponent<T>();
+        return skillComponet.needstone;
     }
     
 
@@ -74,8 +93,12 @@ public class SkillBtnManager : MonoBehaviour
 
     public void UpgradeBtn()
     {
-        //todo.소유한 자본에 따라서 가능하게끔 변경할것 if
-        SkillDataManagaer.haveSkillKey.Add(currentSkillKey);
-        upgradeBtn.SetActive(false);
+        if (resourcePlayData.wood >= currentNeedWood && resourcePlayData.stone >= currentNeedStone)
+        {
+            resourcePlayData.wood -= currentNeedWood;
+            resourcePlayData.stone -= currentNeedStone;
+            SkillDataManagaer.haveSkillKey.Add(currentSkillKey);
+            upgradeBtn.SetActive(false);
+        }
     }
 }
