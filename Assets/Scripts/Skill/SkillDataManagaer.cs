@@ -9,7 +9,8 @@ public interface ISkill
     int needwood { get; }
     int needstone { get; }
     Dictionary<int,bool> AntecedentSkills { get; }
-    
+    void Upgrade();
+
 }
 public class SkillDataManagaer
 {

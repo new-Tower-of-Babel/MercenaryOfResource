@@ -8,4 +8,7 @@ public class SkillTreeAMoveSpeed2 : MonoBehaviour, ISkill
         new Dictionary<int,bool>{ { 1101,false }}; //SkillTreeAMoveSpeed1
     public int needwood { get; } = 1;
     public int needstone { get; } = 1;
+    public void Upgrade()
+    {
+    }
 }

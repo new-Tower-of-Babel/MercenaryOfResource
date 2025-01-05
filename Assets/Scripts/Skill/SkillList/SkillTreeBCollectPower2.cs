@@ -12,4 +12,7 @@ public class SkillTreeBCollectPower2 : MonoBehaviour, ISkill
     
     public int needwood { get; } = 2;
     public int needstone { get; } = 2;
+    public void Upgrade()
+    {
+    }
 }

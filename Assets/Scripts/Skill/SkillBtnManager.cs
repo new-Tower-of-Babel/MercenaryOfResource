@@ -42,13 +42,13 @@ public class SkillBtnManager : MonoBehaviour
 
         clickedButton.GetComponent<Image>().color = Color.green;
         selectedBtn = clickedButton;
-        string skillInfo = clickedButton.GetComponentInChildren<TextMeshProUGUI>().text;
+        string skillInfo = selectedBtn.GetComponentInChildren<TextMeshProUGUI>().text;
         skillInfoText.text = skillInfo;
 
-        currentSkillKey = GetSkillKey<ISkill>(clickedButton.GameObject());
-        currentNeedWood = GetSkillNeedWood<ISkill>(clickedButton.GameObject());
-        currentNeedStone = GetSkillNeedStone<ISkill>(clickedButton.GameObject());
-        currentSkillAntecedentSkills = getSkillAntecedentSkills<ISkill>(clickedButton.GameObject());
+        currentSkillKey = GetSkillKey<ISkill>(selectedBtn.gameObject);
+        currentNeedWood = GetSkillNeedWood<ISkill>(selectedBtn.gameObject);
+        currentNeedStone = GetSkillNeedStone<ISkill>(selectedBtn.gameObject);
+        currentSkillAntecedentSkills = getSkillAntecedentSkills<ISkill>(selectedBtn.gameObject);
         UpgradeCheck(currentSkillKey);
     }
 
@@ -73,6 +73,11 @@ public class SkillBtnManager : MonoBehaviour
         T skillComponet = target.GetComponent<T>();
         return skillComponet.needstone;
     }
+
+    public void GetSkillUpgrade<T>(GameObject target) where T : ISkill
+    {
+        target.GetComponent<T>().Upgrade();
+    }
     
 
     void UpgradeCheck(int skillKey)
@@ -95,6 +100,7 @@ public class SkillBtnManager : MonoBehaviour
     {
         if (resourcePlayData.wood >= currentNeedWood && resourcePlayData.stone >= currentNeedStone)
         {
+            GetSkillUpgrade<ISkill>(selectedBtn.gameObject);
             resourcePlayData.wood -= currentNeedWood;
             resourcePlayData.stone -= currentNeedStone;
             SkillDataManagaer.haveSkillKey.Add(currentSkillKey);

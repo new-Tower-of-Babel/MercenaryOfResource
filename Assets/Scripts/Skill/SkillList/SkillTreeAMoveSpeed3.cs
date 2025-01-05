@@ -8,4 +8,7 @@ public class SkillTreeAMoveSpeed3 : MonoBehaviour, ISkill
     
     public int needwood { get; } = 2;
     public int needstone { get; } = 2;
+    public void Upgrade()
+    {
+    }
 }

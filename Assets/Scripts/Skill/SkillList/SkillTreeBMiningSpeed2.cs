@@ -8,4 +8,7 @@ public class SkillTreeBMiningSpeed2 : MonoBehaviour, ISkill
     
     public int needwood { get; } = 1;
     public int needstone { get; } = 1;
+    public void Upgrade()
+    {
+    }
 }

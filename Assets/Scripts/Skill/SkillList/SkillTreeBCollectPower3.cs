@@ -11,4 +11,7 @@ public class SkillTreeBCollectPower3 : MonoBehaviour, ISkill
         };//SkillTreeBCutlogSpeed2,SkillTreeBMiningSpeed2
     public int needwood { get; } = 2;
     public int needstone { get; } = 2;
+    public void Upgrade()
+    {
+    }
 }
