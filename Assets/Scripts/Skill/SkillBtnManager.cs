@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class SkillBtnManager : MonoBehaviour
 {
     public Button[] SkillBtn;
-    public GameObject skillInfoPanel;
     public TextMeshProUGUI skillInfoText;
     
 
@@ -30,7 +29,6 @@ public class SkillBtnManager : MonoBehaviour
 
     void OnSkillButtonClicked(Button clickedButton)  //버튼선택
     {
-        
         if (selectedBtn != null)
         {
             selectedBtn.GetComponent<Image>().color = Color.white;
@@ -40,7 +38,6 @@ public class SkillBtnManager : MonoBehaviour
         selectedBtn = clickedButton;
         string skillInfo = clickedButton.GetComponentInChildren<TextMeshProUGUI>().text;
         skillInfoText.text = skillInfo;
-        skillInfoPanel.SetActive(true);
 
         currentSkillKey = GetSkillKey<ISkill>(clickedButton.GameObject());
         currentSkillAntecedentSkills = getSkillAntecedentSkills<ISkill>(clickedButton.GameObject());

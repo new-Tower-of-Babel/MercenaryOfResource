@@ -1,6 +1,6 @@
 using System.Collections.Generic;using UnityEngine;
 
-public class SkillTreeACarryQuantity1 : ISkill
+public class SkillTreeACarryQuantity1 : MonoBehaviour, ISkill
 {
     public int SkillKey { get; }  = 1201;
     public Dictionary<int,bool> AntecedentSkills { get; } = 

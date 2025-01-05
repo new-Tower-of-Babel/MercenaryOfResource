@@ -1,6 +1,6 @@
 using System.Collections.Generic;using UnityEngine;
 
-public class SkillTreeAMoveSpeed3 : ISkill
+public class SkillTreeAMoveSpeed3 : MonoBehaviour, ISkill
 {
     public int SkillKey { get; }  = 1103;
     public Dictionary<int,bool> AntecedentSkills { get; } = 
