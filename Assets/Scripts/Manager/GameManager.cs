@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public CharacterPlayData conditionData;
+    public GameObject UITab;
 
     public bool isPause = false;
     public bool isClear = false;
@@ -36,6 +37,18 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TimeToggle();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            TimeToggle();
+            if (!UITab.activeSelf)
+            {
+                UITab.SetActive(true);
+            }else if (UITab.activeSelf)
+            {
+                UITab.SetActive(false);
+            }
         }
 
         isGameOver = conditionData.nowHealth <= 0;

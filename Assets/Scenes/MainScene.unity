@@ -776,211 +776,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 111729043337963339, guid: 81e977ee7b7840341b98a54c508eb3c4,
+    - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 111729043337963339, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 73756a3863c6aed4c874a678cced5a9a,
-        type: 3}
-    - target: {fileID: 111729043337963339, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 111729043337963339, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 111729043337963339, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 235619575089152281, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 235619575089152281, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 495eeedb5d3440b469957b25c612f954,
-        type: 3}
-    - target: {fileID: 235619575089152281, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 235619575089152281, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 235619575089152281, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 828896754712915419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 828896754712915419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4199843794ef4454c87015764258662e,
-        type: 3}
-    - target: {fileID: 828896754712915419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.a
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 828896754712915419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 828896754712915419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 828896754712915419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 1287798610426776301, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 840
       objectReference: {fileID: 0}
     - target: {fileID: 2032212447070529937, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2065686555306347155, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'MoveSpeed Level 3
-
-
-        Move Speed Up
-
-
-        NeedResource
-
-        Wood
-        : 2
-
-        Stone : 2'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395610301458298086, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'MoveSpeed Level 2
-
-
-        Move Speed Up
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2570674159730650295, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CollectPower Level 2
-
-
-        CollectPower Up
-
-        AxeDamage &
-        PickAxeDamage  Up
-
-
-        NeedResource
-
-        Wood : 2
-
-        Stone
-        : 2'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3051152067981664820, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'MiningSpeed Level 1
-
-
-        PickAxeSpeed Up
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074915654443084689, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CarryQuantity Level 1
-
-
-        CarryQuantity +1
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 3233651487404803219, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
@@ -1082,190 +916,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3617913283861204890, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CarryQuantity Level 2
-
-
-        CarryQuantity +1
-
-
-        NeedResource
-
-        Wood
-        : 2
-
-        Stone : 2'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631493823450206432, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'MoveSpeed Level 1
-
-
-        Move Speed Up
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
-      objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3790370840001315144, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4863925447099030549, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 242594145}
-    - target: {fileID: 4863925447099030549, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpgradeBtn
-      objectReference: {fileID: 0}
-    - target: {fileID: 5314831162651139039, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CutlogSpeed Level 2
-
-
-        AxeSpeed Up
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606734979361627720, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'MiningSpeed Level 2
-
-
-        PickAxeSpeed Up
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751418494955127142, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751418494955127142, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f0134376c9037bf4b8dfe6abc0a7e584,
-        type: 3}
-    - target: {fileID: 6751418494955127142, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751418494955127142, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751418494955127142, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893927862099516419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893927862099516419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ed9fe0a6d6fe8ef419361de39df78355,
-        type: 3}
-    - target: {fileID: 6893927862099516419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893927862099516419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893927862099516419, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7086765060577233754, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136934945409173990, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CollectPower Level 1
-
-
-        CollectPower Up
-
-        AxeDamage &
-        PickAxeDamage  Up
-
-
-        NeedResource
-
-        Wood : 2
-
-        Stone
-        : 2'
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 7140252593120338353, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
@@ -1275,264 +969,47 @@ PrefabInstance:
     - target: {fileID: 7140252593120338353, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7415210330818281370, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415210330818281370, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6b2d9b3d304874f4f8e936bb2f953e0e,
-        type: 3}
-    - target: {fileID: 7415210330818281370, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415210330818281370, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415210330818281370, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7611379085164077034, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7611379085164077034, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0030a9e6ea6590f40be5a73b71af7ade,
-        type: 3}
-    - target: {fileID: 7611379085164077034, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7611379085164077034, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7611379085164077034, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782714369851165680, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782714369851165680, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6791ee47ed633494ab63dec2fd08cc84,
-        type: 3}
-    - target: {fileID: 7782714369851165680, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782714369851165680, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782714369851165680, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877645577754771912, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877645577754771912, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1e1d3a9abec4fad429c9fa31f63ea205,
-        type: 3}
-    - target: {fileID: 7877645577754771912, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877645577754771912, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877645577754771912, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037083093952929416, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037083093952929416, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a203fb213c4270c44b641edc4f1daf2c,
-        type: 3}
-    - target: {fileID: 8037083093952929416, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037083093952929416, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037083093952929416, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1320
       objectReference: {fileID: 0}
     - target: {fileID: 8358504534011682496, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8578131224703620229, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CutlogSpeed Level 1
-
-
-        AxeSpeed Up
-
-
-        NeedResource
-
-        Wood
-        : 1
-
-        Stone : 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8929450728388186366, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8929450728388186366, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: acf51de174cca784aa6d124aedbfb4ee,
-        type: 3}
-    - target: {fileID: 8929450728388186366, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8929450728388186366, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8929450728388186366, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9037201103971276162, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_text
-      value: 'CollectPower Level 3
-
-
-        CollectPower Up
-
-        AxeDamage &
-        PickAxeDamage  Up
-
-
-        NeedResource
-
-        Wood : 2
-
-        Stone
-        : 2'
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 9115897313997696497, guid: 81e977ee7b7840341b98a54c508eb3c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9123227710054354143, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9123227710054354143, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6791ee47ed633494ab63dec2fd08cc84,
-        type: 3}
-    - target: {fileID: 9123227710054354143, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9123227710054354143, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9123227710054354143, guid: 81e977ee7b7840341b98a54c508eb3c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
