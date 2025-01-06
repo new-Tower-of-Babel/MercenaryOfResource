@@ -42,13 +42,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             TimeToggle();
-            if (!UITab.activeSelf)
-            {
-                UITab.SetActive(true);
-            }else if (UITab.activeSelf)
-            {
-                UITab.SetActive(false);
-            }
+
+            UITab.SetActive(isPause);
         }
 
         isGameOver = conditionData.nowHealth <= 0;
@@ -63,6 +58,6 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0.0f;
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene("ResultScene");
     }
 }

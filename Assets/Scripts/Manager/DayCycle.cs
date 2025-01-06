@@ -19,7 +19,7 @@ public class DayCycle : MonoBehaviour
     private bool isNight = false;       // 밤인지 낮인지 확인
     private bool monsterSpawned = false;    // 몬스터 스폰 여부 확인
 
-    private static int round = 8;
+    private static int round = 10;
 
     void OnEnable()
     {
