@@ -1016,6 +1016,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81e977ee7b7840341b98a54c508eb3c4, type: 3}
+--- !u!1 &330917958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7140252593120338353, guid: 81e977ee7b7840341b98a54c508eb3c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 330917957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &468933681 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2491010964636545059, guid: 81e977ee7b7840341b98a54c508eb3c4,
@@ -6249,6 +6255,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1316252011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1316252013}
+  - component: {fileID: 1316252012}
+  m_Layer: 0
+  m_Name: GameManagere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1316252012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316252011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62650884a5e7e2446b8921b1190c19be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditionData: {fileID: 0}
+  UITab: {fileID: 330917958}
+  isPause: 0
+  isClear: 0
+  isGameOver: 0
+--- !u!4 &1316252013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316252011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 518.84686, y: 442.16208, z: -566.9378}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1392622240 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8339731290154805212, guid: 81e977ee7b7840341b98a54c508eb3c4,
@@ -7465,3 +7520,4 @@ SceneRoots:
   - {fileID: 330917957}
   - {fileID: 312755507}
   - {fileID: 242594146}
+  - {fileID: 1316252013}
