@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
     {
         if (Time.time - startedTime >= lifeTime)
         {
-            ObjectPool.Instance.Despawn (gameObject);
+            ObjectPools.Instance.Despawn (gameObject);
             gameObject.SetActive (false);
         }
     }

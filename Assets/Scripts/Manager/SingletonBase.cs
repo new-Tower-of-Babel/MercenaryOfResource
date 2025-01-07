@@ -32,7 +32,12 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 
     public virtual void Awake()
     {
-        DontDestroyOnLoad(instance);
+
+    }
+
+    public virtual void Start()
+    {
+
     }
 
     public virtual void Release()

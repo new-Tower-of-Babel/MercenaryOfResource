@@ -5,15 +5,25 @@ using UnityEngine.UI;
 
 public class ParasiteDeadState : DeadStateBase
 {
-    public GameObject explosionEffect;  // Explode effect
-    public Image explosionCircle;       // Explode circle image
-    public float explosionRadius = 5f;  // Range
+    public GameObject explosionImage;
+    public ParticleSystem explosionEffect;
+
+    public Image explosionRange;
+    public Image explosionGauge;
+    public float collisionRange;
+
+    public void Initialize(GameObject imagePrefab)
+    {
+        explosionImage = imagePrefab;
+        explosionRange = imagePrefab.transform.GetChild(0).GetComponent<Image>();
+        explosionGauge = imagePrefab.transform.GetChild(1).GetComponent<Image>();
+    }
 
     public override void EnterState(ZombieBase zombie)
     {
         base.EnterState(zombie);
 
-        explosionCircle.fillAmount = 0.0f;
+        explosionImage.SetActive(true);
 
         // Disable zombie after animation using coroutine
         zombie.StartCoroutine(PlayDeathAnimationAndExplode());
@@ -49,15 +59,18 @@ public class ParasiteDeadState : DeadStateBase
     private IEnumerator ExplosionCoroutine(float animationLength)
     {
         float elapsedTime = 0f;
+        collisionRange = explosionRange.rectTransform.sizeDelta.x;
 
         while (elapsedTime < animationLength)
         {
             elapsedTime += Time.deltaTime;
-            explosionCircle.fillAmount = Mathf.Clamp01(elapsedTime / animationLength);
+            float curSize = Mathf.Lerp(0, collisionRange, elapsedTime / animationLength);
+            explosionGauge.rectTransform.sizeDelta = new Vector2(curSize, curSize);
+            
             yield return null;
         }
 
-        explosionCircle.fillAmount = 1f;
+        explosionGauge.rectTransform.sizeDelta = new Vector2 (collisionRange, collisionRange);
     }
 
     private void TriggerExplosion()
@@ -65,28 +78,28 @@ public class ParasiteDeadState : DeadStateBase
         // 폭발 이펙트 생성
         if (explosionEffect != null)
         {
-            UnityEngine.Object.Instantiate(explosionEffect, zombie.transform.position, Quaternion.identity);
+            explosionEffect.Play();
         }
 
         // 폭발 범위 내의 객체에 데미지 주기
-        Collider[] colliders = Physics.OverlapSphere(zombie.transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(zombie.transform.position, collisionRange);
 
-        foreach (Collider col in colliders)
+        foreach (Collider collider in colliders)
         {
-            if (col.gameObject.CompareTag("Player"))
+            if (collider.gameObject.CompareTag("Player"))
             {
                 // player hit
+                //PlayDataManager.Instance.characterPlayData.nowHealth--;
+            }
+            else if(collider.TryGetComponent<ZombieBase>(out var zombie))
+            {
+                zombie.TakeDamage(10);
             }
         }
 
         // Disable zombie object
         zombie.gameObject.SetActive(false);
         zombie.Initialize();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(zombie.transform.position, explosionRadius);
+        explosionGauge.rectTransform.sizeDelta = new Vector2(0, 0);
     }
 }
