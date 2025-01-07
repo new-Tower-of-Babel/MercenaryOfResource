@@ -19,10 +19,13 @@ public class DayCycle : MonoBehaviour
     private bool isNight = false;       // 밤인지 낮인지 확인
     private bool monsterSpawned = false;    // 몬스터 스폰 여부 확인
 
-    private static int round = 10;
+    [SerializeField] private int round = 10;
 
     void OnEnable()
     {
+        round = 0;
+        currentTime = 0f;
+
         // 몬스터가 모두 죽었을 때 낮으로 전환하는 이벤트 구독
         MonsterSpawner.Instance.OnAllMonstersDied += ChangeToDay;
     }
