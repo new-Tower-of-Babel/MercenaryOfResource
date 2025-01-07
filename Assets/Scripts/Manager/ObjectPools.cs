@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPools : MonoBehaviour
 {
-    public static ObjectPool Instance { get; private set; }
+    public static ObjectPools Instance { get; private set; }
     
     
     [System.Serializable]
