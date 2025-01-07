@@ -20,11 +20,10 @@ public class AudioManager : SingletonBase<AudioManager>
 
     public override void Awake()
     {
-        base.Awake();
         _audioSourcePool = FindObjectOfType<AudioSourcePool>();
     }
 
-    void Start()
+    public override void Start()
     {
         SetBGMSource();
     }
