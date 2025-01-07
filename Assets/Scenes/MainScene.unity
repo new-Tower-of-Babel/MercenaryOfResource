@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 15933512}
   dayDuration: 300
+  round: 10
 --- !u!1001 &24713718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,9 +398,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451673546144265150, guid: 4f440b14d1a86d14db531eb41925f85a,
         type: 3}
+      propertyPath: poolInfoArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451673546144265150, guid: 4f440b14d1a86d14db531eb41925f85a,
+        type: 3}
+      propertyPath: poolInfoArray.Array.data[2].name
+      value: Parasite_Starkie
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451673546144265150, guid: 4f440b14d1a86d14db531eb41925f85a,
+        type: 3}
       propertyPath: poolInfoArray.Array.data[1].prefab
       value: 
       objectReference: {fileID: 8452036965497679186, guid: 4998ba05e3905594a84cf999d7bc1349,
+        type: 3}
+    - target: {fileID: 6451673546144265150, guid: 4f440b14d1a86d14db531eb41925f85a,
+        type: 3}
+      propertyPath: poolInfoArray.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 2026608713261736871, guid: cc819cde95a05c24c9094e5e776b3a56,
         type: 3}
     - target: {fileID: 6451673546144265150, guid: 4f440b14d1a86d14db531eb41925f85a,
         type: 3}

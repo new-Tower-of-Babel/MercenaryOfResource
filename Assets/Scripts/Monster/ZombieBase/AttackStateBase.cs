@@ -23,5 +23,6 @@
         // Attack anim
 
         // Decrease player health
+        PlayDataManager.Instance.characterPlayData.nowHealth--;
     }
 }

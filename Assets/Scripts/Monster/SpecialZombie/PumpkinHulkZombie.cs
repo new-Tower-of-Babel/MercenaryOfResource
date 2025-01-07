@@ -1,4 +1,4 @@
-﻿public class PumpkinHulZombie : ZombieBase
+﻿public class PumpkinHulkZombie : ZombieBase
 {
     public override void Awake()
     {

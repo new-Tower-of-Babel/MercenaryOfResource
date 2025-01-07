@@ -86,7 +86,7 @@ public abstract class ZombieBase : MonoBehaviour
         return Vector3.Distance(transform.position, player.position) <= attackRange;
     }
 
-    protected virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         // Decrease health
         health -= damage;
