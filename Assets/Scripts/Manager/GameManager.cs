@@ -9,11 +9,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public CharacterPlayData conditionData;
+
     public GameObject UITab;
+    public GameObject UIPause;
 
     public bool isPause = false;
     public bool isClear = false;
     public bool isGameOver = false;
+
+    private void OnEnable()
+    {
+        isPause = false;
+        isClear = false;
+        isGameOver = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +46,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TimeToggle();
+
+            UIPause.SetActive(isPause);
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
