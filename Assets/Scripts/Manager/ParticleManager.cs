@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ParticleManager : SingletonBase<ParticleManager>
@@ -9,7 +8,12 @@ public class ParticleManager : SingletonBase<ParticleManager>
     [SerializeField] private ParticleSystem explosionEffect;
     [SerializeField] private ParticleSystem healEffect;
 
-    private Dictionary<string, ObjectPool<ParticleSystem>> _particlePools = new Dictionary<string, ObjectPool<ParticleSystem>>();
+    private Dictionary<string, ObjectPool> _particlePools;
+
+    public override void Awake()
+    {
+        _particlePools = new Dictionary<string, ObjectPool>();
+    }
 
     public override void Start()
     {
@@ -21,8 +25,8 @@ public class ParticleManager : SingletonBase<ParticleManager>
     // 파티클 풀을 초기화하고 딕셔너리에 추가
     private void InitializeParticlePool(ParticleSystem prefab, int poolSize)
     {
-        ObjectPool<ParticleSystem> pool = new ObjectPool<ParticleSystem>();
-        pool.Initialize(prefab, poolSize);
+        ObjectPool pool = new ObjectPool();
+        pool.Initialize(prefab.gameObject, poolSize);
         _particlePools.Add(prefab.name, pool);
     }
 
@@ -31,16 +35,21 @@ public class ParticleManager : SingletonBase<ParticleManager>
     {
         if (_particlePools.ContainsKey(effectName))
         {
-            ObjectPool<ParticleSystem> pool = _particlePools[effectName];
-            ParticleSystem particleSystem = pool.GetObject();
-            if (particleSystem != null)
-            {
-                particleSystem.transform.position = position;
-                particleSystem.transform.rotation = rotation;
-                particleSystem.Play();  // 파티클 효과 재생
+            ObjectPool pool = _particlePools[effectName];
+            GameObject particleObject = pool.GetObject();
 
-                // 파티클이 끝난 후 풀로 반환
-                StartCoroutine(ReturnParticleToPoolAfterPlay(particleSystem, effectName));
+            if (particleObject != null)
+            {
+                ParticleSystem particleSystem = particleObject.GetComponent<ParticleSystem>();
+                if (particleSystem != null)
+                {
+                    particleSystem.transform.position = position;
+                    particleSystem.transform.rotation = rotation;
+                    particleSystem.Play();  // 파티클 효과 재생
+
+                    // 파티클이 끝난 후 풀로 반환
+                    StartCoroutine(ReturnParticleToPoolAfterPlay(particleSystem, effectName));
+                }
             }
         }
     }
@@ -49,6 +58,6 @@ public class ParticleManager : SingletonBase<ParticleManager>
     private IEnumerator<WaitForSeconds> ReturnParticleToPoolAfterPlay(ParticleSystem particleSystem, string poolName)
     {
         yield return new WaitForSeconds(particleSystem.main.duration);
-        _particlePools[poolName].ReturnObject(particleSystem);
+        _particlePools[poolName].ReturnObject(particleSystem.gameObject);
     }
 }

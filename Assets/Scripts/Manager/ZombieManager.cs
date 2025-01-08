@@ -6,7 +6,12 @@ public class ZombieManager : SingletonBase<ZombieManager>
     [SerializeField] private GameObject zombiePrefabA;
     [SerializeField] private GameObject zombiePrefabB;
 
-    private Dictionary<string, ObjectPool<Component>> _zombiePools = new Dictionary<string, ObjectPool<Component>>();
+    private Dictionary<string, ObjectPool> _zombiePools;
+
+    public override void Awake()
+    {
+        _zombiePools = new Dictionary<string, ObjectPool>();
+    }
 
     public override void Start()
     {
@@ -15,10 +20,11 @@ public class ZombieManager : SingletonBase<ZombieManager>
         InitializeZombiePool(zombiePrefabB, 5);
     }
 
-    private void InitializeZombiePool(GameObject prefab, int size)
+    private void InitializeZombiePool(GameObject prefab, int poolSize)
     {
-        ObjectPool<Component> pool = new ObjectPool<Component>();
-        pool.Initialize(prefab.GetComponent<Component>(), size);
+        // GameObject를 관리하는 풀 초기화
+        ObjectPool pool = new GameObject(prefab.name + "Pool").AddComponent<ObjectPool>();
+        pool.Initialize(prefab, poolSize);
         _zombiePools.Add(prefab.name, pool);
     }
 
@@ -27,25 +33,25 @@ public class ZombieManager : SingletonBase<ZombieManager>
     {
         if (_zombiePools.ContainsKey(zombieType))
         {
-            ObjectPool<Component> pool = _zombiePools[zombieType];
-            Component zombie = pool.GetObject();
+            ObjectPool pool = _zombiePools[zombieType];
+            GameObject zombie = pool.GetObject();
 
             if (zombie != null)
             {
-                zombie.gameObject.SetActive(true);
+                zombie.SetActive(true);
                 zombie.transform.position = position;
             }
         }
     }
 
     // 좀비를 풀로 반환하는 메서드
-    public void ReturnZombie(Component zombie, string zombieType)
+    public void ReturnZombie(GameObject zombie, string zombieType)
     {
         if (_zombiePools.ContainsKey(zombieType))
         {
-            ObjectPool<Component> pool = _zombiePools[zombieType];
+            ObjectPool pool = _zombiePools[zombieType];
             pool.ReturnObject(zombie);
-            zombie.gameObject.SetActive(false);
+            zombie.SetActive(false);
         }
     }
 }
