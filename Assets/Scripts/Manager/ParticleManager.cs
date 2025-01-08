@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class ParticleManager : SingletonBase<ParticleManager>
 {
-
+    
 }
