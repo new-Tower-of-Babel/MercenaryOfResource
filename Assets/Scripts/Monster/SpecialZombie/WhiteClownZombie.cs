@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class WhiteClownZombie : ZombieBase
 {
-    private Collider healingAreaCollider;
     public float healingAmount = 10f;
     public float healingRadius = 5f;
-    public float healingInterval = 2f;
+    public float healingInterval = 3f;
 
     public override void Awake()
     {
@@ -55,15 +54,6 @@ public class WhiteClownZombie : ZombieBase
         if (other.CompareTag("Zombie"))
         {
             Heal(other.gameObject);
-        }
-    }
-
-    private void UpdateHealingAreaPosition()
-    {
-        if (healingAreaCollider != null)
-        {
-            // Update heal range position
-            healingAreaCollider.transform.position = transform.position;
         }
     }
 

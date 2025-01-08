@@ -38,7 +38,6 @@ public class AttackState : AttackStateBase
         // Attack anim
         zombie.animator.SetBool("Attack", true);
 
-        // Decrease player health
-        PlayDataManager.Instance.characterPlayData.nowHealth--;
+        base.Attack();
     }
 }

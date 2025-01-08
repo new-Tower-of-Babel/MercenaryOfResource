@@ -86,7 +86,7 @@ public abstract class ZombieBase : MonoBehaviour
         return Vector3.Distance(transform.position, player.position) <= attackRange;
     }
 
-    protected virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         // Decrease health
         health -= damage;
@@ -106,7 +106,7 @@ public abstract class ZombieBase : MonoBehaviour
     {
         SwitchState(deadState);
         OnDied?.Invoke(gameObject);
-        ObjectPool.Instance.Despawn(gameObject);
+        ObjectPools.Instance.Despawn(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -115,7 +115,7 @@ public abstract class ZombieBase : MonoBehaviour
         {
             TakeDamage(bullet.weaponStats.damage);
             other.gameObject.SetActive(false);
-            ObjectPool.Instance.Despawn(other.gameObject);
+            ObjectPools.Instance.Despawn(other.gameObject);
         }
     }
 }

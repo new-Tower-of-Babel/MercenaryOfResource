@@ -1,5 +1,9 @@
-﻿public class ParasiteZombie : ZombieBase
+﻿using UnityEngine;
+
+public class ParasiteZombie : ZombieBase
 {
+    public GameObject zombieExplosion;
+
     public override void Awake()
     {
         base.Awake();
@@ -17,7 +21,13 @@
         this.chaseState = new ChaseState();
         this.attackState = new ParasiteAttackState();
         this.hitState = new HitStateBase();
-        this.deadState = new DeadState();
+        this.deadState = new ParasiteDeadState();
+
+        // Call method by type casting
+        if (this.deadState is ParasiteDeadState parasiteDeadState)
+        {
+            parasiteDeadState.Initialize(zombieExplosion);
+        }
 
         // Set Idle state first time
         SwitchState(idleState);

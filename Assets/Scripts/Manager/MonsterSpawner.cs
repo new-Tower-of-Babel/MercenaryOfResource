@@ -22,7 +22,7 @@ public class MonsterSpawner : MonoBehaviour
 
     public void SpawnMonster()
     {
-        GameObject monster = ObjectPool.Instance.Spawn ("StandardMonster");
+        GameObject monster = ObjectPools.Instance.Spawn ("StandardMonster");
         monster.transform.position = GetSpawnPosition();
         monster.GetComponent<ZombieBase>().OnDied.AddListener (MonsterBase_OnDied);
         monster.SetActive (true);

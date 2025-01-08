@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DayCycle : MonoBehaviour
 {
-    public Light directionalLight;
+    [SerializeField] private Light directionalLight;
 
     [SerializeField] private float dayDuration = 24f;
     private float currentTime = 0f;
@@ -16,7 +16,7 @@ public class DayCycle : MonoBehaviour
     private float dayIntensity = 1f;     // 낮의 밝기
     private float nightIntensity = 0.1f; // 밤의 밝기
 
-    private bool isNight = false;       // 밤인지 낮인지 확인
+    private bool isNight = false;           // 밤인지 낮인지 확인
     private bool monsterSpawned = false;    // 몬스터 스폰 여부 확인
 
     [SerializeField] private int round = 10;
