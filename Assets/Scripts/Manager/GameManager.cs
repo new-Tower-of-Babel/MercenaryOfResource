@@ -46,16 +46,22 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TimeToggle();
+            if (!UITab.activeInHierarchy)
+            {
+                TimeToggle();
+            }
 
-            UIPause.SetActive(isPause);
+            UIPause.SetActive(!UIPause.activeInHierarchy);
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (!UIPause.activeInHierarchy)
         {
-            TimeToggle();
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                TimeToggle();
 
-            UITab.SetActive(isPause);
+                UITab.SetActive(isPause);
+            }
         }
 
         isGameOver = conditionData.nowHealth <= 0;

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DayCycle : MonoBehaviour
 {
-    [SerializeField] private Light directionalLight;
+    public static DayCycle instance;
 
+    [SerializeField] private Light directionalLight;
     [SerializeField] private float dayDuration = 24f;
     private float currentTime = 0f;
 
@@ -34,6 +35,14 @@ public class DayCycle : MonoBehaviour
     {
         // 이벤트 구독 해제
         MonsterSpawner.Instance.OnAllMonstersDied -= ChangeToDay;
+    }
+
+    void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     void Update()
