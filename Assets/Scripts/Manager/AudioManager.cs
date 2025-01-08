@@ -1,31 +1,36 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : SingletonBase<AudioManager>
 {
     private AudioSource _bgmSource;
-    private AudioSourcePool _audioSourcePool;
 
     [Header("BGM")]
     [SerializeField] private AudioClip bgmClip;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip clickSFX;
     [SerializeField] private AudioClip fireSFX;
-    [SerializeField] private AudioClip playerHitSFX;
-    [SerializeField] private AudioClip playerDeadSFX;
-    [SerializeField] private AudioClip monsterHitSFX;
-    [SerializeField] private AudioClip monsterDeadSFX;
 
+    private Dictionary<string, ObjectPool<AudioSource>> _audioPools;
 
     public override void Awake()
     {
-        _audioSourcePool = FindObjectOfType<AudioSourcePool>();
+        _audioPools = new Dictionary<string, ObjectPool<AudioSource>>();
     }
 
     public override void Start()
     {
         SetBGMSource();
+        InitializeAudioPool(fireSFX, 10);
+    }
+
+    private void InitializeAudioPool(AudioClip clip, int poolSize)
+    {
+        AudioSource audioSourcePrefab = new GameObject(clip.name + "AudioSource").AddComponent<AudioSource>();
+        ObjectPool<AudioSource> pool = new ObjectPool<AudioSource>();
+        pool.Initialize(audioSourcePrefab, poolSize);
+        _audioPools.Add(clip.name, pool);
     }
 
     private void SetBGMSource()
@@ -48,28 +53,31 @@ public class AudioManager : SingletonBase<AudioManager>
         }
     }
 
-    public void PlaySFX(AudioClip clip)
+    private void PlaySFX(AudioClip clip)
     {
-        // Get audioSource from pool
-        AudioSource audioSource = _audioSourcePool.GetAudioSource();
-        audioSource.PlayOneShot(clip);  // Play one time
+        string poolName = clip.name;
 
-        // Return to pool after SfX end
-        StartCoroutine(ReturnAudioSourceAfterPlay(audioSource));
+        AudioSource audioSource;
+        if (_audioPools.ContainsKey(poolName))
+        {
+            // Get audioSource from pool
+            ObjectPool<AudioSource> pool = _audioPools[poolName];
+            audioSource = pool.GetObject();
+
+            // Play one time
+            audioSource.PlayOneShot(clip);
+
+            // Return to pool after SfX end
+            StartCoroutine(ReturnAudioSourceAfterPlay(audioSource, poolName));
+        }
     }
 
-    private IEnumerator ReturnAudioSourceAfterPlay(AudioSource audioSource)
+    private IEnumerator ReturnAudioSourceAfterPlay(AudioSource audioSource, string poolName)
     {
-        // Wait for sound ending
         yield return new WaitForSeconds(audioSource.clip.length);
-        _audioSourcePool.ReturnAudioSource(audioSource);    // return to pool
+        _audioPools[poolName].ReturnObject(audioSource);
     }
 
     // examples
-    public void PlayClickSFX() => PlaySFX(clickSFX);
     public void PlayFireSFX() => PlaySFX(fireSFX);
-    public void PlayPlayerHitSFX() => PlaySFX(playerHitSFX);
-    public void PlayPlayerDeadSFX() => PlaySFX(playerDeadSFX);
-    public void PlayMonsterHitSFX() => PlaySFX(monsterHitSFX);
-    public void PlayMonsterDeadSFX() => PlaySFX(monsterDeadSFX);
 }
