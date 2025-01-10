@@ -10,6 +10,6 @@ public class SkillTreeBMiningSpeed2 : MonoBehaviour, ISkill
     public int needstone { get; } = 1;
     public void Upgrade()
     {
-        PlayDataManager.Instance.characterPlayData.rockHarvestingSpeed += 0.5f;
+        PlayDataManager.Instance.characterPlayData.rockHarvestingSpeed -= 0.25f;
     }
 }

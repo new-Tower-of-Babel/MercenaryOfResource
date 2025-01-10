@@ -17,6 +17,6 @@ MonoBehaviour:
   moveSpeed: 3.5
   axeDamage: 26
   pickaxeDamage: 26
-  rockHarvestingSpeed: 0.86
-  woodHarvestingSpeed: 0.86
+  rockHarvestingSpeed: 2
+  woodHarvestingSpeed: 2
   resourceCarryLimit: 7
