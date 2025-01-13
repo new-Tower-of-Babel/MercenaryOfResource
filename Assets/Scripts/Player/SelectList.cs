@@ -38,15 +38,13 @@ public class SelectList : MonoBehaviour
             WeaponDic.Add(weaponName,false);
             UpgradeSceneData.instance.WeaponOpenCheck.Add(weaponName,false);
             WeaponDataDic.Add(weaponName,weaponSoList[i]);
-            
         }
-        //select씬에서 캐릭터 및 무기 선택시 선택된 것들 
-        SelectWeapon();
         
     }
 
     public void SelectCharacter()
     {
+        Debug.Log("SelectCharacter" + selectedCharacter);
         foreach (var pair in CharacterDic.ToList())
         {
             CharacterDic[pair.Key] = false;
@@ -59,9 +57,9 @@ public class SelectList : MonoBehaviour
 
     public void SelectWeapon()
     {
-        foreach (var pair in CharacterDic.ToList())
+        foreach (var pair in WeaponDic.ToList())
         {
-            CharacterDic[pair.Key] = false;
+            WeaponDic[pair.Key] = false;
         }
         if (WeaponDic.ContainsKey(selectedWeapon))
         {

@@ -18,6 +18,7 @@ public class WeaponChoice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nextBtn.gameObject.SetActive(false);
         unLockBtn.gameObject.SetActive(false);
         foreach (Button btn in weaponBtn)
         {
@@ -36,7 +37,7 @@ public class WeaponChoice : MonoBehaviour
             clickedButton.GetComponent<Image>().color = Color.green;
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
-            SelectList.instance.selectedCharacter = clickedButton.name;
+            SelectList.instance.selectedWeapon = clickedButton.name;
         }
         else
         {

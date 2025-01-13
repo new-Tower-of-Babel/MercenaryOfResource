@@ -22,7 +22,6 @@ public class CharacterPlayData : MonoBehaviour
     private void StartCharacterStatsSeting()
     {
         string key = SelectList.instance.CharacterDic.FirstOrDefault(x => x.Value == true).Key;
-        Debug.Log(key);
         GunslingerStatsSO selectingCharacter =
             SelectList.instance.characterSoList.Find(item => item.CharacterName == key);
         maxHealth = selectingCharacter.maxHealth;

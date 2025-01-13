@@ -15,14 +15,15 @@ public class WeaponPlayData : MonoBehaviour
     
     private void Start()
     {
+        SelectList.instance.SelectWeapon();
         startWeaponStatsSeting();
     }
 
 
     private void startWeaponStatsSeting()
     {
-        string _key = SelectList.instance.WeaponDic.FirstOrDefault(x => x.Value == true).Key;
-        WeaponStatsSO selectingWeapon = SelectList.instance.weaponSoList.Find(item => item.WeaponName == _key);
+        string key = SelectList.instance.WeaponDic.FirstOrDefault(x => x.Value == true).Key;
+        WeaponStatsSO selectingWeapon = SelectList.instance.weaponSoList.Find(item => item.WeaponName == key);
         damage = selectingWeapon.damage;
         projectilesPerShot = selectingWeapon.projectilesPerShot;
         fireRate = selectingWeapon.fireRate;

@@ -18,6 +18,7 @@ public class CharacterChoice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nextBtn.gameObject.SetActive(false);
         unLockBtn.gameObject.SetActive(false);
         foreach (Button btn in characterBtn)
         {
@@ -37,6 +38,7 @@ public class CharacterChoice : MonoBehaviour
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
             SelectList.instance.selectedCharacter = clickedButton.name;
+            Debug.Log(SelectList.instance.selectedCharacter+"  "+clickedButton.name);
         }
         else
         {
