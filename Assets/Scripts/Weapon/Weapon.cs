@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-public class Revolver : WeaponBase
+public class Weapon : WeaponBase
 {
-    public Revolver()
+    public Weapon()
     {
-        stats = ResourceManager.LoadSOData<WeaponStatsSO>("Revolver");
+        stats = SelectList.instance.WeaponDataDic[SelectList.instance.selectedWeapon];
     }
 
     public override void Fire (Vector3 position, Quaternion rotation)

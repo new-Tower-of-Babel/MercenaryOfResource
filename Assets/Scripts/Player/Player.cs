@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        weapon = new Revolver();
+        weapon = new Weapon();
         //gunslingerStats = PlayerStatsManager.GunslingerStats;
         //weaponStats = PlayerStatsManager.WeaponStats;
     }

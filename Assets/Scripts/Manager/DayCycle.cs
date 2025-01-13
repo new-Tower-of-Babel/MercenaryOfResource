@@ -24,7 +24,6 @@ public class DayCycle : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable?");
         round = 1;
         currentTime = 0f;
 
@@ -34,7 +33,6 @@ public class DayCycle : MonoBehaviour
 
     void OnDisable()
     {
-        Debug.Log("OnDisable?");
         // �̺�Ʈ ���� ����
         MonsterSpawner.Instance.OnAllMonstersDied -= ChangeToDay;
     }
@@ -63,8 +61,6 @@ public class DayCycle : MonoBehaviour
 
     private void ChangeToDay()
     {
-        Debug.Log("ChangeToDay?");
-
         // �ڷ�ƾ���� �㳷 ��ȭ ����
         StartCoroutine(ChangeLightGradually(nightColor, dayColor, nightIntensity, dayIntensity));
 
