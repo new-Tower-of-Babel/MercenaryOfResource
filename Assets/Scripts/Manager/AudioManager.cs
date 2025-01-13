@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : SingletonBase<AudioManager>
@@ -12,11 +13,11 @@ public class AudioManager : SingletonBase<AudioManager>
     [Header("SFX")]
     [SerializeField] private AudioClip fireSFX;
 
-    private Dictionary<string, ObjectPool<AudioSource>> _audioPools;
+    private Dictionary<string, ObjectPool> _audioPools;
 
     public override void Awake()
     {
-        _audioPools = new Dictionary<string, ObjectPool<AudioSource>>();
+        _audioPools = new Dictionary<string, ObjectPool>();
     }
 
     public override void Start()
@@ -25,12 +26,13 @@ public class AudioManager : SingletonBase<AudioManager>
         InitializeAudioPool(fireSFX, 10);
     }
 
-    private void InitializeAudioPool(AudioClip clip, int poolSize)
+    // 오디오 풀을 초기화하고 딕셔너리에 추가
+    private void InitializeAudioPool(AudioClip clip, int size)
     {
         AudioSource audioSourcePrefab = new GameObject(clip.name + "AudioSource").AddComponent<AudioSource>();
-        ObjectPool<AudioSource> pool = new ObjectPool<AudioSource>();
-        pool.Initialize(audioSourcePrefab, poolSize);
-        _audioPools.Add(clip.name, pool);
+        ObjectPool pool = new GameObject(clip.name + "Pool").AddComponent<ObjectPool>();
+        pool.Initialize(audioSourcePrefab.gameObject, size);
+        _audioPools.Add(clip.name + "Pool", pool);
     }
 
     private void SetBGMSource()
@@ -53,29 +55,27 @@ public class AudioManager : SingletonBase<AudioManager>
         }
     }
 
-    private void PlaySFX(AudioClip clip)
+    // SFX 사운드를 지정된 풀에서 재생
+    public void PlaySFX(AudioClip clip)
     {
-        string poolName = clip.name;
+        string poolName = clip.name + "Pool";
 
-        AudioSource audioSource;
         if (_audioPools.ContainsKey(poolName))
         {
-            // Get audioSource from pool
-            ObjectPool<AudioSource> pool = _audioPools[poolName];
-            audioSource = pool.GetObject();
-
-            // Play one time
+            ObjectPool pool = _audioPools[poolName];
+            GameObject audioSourceObject = pool.GetObject();
+            AudioSource audioSource = audioSourceObject.GetComponent<AudioSource>();
             audioSource.PlayOneShot(clip);
 
-            // Return to pool after SfX end
-            StartCoroutine(ReturnAudioSourceAfterPlay(audioSource, poolName));
+            StartCoroutine(ReturnAudioSourceAfterPlay(audioSourceObject, poolName));
         }
     }
 
-    private IEnumerator ReturnAudioSourceAfterPlay(AudioSource audioSource, string poolName)
+    private IEnumerator ReturnAudioSourceAfterPlay(GameObject audioSourceObject, string poolName)
     {
+        AudioSource audioSource = audioSourceObject.GetComponent<AudioSource>();
         yield return new WaitForSeconds(audioSource.clip.length);
-        _audioPools[poolName].ReturnObject(audioSource);
+        _audioPools[poolName].ReturnObject(audioSourceObject);
     }
 
     // examples

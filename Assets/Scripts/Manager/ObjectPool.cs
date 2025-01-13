@@ -1,33 +1,33 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool<T> : MonoBehaviour where T : Component
+public class ObjectPool : MonoBehaviour
 {
-    private Queue<T> _pool;     // basic pool
-    private T _prefab;
+    private Queue<GameObject> _pool;     // basic pool
+    private GameObject _prefab;
 
     // Pool and pool size Initialize
-    public void Initialize(T prefab, int poolSize)
+    public void Initialize(GameObject prefab, int size)
     {
-        _pool = new Queue<T>();
-        this._prefab = prefab;
+        _pool = new Queue<GameObject>();
+        _prefab = prefab;
 
         // Create object as much as pool size
-        for (int i = 0; i < poolSize; i++)
+        for (int i = 0; i < size; i++)
         {
-            T obj = CreateObject();
+            GameObject obj = CreateObject();
             _pool.Enqueue(obj);
         }
     }
 
     // Get object from pool
-    public T GetObject()
+    public GameObject GetObject()
     {
         // If pool have object => Send
         if (_pool.Count > 0)
         {
-            T obj = _pool.Dequeue();
-            obj.gameObject.SetActive(true);
+            GameObject obj = _pool.Dequeue();
+            obj.SetActive(true);
             return obj;
         }
         // Pool is empty => Create
@@ -38,17 +38,17 @@ public class ObjectPool<T> : MonoBehaviour where T : Component
     }
 
     // Return object to pool
-    public void ReturnObject(T obj)
+    public void ReturnObject(GameObject obj)
     {
-        obj.gameObject.SetActive(false);
+        obj.SetActive(false);
         _pool.Enqueue(obj);
     }
 
     // Create object
-    private T CreateObject()
+    private GameObject CreateObject()
     {
-        T obj = Instantiate(_prefab);
-        obj.gameObject.SetActive(false);
+        GameObject obj = Instantiate(_prefab);
+        obj.SetActive(false);
         obj.transform.SetParent(transform);
         return obj;
     }
