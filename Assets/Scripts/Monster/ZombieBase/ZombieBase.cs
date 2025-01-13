@@ -80,6 +80,7 @@ public abstract class ZombieBase : MonoBehaviour
 
     public virtual void Initialize()
     {
+        isDead = false;
         SwitchState(idleState);
     }
 
@@ -99,7 +100,6 @@ public abstract class ZombieBase : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            isDead = true;
         }
         else
         {
@@ -112,6 +112,7 @@ public abstract class ZombieBase : MonoBehaviour
         SwitchState(deadState);
         OnDied?.Invoke(gameObject);
         ObjectPools.Instance.Despawn(gameObject);
+        isDead = true;
     }
 
     private void OnTriggerEnter(Collider other)
