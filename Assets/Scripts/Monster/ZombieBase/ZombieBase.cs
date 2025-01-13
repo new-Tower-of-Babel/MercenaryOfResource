@@ -33,6 +33,8 @@ public abstract class ZombieBase : MonoBehaviour
     private Vector3 velocity;       // velocity
     private float gravity = -9.8f;  // gravity value
 
+    private bool isDead = false;
+
     // Get basic component
     public virtual void Awake()
     {
@@ -88,6 +90,8 @@ public abstract class ZombieBase : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        if (isDead) return;
+
         // Decrease health
         health -= damage;
 
@@ -95,6 +99,7 @@ public abstract class ZombieBase : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            isDead = true;
         }
         else
         {
