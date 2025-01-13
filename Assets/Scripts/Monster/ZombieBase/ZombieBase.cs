@@ -93,14 +93,13 @@ public abstract class ZombieBase : MonoBehaviour
     {
         if (isDead) return;
 
-        isDead = true;
-
         // Decrease health
         health -= damage;
 
         // Change hit or dead state depending on health condition
         if (health <= 0)
         {
+            isDead = true;
             Die();
         }
         else
