@@ -10,7 +10,12 @@ public class ChangeSceneButton : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
     }
 
-    public void LoadMainScene()
+    public void LoadUpgradeScene()
+    {
+        SceneManager.LoadScene("UpgradeScene");
+    }
+
+    public static void LoadMainScene()
     {
         SceneManager.LoadScene("MainScene");
     }

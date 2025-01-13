@@ -11,4 +11,5 @@ public class GunslingerStatsSO : ScriptableObject
     public float rockHarvestingSpeed;
     public float woodHarvestingSpeed;
     public int resourceCarryLimit;
+    public int needCoin;
 }

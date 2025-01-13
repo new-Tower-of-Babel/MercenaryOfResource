@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectManager : SingletonBase<ObjectManager>
 {
-    public T CreateObject<T>(string path) where T : Object
+    public static T CreateObject<T>(string path) where T : Object
     {
         var res = Resources.Load<T>(path);
         return Instantiate(res);

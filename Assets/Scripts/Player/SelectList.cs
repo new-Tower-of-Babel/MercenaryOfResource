@@ -1,21 +1,20 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SelectList : MonoBehaviour
 {
-    public static SelectList Instance;
-    public Dictionary<string, bool> characterDic = new Dictionary<string, bool>();
+    public static SelectList instance;
+    public Dictionary<string, bool> CharacterDic = new Dictionary<string, bool>();
     public Dictionary<string, bool> WeaponDic = new Dictionary<string, bool>();
     public List<GunslingerStatsSO> characterSoList;
     public List<WeaponStatsSO> weaponSoList;
+    public Dictionary<string, GunslingerStatsSO> CharacterDataDic = new Dictionary<string, GunslingerStatsSO>();
+    public Dictionary<string, WeaponStatsSO> WeaponDataDic = new Dictionary<string, WeaponStatsSO>();
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -28,12 +27,19 @@ public class SelectList : MonoBehaviour
     {
         for (int i = 0; i < characterSoList.Count; i++)
         {
-            characterDic.Add(characterSoList[i].name,false);
+            string characterName = characterSoList[i].name;
+            CharacterDic.Add(characterName,false);
+            UpgradeSceneData.instance.CharacterOpenCheck.Add(characterName,false);
+            CharacterDataDic.Add(characterName, characterSoList[i]);
         }
 
         for (int i = 0; i < weaponSoList.Count; i++)
         {
-            WeaponDic.Add(weaponSoList[i].name,false);
+            string weaponName = weaponSoList[i].name;
+            WeaponDic.Add(weaponName,false);
+            UpgradeSceneData.instance.WeaponOpenCheck.Add(weaponName,false);
+            WeaponDataDic.Add(weaponName,weaponSoList[i]);
+            
         }
         //select씬에서 캐릭터 및 무기 선택시 선택된 것들 
         SelectCharacter();
@@ -43,9 +49,9 @@ public class SelectList : MonoBehaviour
 
     private void SelectCharacter()
     {
-        if (characterDic.ContainsKey("OldMan"))
+        if (CharacterDic.ContainsKey("OldMan"))
         {
-            characterDic["OldMan"] = true;
+            CharacterDic["OldMan"] = true;
         }
     }
 

@@ -21,8 +21,8 @@ public class WeaponPlayData : MonoBehaviour
 
     private void startWeaponStatsSeting()
     {
-        string _key = SelectList.Instance.WeaponDic.FirstOrDefault(x => x.Value == true).Key;
-        WeaponStatsSO selectingWeapon = SelectList.Instance.weaponSoList.Find(item => item.WeaponName == _key);
+        string _key = SelectList.instance.WeaponDic.FirstOrDefault(x => x.Value == true).Key;
+        WeaponStatsSO selectingWeapon = SelectList.instance.weaponSoList.Find(item => item.WeaponName == _key);
         damage = selectingWeapon.damage;
         projectilesPerShot = selectingWeapon.projectilesPerShot;
         fireRate = selectingWeapon.fireRate;

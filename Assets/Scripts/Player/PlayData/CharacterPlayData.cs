@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using System.Linq;
 
@@ -16,14 +15,14 @@ public class CharacterPlayData : MonoBehaviour
     
     private void Start()
     {
-        startCharacterStatsSeting();
+        StartCharacterStatsSeting();
         nowHealth = maxHealth;
     }
-    private void startCharacterStatsSeting()
+    private void StartCharacterStatsSeting()
     {
-        string _key = SelectList.Instance.characterDic.FirstOrDefault(x => x.Value == true).Key;
+        string key = SelectList.instance.CharacterDic.FirstOrDefault(x => x.Value == true).Key;
         GunslingerStatsSO selectingCharacter =
-            SelectList.Instance.characterSoList.Find(item => item.CharacterName == _key);
+            SelectList.instance.characterSoList.Find(item => item.CharacterName == key);
         maxHealth = selectingCharacter.maxHealth;
         moveSpeed = selectingCharacter.moveSpeed;
         axeDamage = selectingCharacter.axeDamage;
