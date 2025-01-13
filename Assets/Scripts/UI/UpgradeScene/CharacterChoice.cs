@@ -59,6 +59,7 @@ public class CharacterChoice : MonoBehaviour
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
             SelectList.instance.selectedCharacter = selectedBtn.name;
+            Coin.instance.coin -= characterSO.needCoin;
         }
     }
 }

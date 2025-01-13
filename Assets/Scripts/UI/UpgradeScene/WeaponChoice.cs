@@ -59,6 +59,7 @@ public class WeaponChoice : MonoBehaviour
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
             SelectList.instance.selectedWeapon = selectedBtn.name;
+            Coin.instance.coin -= weaponSO.needCoin;
         }
     }
 }
