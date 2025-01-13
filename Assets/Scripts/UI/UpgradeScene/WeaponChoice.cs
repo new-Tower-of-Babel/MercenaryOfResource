@@ -54,7 +54,7 @@ public class WeaponChoice : MonoBehaviour
         var weaponSO  = SelectList.instance.WeaponDataDic[selectedBtn.name];
         if (Coin.instance.coin >= weaponSO.needCoin)
         {
-            UpgradeSceneData.instance.CharacterOpenCheck[selectedBtn.name] = true;
+            UpgradeSceneData.instance.WeaponOpenCheck[selectedBtn.name] = true;
             selectedBtn.GetComponent<Image>().color = Color.green;
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
