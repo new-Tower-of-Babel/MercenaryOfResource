@@ -3,7 +3,11 @@ guid: 35c2b7a3d915ab4438cd911419e7bec9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bgm: {fileID: 8300000, guid: b145e455d2207204e9891950ea59d1d2, type: 3}
+  - dayChange: {fileID: 8300000, guid: 7610d098761b278449f7f464abac433b, type: 3}
+  - fire: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
+  - click: {fileID: 8300000, guid: affe9e1223cd40a4ebcfa4ad3c940189, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
