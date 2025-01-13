@@ -6686,6 +6686,8 @@ MonoBehaviour:
   directionalLight: {fileID: 15933512}
   dayDuration: 6
   currentTime: 0
+  dayClip: {fileID: 8300000, guid: 52c3b660a778dda41acd4f79a0a4c2d9, type: 3}
+  nightClip: {fileID: 8300000, guid: 7610d098761b278449f7f464abac433b, type: 3}
   isNight: 0
   round: 8
 --- !u!1001 &1307169031
@@ -7051,6 +7053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conditionData: {fileID: 0}
+  _bgm: {fileID: 0}
   UITab: {fileID: 330917958}
   UIPause: {fileID: 1307169032}
   isPause: 0

@@ -17,6 +17,9 @@ public class DayCycle : MonoBehaviour
     private float dayIntensity = 1f;     // ≥∑¿« π‡±‚
     private float nightIntensity = 0.1f; // π„¿« π‡±‚
 
+    [SerializeField] private AudioClip dayClip;
+    [SerializeField] private AudioClip nightClip;
+
     public bool isNight = false;           // π„¿Œ¡ˆ ≥∑¿Œ¡ˆ »Æ¿Œ
     private bool monsterSpawned = false;    // ∏ÛΩ∫≈Õ Ω∫∆˘ ø©∫Œ »Æ¿Œ
 
@@ -54,6 +57,7 @@ public class DayCycle : MonoBehaviour
             if (currentTime >= dayDuration)
             {
                 isNight = true;
+                AudioManager.Instance.PlayClipOnce(nightClip);
                 StartCoroutine(ChangeLightGradually(dayColor, nightColor, dayIntensity, nightIntensity));
             }
         }
@@ -61,6 +65,7 @@ public class DayCycle : MonoBehaviour
 
     private void ChangeToDay()
     {
+        AudioManager.Instance.PlayClipOnce(dayClip);
         // ƒ⁄∑Á∆æ¿∏∑Œ π„≥∑ ∫Ø»≠ Ω√¿€
         StartCoroutine(ChangeLightGradually(nightColor, dayColor, nightIntensity, dayIntensity));
 
