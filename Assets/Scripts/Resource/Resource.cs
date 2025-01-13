@@ -83,9 +83,23 @@ public class Resource : MonoBehaviour
 
     private void CreateFragments()
     {
+        int createCounts = Random.Range(4, 7);
+
+        float randomY, randomX, randomZ;
+
         // 파편화된 오브젝트 생성
-        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-        GameObject fragment = Instantiate(fragmentPrefab, spawnPosition, Quaternion.identity);
-        fragment.GetComponent<ResourceFragment>().type = this.type;
+        Vector3 spawnPosition;
+
+        for (int i = 0; i < createCounts; i++)
+        {
+            randomY = 0.5f;
+            randomX = Random.Range(0f, 0.5f);
+            randomZ = Random.Range(0f, 0.5f);
+
+            // 파편화된 오브젝트 생성
+            spawnPosition = transform.position + new Vector3(randomX, randomY, randomZ);
+            GameObject fragment = Instantiate(fragmentPrefab, spawnPosition, Quaternion.identity);
+            fragment.GetComponent<ResourceFragment>().type = this.type;
+        }
     }
 }
