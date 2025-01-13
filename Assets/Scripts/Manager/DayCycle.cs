@@ -20,8 +20,7 @@ public class DayCycle : MonoBehaviour
     public bool isNight = false;           // ������ ������ Ȯ��
     private bool monsterSpawned = false;    // ���� ���� ���� Ȯ��
 
-    [SerializeField] private int round = 10;
-    public int Round { get { return round; } }
+     public int round = 10;
 
     void OnEnable()
     {
