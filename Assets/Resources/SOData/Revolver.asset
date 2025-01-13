@@ -20,3 +20,4 @@ MonoBehaviour:
   maxAmmo: 6
   criticalDamageChance: 0.12
   bulletBounceChance: 0.28
+  needCoin: 0

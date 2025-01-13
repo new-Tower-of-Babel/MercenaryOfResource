@@ -526,9 +526,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSoList:
   - {fileID: 11400000, guid: 09cc5838f3dab494f931871066bec374, type: 2}
+  - {fileID: 11400000, guid: 7f7b8a9b26885e0408216957b3ecfa5f, type: 2}
+  - {fileID: 11400000, guid: 6364d27bb5ccede498458916d7959fa1, type: 2}
+  - {fileID: 11400000, guid: 08edc82ab4002c14c95036541241ba2f, type: 2}
+  - {fileID: 11400000, guid: 4ea80162424ccef4c9631f539328f8b1, type: 2}
+  - {fileID: 11400000, guid: d94cbcfc486aa4b4796e3fd46b69c3ce, type: 2}
   - {fileID: 11400000, guid: fa75fb402b8af234ab0ab598ebddd1cc, type: 2}
   weaponSoList:
   - {fileID: 11400000, guid: fe74136a647fc2748a1e1934348e8441, type: 2}
+  - {fileID: 11400000, guid: c5034c35480578a448461bc93c9d4d3b, type: 2}
+  - {fileID: 11400000, guid: 50c0c047149212e47ba0cbcf7586cc08, type: 2}
+  - {fileID: 11400000, guid: 39ec448f4bc5a5847945a52efe82fae1, type: 2}
   - {fileID: 11400000, guid: fcfe2fffdd3db504fb6a6203e460ed87, type: 2}
   selectedCharacter: 
   selectedWeapon: 
@@ -572,6 +580,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: 0
+  resultWood: 0
+  resultStone: 0
+  resultSkull: 0
+  resultGold: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

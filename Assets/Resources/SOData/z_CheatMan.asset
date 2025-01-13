@@ -20,4 +20,4 @@ MonoBehaviour:
   rockHarvestingSpeed: 1
   woodHarvestingSpeed: 1
   resourceCarryLimit: 10
-  needCoin: 10
+  needCoin: 500
