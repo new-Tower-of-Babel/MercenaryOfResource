@@ -56,6 +56,7 @@ public class NormalZombie : ZombieBase
 
     public void ResetZombie()
     {
+        isDead = false;
         base.Initialize();
         Initialize();
     }
