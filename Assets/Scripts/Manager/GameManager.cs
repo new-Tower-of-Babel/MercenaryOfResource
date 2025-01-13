@@ -77,5 +77,16 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         SceneManager.LoadScene("ResultScene");
+        ResultData();
+    }
+
+    private void ResultData()
+    {
+        Coin coinResounce = Coin.instance;
+        ResourcePlayData resourcePlayData = PlayDataManager.Instance.resourcePlayData;
+        coinResounce.resultWood = resourcePlayData.wood;
+        coinResounce.resultStone = resourcePlayData.stone;
+        coinResounce.resultSkull = resourcePlayData.skull;
+        coinResounce.resultGold = resourcePlayData.gold;
     }
 }

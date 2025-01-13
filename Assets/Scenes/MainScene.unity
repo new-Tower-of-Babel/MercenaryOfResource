@@ -6404,7 +6404,7 @@ MonoBehaviour:
   directionalLight: {fileID: 15933512}
   dayDuration: 6
   isNight: 0
-  round: 8
+  round: 2
 --- !u!1001 &1307169031
 PrefabInstance:
   m_ObjectHideFlags: 0
