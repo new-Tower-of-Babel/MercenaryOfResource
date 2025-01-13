@@ -530,6 +530,8 @@ MonoBehaviour:
   weaponSoList:
   - {fileID: 11400000, guid: fe74136a647fc2748a1e1934348e8441, type: 2}
   - {fileID: 11400000, guid: fcfe2fffdd3db504fb6a6203e460ed87, type: 2}
+  selectedCharacter: 
+  selectedWeapon: 
 --- !u!4 &1908675757
 Transform:
   m_ObjectHideFlags: 0

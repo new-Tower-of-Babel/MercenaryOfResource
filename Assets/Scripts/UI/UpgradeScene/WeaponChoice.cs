@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterChoice : MonoBehaviour
+public class WeaponChoice : MonoBehaviour
 {
-    public Button[] characterBtn;
-    public TextMeshProUGUI characterInfoText;
+    public Button[] weaponBtn;
+    public TextMeshProUGUI weaponInfoText;
     public Button unLockBtn;
     public Button nextBtn;
 
@@ -19,19 +19,19 @@ public class CharacterChoice : MonoBehaviour
     void Start()
     {
         unLockBtn.gameObject.SetActive(false);
-        foreach (Button btn in characterBtn)
+        foreach (Button btn in weaponBtn)
         {
-            btn.onClick.AddListener(() => OnCharacterButtonClicked(btn));
+            btn.onClick.AddListener(() => OnWeaponButtonClicked(btn));
         }
     }
 
-    void OnCharacterButtonClicked(Button clickedButton)
+    void OnWeaponButtonClicked(Button clickedButton)
     {
         if (selectedBtn != null)
         {
             selectedBtn.GetComponent<Image>().color = Color.white;
         }
-        if (UpgradeSceneData.instance.CharacterOpenCheck[clickedButton.name])
+        if (UpgradeSceneData.instance.WeaponOpenCheck[clickedButton.name])
         {
             clickedButton.GetComponent<Image>().color = Color.green;
             unLockBtn.gameObject.SetActive(false);
@@ -46,18 +46,18 @@ public class CharacterChoice : MonoBehaviour
         }
         selectedBtn = clickedButton;
         string characterInfo = selectedBtn.GetComponentInChildren<TextMeshProUGUI>().text;
-        characterInfoText.text = characterInfo;
+        weaponInfoText.text = characterInfo;
     }
     public void UnLockBtn()
     {
-        var characterSO = SelectList.instance.CharacterDataDic[selectedBtn.name];
-        if (Coin.instance.coin >= characterSO.needCoin)
+        var weaponSO  = SelectList.instance.WeaponDataDic[selectedBtn.name];
+        if (Coin.instance.coin >= weaponSO.needCoin)
         {
             UpgradeSceneData.instance.CharacterOpenCheck[selectedBtn.name] = true;
             selectedBtn.GetComponent<Image>().color = Color.green;
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
-            SelectList.instance.selectedCharacter = selectedBtn.name;
+            SelectList.instance.selectedWeapon = selectedBtn.name;
         }
     }
 }

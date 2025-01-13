@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da91a61642970f4cabc35a3770cc0e0, type: 3}
   m_Name: z_CheatWeapon
   m_EditorClassIdentifier: 
+  WeaponName: z_CheatWeapon
   damage: 100
   projectilesPerShot: 1
   fireRate: 10
@@ -19,3 +20,4 @@ MonoBehaviour:
   maxAmmo: 10
   criticalDamageChance: 1
   bulletBounceChance: 1
+  needCoin: 10

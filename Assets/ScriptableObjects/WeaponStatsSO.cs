@@ -11,4 +11,5 @@ public class WeaponStatsSO : ScriptableObject
     public int maxAmmo;
     public float criticalDamageChance;
     public float bulletBounceChance;
+    public int needCoin;
 }

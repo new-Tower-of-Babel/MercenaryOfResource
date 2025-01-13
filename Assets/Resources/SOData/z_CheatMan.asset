@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23ec02e0f304ee499123a7e9606bba1, type: 3}
   m_Name: z_CheatMan
   m_EditorClassIdentifier: 
+  CharacterName: z_CheatMan
   maxHealth: 10
   moveSpeed: 10
   axeDamage: 100
@@ -19,3 +20,4 @@ MonoBehaviour:
   rockHarvestingSpeed: 1
   woodHarvestingSpeed: 1
   resourceCarryLimit: 10
+  needCoin: 10

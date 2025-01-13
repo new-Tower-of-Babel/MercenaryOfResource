@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SelectList : MonoBehaviour
@@ -10,16 +11,14 @@ public class SelectList : MonoBehaviour
     public List<WeaponStatsSO> weaponSoList;
     public Dictionary<string, GunslingerStatsSO> CharacterDataDic = new Dictionary<string, GunslingerStatsSO>();
     public Dictionary<string, WeaponStatsSO> WeaponDataDic = new Dictionary<string, WeaponStatsSO>();
+    public string selectedCharacter;
+    public string selectedWeapon;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -42,24 +41,31 @@ public class SelectList : MonoBehaviour
             
         }
         //select씬에서 캐릭터 및 무기 선택시 선택된 것들 
-        SelectCharacter();
         SelectWeapon();
         
     }
 
-    private void SelectCharacter()
+    public void SelectCharacter()
     {
-        if (CharacterDic.ContainsKey("OldMan"))
+        foreach (var pair in CharacterDic.ToList())
         {
-            CharacterDic["OldMan"] = true;
+            CharacterDic[pair.Key] = false;
+        }
+        if (CharacterDic.ContainsKey(selectedCharacter))
+        {
+            CharacterDic[selectedCharacter] = true;
         }
     }
 
-    private void SelectWeapon()
+    public void SelectWeapon()
     {
-        if (WeaponDic.ContainsKey("Revolver"))
+        foreach (var pair in CharacterDic.ToList())
         {
-            WeaponDic["Revolver"] = true;
+            CharacterDic[pair.Key] = false;
+        }
+        if (WeaponDic.ContainsKey(selectedWeapon))
+        {
+            WeaponDic[selectedWeapon] = true;
         }
     }
 
