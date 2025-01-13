@@ -20,7 +20,7 @@ public class DayUI : MonoBehaviour
     private void Update()
     {
         dayNightImage.sprite = DayCycle.instance.isNight ? night : day;
-        curRound.text = $"{DayCycle.instance.round.ToString()} : 10";
+        curRound.text = $"{DayCycle.instance.Round} : 10";
 
         // Time calculate
         if (DayCycle.instance.isNight)

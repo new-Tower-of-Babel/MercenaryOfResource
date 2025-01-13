@@ -10,30 +10,33 @@ public class DayCycle : MonoBehaviour
     [SerializeField] private float dayDuration = 24f;
     private float currentTime = 0f;
 
-    // ³·°ú ¹ã »ö»ó ¹× ¹à±â Á¶Á¤¿ë
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private Color dayColor = new Color(1f, 1f, 1f);
     private Color nightColor = new Color(0.1f, 0.1f, 0.5f);
 
-    private float dayIntensity = 1f;     // ³·ÀÇ ¹à±â
-    private float nightIntensity = 0.1f; // ¹ãÀÇ ¹à±â
+    private float dayIntensity = 1f;     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    private float nightIntensity = 0.1f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-    public bool isNight = false;           // ¹ãÀÎÁö ³·ÀÎÁö È®ÀÎ
-    private bool monsterSpawned = false;    // ¸ó½ºÅÍ ½ºÆù ¿©ºÎ È®ÀÎ
+    public bool isNight = false;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+    private bool monsterSpawned = false;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 
-    public int round = 10;
+    [SerializeField] private int round = 10;
+    public int Round { get { return round; } }
 
     void OnEnable()
     {
+        Debug.Log("OnEnable?");
         round = 1;
         currentTime = 0f;
 
-        // ¸ó½ºÅÍ°¡ ¸ðµÎ Á×¾úÀ» ¶§ ³·À¸·Î ÀüÈ¯ÇÏ´Â ÀÌº¥Æ® ±¸µ¶
+        // ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         MonsterSpawner.Instance.OnAllMonstersDied += ChangeToDay;
     }
 
     void OnDisable()
     {
-        // ÀÌº¥Æ® ±¸µ¶ ÇØÁ¦
+        Debug.Log("OnDisable?");
+        // ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         MonsterSpawner.Instance.OnAllMonstersDied -= ChangeToDay;
     }
 
@@ -49,7 +52,7 @@ public class DayCycle : MonoBehaviour
     {
         if (!isNight)
         {
-            // ³·ÀÇ °æ¿ì ½Ã°£ÀÌ °æ°úÇÑ ¸¸Å­ currentTimeÀ» Áõ°¡½ÃÅ´
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å­ currentTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´
             currentTime += Time.deltaTime;
             if (currentTime >= dayDuration)
             {
@@ -61,14 +64,16 @@ public class DayCycle : MonoBehaviour
 
     private void ChangeToDay()
     {
-        // ÄÚ·çÆ¾À¸·Î ¹ã³· º¯È­ ½ÃÀÛ
+        Debug.Log("ChangeToDay?");
+
+        // ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ã³· ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(ChangeLightGradually(nightColor, dayColor, nightIntensity, dayIntensity));
 
         isNight = false;
         currentTime = 0f;
         monsterSpawned = false;
-        
-        if(++round > 10)
+        round++;
+        if(round > 10)
         {
             StartCoroutine(WaitGameFinish());
         }
@@ -80,34 +85,34 @@ public class DayCycle : MonoBehaviour
         GameManager.instance.isClear = true;
     }
 
-    // »ö»ó°ú ¹à±â¸¦ ºÎµå·´°Ô º¯È¯ÇÏ´Â ÄÚ·çÆ¾
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½â¸¦ ï¿½Îµå·´ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ú·ï¿½Æ¾
     private IEnumerator ChangeLightGradually(Color initialColor, Color targetColor, float initialIntensity, float targetIntensity)
     {
         float timeElapsed = 0f;
-        float duration = 1f; // »ö»ó ¹× ¹à±â º¯È¯¿¡ °É¸®´Â ½Ã°£
+        float duration = 1f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-        // ÇöÀç »ö»ó°ú ¹à±â¿¡¼­ ¸ñÇ¥ »ö»ó°ú ¹à±â·Î ¼­¼­È÷ º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         while (timeElapsed < duration)
         {
             directionalLight.color = Color.Lerp(initialColor, targetColor, timeElapsed / duration);
             directionalLight.intensity = Mathf.Lerp(initialIntensity, targetIntensity, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
-            yield return null; // ¸Å ÇÁ·¹ÀÓ ´ë±â
+            yield return null; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
 
-        // ÃÖÁ¾ ¸ñÇ¥ »ö»ó°ú ¹à±â·Î ¼³Á¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         directionalLight.color = targetColor;
         directionalLight.intensity = targetIntensity;
 
-        // ¹ãÀ¸·Î º¯È¯ÀÌ ¿Ï·áµÇ¾úÀ» ¶§ ¸ó½ºÅÍ¸¦ »ý¼º
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (isNight && !monsterSpawned)
         {
-            // ¸ó½ºÅÍ 5¸¶¸® »ý¼º
-            for (int i = 0; i < 6 + 1 * round; i++)  // ¸ó½ºÅÍ 5¸¶¸® »ý¼º
+            // ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            for (int i = 0; i < 6 + 1 * round; i++)  // ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             {
                 MonsterSpawner.Instance.SpawnMonster();
             }
-            monsterSpawned = true; // ¸ó½ºÅÍ°¡ ½ºÆùµÇ¾úÀ½À» ±â·Ï
+            monsterSpawned = true; // ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
     }
 }

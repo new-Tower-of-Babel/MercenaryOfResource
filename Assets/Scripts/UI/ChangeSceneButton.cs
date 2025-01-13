@@ -9,12 +9,15 @@ public class ChangeSceneButton : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScene");
         if(Coin.instance != null) Coin.instance.ResultResourceReset();
+        if (SkillDataManagaer.haveSkillKey != null) SkillDataManagaer.haveSkillKey.Clear();
+
     }
 
     public void LoadUpgradeScene()
     {
         SceneManager.LoadScene("UpgradeScene");
         if(Coin.instance != null) Coin.instance.ResultResourceReset();
+        if (SkillDataManagaer.haveSkillKey != null) SkillDataManagaer.haveSkillKey.Clear();
     }
 
     public static void LoadMainScene()
