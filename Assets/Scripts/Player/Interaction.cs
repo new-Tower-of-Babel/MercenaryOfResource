@@ -15,7 +15,8 @@ public class Interaction : MonoBehaviour
     {
         CharacterPlayData damageData = PlayDataManager.Instance.characterPlayData;
 
-        if (currentResource != null && Input.GetKeyDown(KeyCode.E) && !isInteracting)
+        bool canInteract = !DayCycle.instance.isNight;
+        if (canInteract && currentResource != null && Input.GetKeyDown(KeyCode.E) && !isInteracting)
         {
             StartInteraction();
         }
