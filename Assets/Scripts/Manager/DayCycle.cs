@@ -17,14 +17,14 @@ public class DayCycle : MonoBehaviour
     private float dayIntensity = 1f;     // 낮의 밝기
     private float nightIntensity = 0.1f; // 밤의 밝기
 
-    private bool isNight = false;           // 밤인지 낮인지 확인
+    public bool isNight = false;           // 밤인지 낮인지 확인
     private bool monsterSpawned = false;    // 몬스터 스폰 여부 확인
 
-    [SerializeField] private int round = 10;
+    public int round = 10;
 
     void OnEnable()
     {
-        round = 0;
+        round = 1;
         currentTime = 0f;
 
         // 몬스터가 모두 죽었을 때 낮으로 전환하는 이벤트 구독
@@ -68,7 +68,7 @@ public class DayCycle : MonoBehaviour
         currentTime = 0f;
         monsterSpawned = false;
         
-        if(round++ > 10)
+        if(++round > 10)
         {
             StartCoroutine(WaitGameFinish());
         }

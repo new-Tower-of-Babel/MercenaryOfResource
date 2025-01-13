@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         isPause = false;
         isClear = false;
         isGameOver = false;
+        Time.timeScale = 1.0f;
     }
 
     // Start is called before the first frame update
