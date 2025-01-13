@@ -93,6 +93,8 @@ public abstract class ZombieBase : MonoBehaviour
     {
         if (isDead) return;
 
+        isDead = true;
+
         // Decrease health
         health -= damage;
 
@@ -112,7 +114,6 @@ public abstract class ZombieBase : MonoBehaviour
         SwitchState(deadState);
         OnDied?.Invoke(gameObject);
         ObjectPools.Instance.Despawn(gameObject);
-        isDead = true;
     }
 
     private void OnTriggerEnter(Collider other)
