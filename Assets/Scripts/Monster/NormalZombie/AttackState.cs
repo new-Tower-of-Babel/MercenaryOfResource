@@ -37,7 +37,7 @@ public class AttackState : AttackStateBase
         // Logic involved with attack
         // Attack anim
         zombie.animator.SetBool("Attack", true);
-
+        AudioManager.Instance.PlayZombieAttackSFX();
         base.Attack();
     }
 }

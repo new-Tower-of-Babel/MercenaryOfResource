@@ -9,14 +9,15 @@ public class AudioManager : SingletonBase<AudioManager>
     private AudioSource _dayChange;
 
     [Header("BGM")]
-    [SerializeField] private AudioClip bgm;
+    private AudioClip bgm;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip dayChange;
-    [SerializeField] private AudioClip fire;
+    private AudioClip dayChange;
+    private AudioClip fire;
+    private AudioClip zombieAttack;
 
     [Header("UI")]
-    [SerializeField] private AudioClip click;
+    private AudioClip click;
 
     public float globalVolume = 100;
     public float bgmVolume = 50;
@@ -29,6 +30,7 @@ public class AudioManager : SingletonBase<AudioManager>
     {
         fire = Resources.Load<AudioClip>("Sound/GunFire");
         click = Resources.Load<AudioClip>("Sound/Click");
+        zombieAttack = Resources.Load<AudioClip>("Sound/ZombieAttack");
     }
 
     public override void Awake()
@@ -41,11 +43,9 @@ public class AudioManager : SingletonBase<AudioManager>
 
     public override void Start()
     {
-        if (fire != null) InitializeAudioPool(fire, 10);
-        else Debug.LogWarning("Fire SFX clip is missing!");
-
-        if (click != null) InitializeAudioPool(click, 5);
-        else Debug.LogWarning("Click SFX clip is missing!");
+        InitializeAudioPool(fire, 10);
+        InitializeAudioPool(click, 5);
+        InitializeAudioPool(zombieAttack, 10);
     }
 
     // 오디오 풀을 초기화하고 딕셔너리에 추가
@@ -53,7 +53,10 @@ public class AudioManager : SingletonBase<AudioManager>
     {
         AudioSource audioSourcePrefab = new GameObject(clip.name + "AudioSource").AddComponent<AudioSource>();
         ObjectPool pool = new GameObject(clip.name + "Pool").AddComponent<ObjectPool>();
+
+        pool.transform.SetParent(this.transform);
         pool.Initialize(audioSourcePrefab.gameObject, size);
+
         _audioPools.Add(clip.name + "Pool", pool);
     }
 
@@ -104,16 +107,16 @@ public class AudioManager : SingletonBase<AudioManager>
             audioSource.volume = globalVolume * (sfxVolume / 100f);
             audioSource.PlayOneShot(clip);
 
-            StartCoroutine(ReturnAudioSourceAfterPlay(audioSourceObject, poolName));
+            StartCoroutine(ReturnAudioSourceAfterPlay(audioSourceObject, poolName, clip.length));
         }
     }
 
-    private IEnumerator ReturnAudioSourceAfterPlay(GameObject audioSourceObject, string poolName)
+    private IEnumerator ReturnAudioSourceAfterPlay(GameObject audioSourceObject, string poolName, float clipLength)
     {
-        AudioSource audioSource = audioSourceObject.GetComponent<AudioSource>();
-        yield return new WaitForSeconds(audioSource.clip.length);
+        yield return new WaitForSeconds(clipLength);
         _audioPools[poolName].ReturnObject(audioSourceObject);
     }
 
     public void PlayFireSFX() => PlaySFX(fire);
+    public void PlayZombieAttackSFX() => PlaySFX(zombieAttack);
 }

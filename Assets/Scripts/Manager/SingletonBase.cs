@@ -21,10 +21,6 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
                     DontDestroyOnLoad(instance);
                 }
             }
-            else
-            {
-                Destroy(instance);
-            }
 
             return instance;
         }
@@ -32,7 +28,15 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 
     public virtual void Awake()
     {
-
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this as T;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public virtual void Start()
