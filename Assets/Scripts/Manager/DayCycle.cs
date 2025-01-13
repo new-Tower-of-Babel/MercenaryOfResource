@@ -7,8 +7,8 @@ public class DayCycle : MonoBehaviour
     public static DayCycle instance;
 
     [SerializeField] private Light directionalLight;
-    [SerializeField] private float dayDuration = 24f;
-    private float currentTime = 0f;
+    public float dayDuration = 24f;
+    public float currentTime = 0f;
 
     // ³·°ú ¹ã »ö»ó ¹× ¹à±â Á¶Á¤¿ë
     private Color dayColor = new Color(1f, 1f, 1f);
