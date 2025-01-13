@@ -44,7 +44,6 @@ public class SelectList : MonoBehaviour
 
     public void SelectCharacter()
     {
-        Debug.Log("SelectCharacter" + selectedCharacter);
         foreach (var pair in CharacterDic.ToList())
         {
             CharacterDic[pair.Key] = false;

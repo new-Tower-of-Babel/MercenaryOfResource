@@ -38,7 +38,6 @@ public class CharacterChoice : MonoBehaviour
             unLockBtn.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(true);
             SelectList.instance.selectedCharacter = clickedButton.name;
-            Debug.Log(SelectList.instance.selectedCharacter+"  "+clickedButton.name);
         }
         else
         {
