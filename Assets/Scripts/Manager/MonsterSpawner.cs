@@ -41,10 +41,11 @@ public class MonsterSpawner : MonoBehaviour
         obj.GetComponent<ZombieBase>().OnDied.RemoveListener (MonsterBase_OnDied);
         activeMonsters.Remove (obj);
         PlayDataManager.Instance.resourcePlayData.skull++;
-
+        Debug.Log(activeMonsters.Count);
         if (activeMonsters.Count <= 0)
         {
             OnAllMonstersDied?.Invoke();
+            Debug.Log("Alldie");
         }
     }
 }
