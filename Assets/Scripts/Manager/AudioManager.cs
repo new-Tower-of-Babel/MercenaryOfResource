@@ -60,7 +60,7 @@ public class AudioManager : SingletonBase<AudioManager>
         InitializeAudioPool(locked, 3);
     }
 
-    // ¿Àµð¿À Ç®À» ÃÊ±âÈ­ÇÏ°í µñ¼Å³Ê¸®¿¡ Ãß°¡
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ï°ï¿½ ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
     private void InitializeAudioPool(AudioClip clip, int size)
     {
         AudioSource audioSourcePrefab = new GameObject(clip.name + "AudioSource").AddComponent<AudioSource>();
@@ -105,7 +105,7 @@ public class AudioManager : SingletonBase<AudioManager>
         _dayChange.PlayOneShot(clip);
     }
 
-    // SFX »ç¿îµå¸¦ ÁöÁ¤µÈ Ç®¿¡¼­ Àç»ý
+    // SFX ï¿½ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public void PlaySFX(AudioClip clip)
     {
         string poolName = clip.name + "Pool";
