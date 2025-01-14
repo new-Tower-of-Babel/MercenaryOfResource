@@ -28,7 +28,7 @@ public class DayCycle : MonoBehaviour
 
     public int round = 10;
 
-    void OnEnable()
+    void init()
     {
         round = 1;
         currentTime = 0f;
@@ -39,6 +39,7 @@ public class DayCycle : MonoBehaviour
 
     void OnDisable()
     {
+
         // �̺�Ʈ ���� ����
         MonsterSpawner.Instance.OnAllMonstersDied -= ChangeToDay;
     }
@@ -49,8 +50,8 @@ public class DayCycle : MonoBehaviour
         {
             instance = this;
         }
-
         AudioManager.Instance.PlayBGM(day);
+        init();
     }
 
     void Update()
@@ -71,7 +72,6 @@ public class DayCycle : MonoBehaviour
 
     private void ChangeToDay()
     {
-        Debug.Log("ChangeStart");
         isNight = false;
         AudioManager.Instance.PlayBGM(day);
         AudioManager.Instance.PlayClipOnce(dayClip);
