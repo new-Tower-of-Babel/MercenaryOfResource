@@ -18,6 +18,7 @@ public class BaseCamp : MonoBehaviour
             else if (rf.type == Resource.ResourceType.Stone)
                 PlayDataManager.Instance.resourcePlayData.stone++;
             Destroy(other.gameObject); // ���� ����
+            PlayDataManager.Instance.characterPlayData.resourceCarryLimit++;
         }
     }
 }

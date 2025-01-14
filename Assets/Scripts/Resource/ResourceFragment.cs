@@ -61,12 +61,15 @@ public class ResourceFragment : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !isBeingPulled)
+        Debug.Log(PlayDataManager.Instance.characterPlayData.resourceCarryLimit);
+        if (collision.gameObject.CompareTag("Player") && !isBeingPulled&&
+            PlayDataManager.Instance.characterPlayData.resourceCarryLimit>0)
         {
             // 플레이어와 충돌 시 연결
             player = collision.transform;
             isBeingPulled = true;
             _lineRenderer.enabled = true; // 충돌 후 밧줄 시각화 활성화
+            PlayDataManager.Instance.characterPlayData.resourceCarryLimit--;
         }
     }
 }
