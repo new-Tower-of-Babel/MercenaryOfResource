@@ -26,6 +26,7 @@ public class ParticleManager : SingletonBase<ParticleManager>
     private void InitializeParticlePool(ParticleSystem prefab, int poolSize)
     {
         ObjectPool pool = new ObjectPool();
+        pool.transform.SetParent(this.transform);
         pool.Initialize(prefab.gameObject, poolSize);
         _particlePools.Add(prefab.name, pool);
     }
