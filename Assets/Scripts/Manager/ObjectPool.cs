@@ -16,6 +16,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < size; i++)
         {
             GameObject obj = CreateObject();
+            obj.SetActive(false);
             _pool.Enqueue(obj);
         }
     }

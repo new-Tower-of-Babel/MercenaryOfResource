@@ -409,6 +409,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2069059192836872836, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069059192836872836, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069059192836872836, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069059192836872836, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069059192836872836, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069059192836872836, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3883134258042578515, guid: ee25f6b948b35184f85c857ed91bbf64,
         type: 3}
       propertyPath: m_Pivot.x
@@ -509,10 +539,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4073966018540674423, guid: ee25f6b948b35184f85c857ed91bbf64,
+    - target: {fileID: 5582809419400841457, guid: ee25f6b948b35184f85c857ed91bbf64,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadUpgradeScene
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582809419400841457, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582809419400841457, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582809419400841457, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582809419400841457, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582809419400841457, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5910675381450997352, guid: ee25f6b948b35184f85c857ed91bbf64,
         type: 3}
@@ -522,8 +577,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5910675381450997352, guid: ee25f6b948b35184f85c857ed91bbf64,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4539254428145173199}
   m_SourcePrefab: {fileID: 100100000, guid: ee25f6b948b35184f85c857ed91bbf64, type: 3}
+--- !u!1 &4539254428145173198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5910675381450997352, guid: ee25f6b948b35184f85c857ed91bbf64,
+    type: 3}
+  m_PrefabInstance: {fileID: 4539254428145173197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4539254428145173199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539254428145173198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b541b83aa651c74ab42f9f8817508a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitBGM: {fileID: 8300000, guid: eb23d6cf93371794fad87a8cfff4fd8e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

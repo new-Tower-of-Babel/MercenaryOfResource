@@ -24,6 +24,7 @@ public class ZombieManager : SingletonBase<ZombieManager>
     {
         // GameObject를 관리하는 풀 초기화
         ObjectPool pool = new GameObject(prefab.name + "Pool").AddComponent<ObjectPool>();
+        pool.transform.SetParent(this.transform);
         pool.Initialize(prefab, poolSize);
         _zombiePools.Add(prefab.name, pool);
     }
