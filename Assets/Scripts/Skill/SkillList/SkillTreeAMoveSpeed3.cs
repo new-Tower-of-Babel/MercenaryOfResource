@@ -6,8 +6,8 @@ public class SkillTreeAMoveSpeed3 : MonoBehaviour, ISkill
     public Dictionary<int,bool> AntecedentSkills { get; } = 
         new Dictionary<int,bool> {{ 1102,false }}; //SkillTreeAMoveSpeed2
     
-    public int needwood { get; } = 2;
-    public int needstone { get; } = 2;
+    public int needwood { get; } = 5;
+    public int needstone { get; } = 5;
     public void Upgrade()
     {
         PlayDataManager.Instance.characterPlayData.moveSpeed += 1f;

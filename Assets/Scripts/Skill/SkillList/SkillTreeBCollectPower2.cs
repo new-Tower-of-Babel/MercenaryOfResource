@@ -10,8 +10,8 @@ public class SkillTreeBCollectPower2 : MonoBehaviour, ISkill
             { 2301, false }
         };//SkillTreeBCutlogSpeed1,SkillTreeBMiningSpeed1
     
-    public int needwood { get; } = 2;
-    public int needstone { get; } = 2;
+    public int needwood { get; } = 5;
+    public int needstone { get; } = 5;
     public void Upgrade()
     {
         PlayDataManager.Instance.characterPlayData.axeDamage += 10;
