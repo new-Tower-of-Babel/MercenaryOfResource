@@ -14,7 +14,11 @@ public class AudioManager : SingletonBase<AudioManager>
     [Header("SFX")]
     private AudioClip dayChange;
     private AudioClip fire;
+    private AudioClip playerHit;
     private AudioClip zombieAttack;
+
+    private AudioClip open;
+    private AudioClip locked;
 
     [Header("UI")]
     private AudioClip click;
@@ -30,7 +34,11 @@ public class AudioManager : SingletonBase<AudioManager>
     {
         fire = Resources.Load<AudioClip>("Sound/GunFire");
         click = Resources.Load<AudioClip>("Sound/Click");
+        playerHit = Resources.Load<AudioClip>("Sound/PlayerHit");
         zombieAttack = Resources.Load<AudioClip>("Sound/ZombieAttack");
+
+        open = Resources.Load<AudioClip>("Sound/Open");
+        locked = Resources.Load<AudioClip>("Sound/locked");
     }
 
     public override void Awake()
@@ -45,7 +53,11 @@ public class AudioManager : SingletonBase<AudioManager>
     {
         InitializeAudioPool(fire, 10);
         InitializeAudioPool(click, 5);
+        InitializeAudioPool(playerHit, 5);
         InitializeAudioPool(zombieAttack, 10);
+
+        InitializeAudioPool(open, 3);
+        InitializeAudioPool(locked, 3);
     }
 
     // 오디오 풀을 초기화하고 딕셔너리에 추가
@@ -117,6 +129,10 @@ public class AudioManager : SingletonBase<AudioManager>
         _audioPools[poolName].ReturnObject(audioSourceObject);
     }
 
+    public void PlayClickSFX() => PlaySFX(click);
     public void PlayFireSFX() => PlaySFX(fire);
+    public void PlayHitSFX() => PlaySFX(playerHit);
     public void PlayZombieAttackSFX() => PlaySFX(zombieAttack);
+    public void PlayOpenSFX() => PlaySFX(open);
+    public void PlayLockedSFX() => PlaySFX(locked);
 }

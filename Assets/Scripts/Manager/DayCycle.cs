@@ -10,27 +10,30 @@ public class DayCycle : MonoBehaviour
     public float dayDuration = 24f;
     public float currentTime = 0f;
 
-    // ���� �� ���� �� ��� ������
+    // ���� �� ���� �� ���?������
     private Color dayColor = new Color(1f, 1f, 1f);
     private Color nightColor = new Color(0.1f, 0.1f, 0.5f);
 
-    private float dayIntensity = 1f;     // ���� ���
-    private float nightIntensity = 0.1f; // ���� ���
+    private float dayIntensity = 1f;     // ���� ���?
+    private float nightIntensity = 0.1f; // ���� ���?
 
+    [SerializeField] private AudioClip _bgm;
+    [SerializeField] private AudioClip day;
+    [SerializeField] private AudioClip night;
     [SerializeField] private AudioClip dayClip;
     [SerializeField] private AudioClip nightClip;
 
     public bool isNight = false;           // ������ ������ Ȯ��
     private bool monsterSpawned = false;    // ���� ���� ���� Ȯ��
 
-     public int round = 10;
+    public int round = 10;
 
     void OnEnable()
     {
         round = 1;
         currentTime = 0f;
 
-        // ���Ͱ� ��� �׾��� �� ������ ��ȯ�ϴ� �̺�Ʈ ����
+        // ���Ͱ� ���?�׾��� �� ������ ��ȯ�ϴ� �̺�Ʈ ����
         MonsterSpawner.Instance.OnAllMonstersDied += ChangeToDay;
     }
 
@@ -46,17 +49,20 @@ public class DayCycle : MonoBehaviour
         {
             instance = this;
         }
+
+        AudioManager.Instance.PlayBGM(day);
     }
 
     void Update()
     {
         if (!isNight)
         {
-            // ���� ��� �ð��� ����� ��ŭ currentTime�� ������Ŵ
+            // ���� ���?�ð��� �����?��ŭ currentTime�� ������Ŵ
             currentTime += Time.deltaTime;
             if (currentTime >= dayDuration)
             {
                 isNight = true;
+                AudioManager.Instance.PlayBGM(night);
                 AudioManager.Instance.PlayClipOnce(nightClip);
                 StartCoroutine(ChangeLightGradually(dayColor, nightColor, dayIntensity, nightIntensity));
             }
@@ -65,11 +71,12 @@ public class DayCycle : MonoBehaviour
 
     private void ChangeToDay()
     {
+        isNight = false;
+        AudioManager.Instance.PlayBGM(day);
         AudioManager.Instance.PlayClipOnce(dayClip);
         // �ڷ�ƾ���� �㳷 ��ȭ ����
         StartCoroutine(ChangeLightGradually(nightColor, dayColor, nightIntensity, dayIntensity));
 
-        isNight = false;
         currentTime = 0f;
         monsterSpawned = false;
         round++;
@@ -85,26 +92,26 @@ public class DayCycle : MonoBehaviour
         GameManager.instance.isClear = true;
     }
 
-    // ����� ��⸦ �ε巴�� ��ȯ�ϴ� �ڷ�ƾ
+    // �����?���?�ε巴�� ��ȯ�ϴ� �ڷ�ƾ
     private IEnumerator ChangeLightGradually(Color initialColor, Color targetColor, float initialIntensity, float targetIntensity)
     {
         float timeElapsed = 0f;
-        float duration = 1f; // ���� �� ��� ��ȯ�� �ɸ��� �ð�
+        float duration = 1f; // ���� �� ���?��ȯ�� �ɸ��� �ð�
 
-        // ���� ����� ��⿡�� ��ǥ ����� ���� ������ ����
+        // ���� �����?��⿡��?��ǥ �����?���� ������ ����
         while (timeElapsed < duration)
         {
             directionalLight.color = Color.Lerp(initialColor, targetColor, timeElapsed / duration);
             directionalLight.intensity = Mathf.Lerp(initialIntensity, targetIntensity, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
-            yield return null; // �� ������ ���
+            yield return null; // �� ������ ���?
         }
 
-        // ���� ��ǥ ����� ���� ����
+        // ���� ��ǥ �����?���� ����
         directionalLight.color = targetColor;
         directionalLight.intensity = targetIntensity;
 
-        // ������ ��ȯ�� �Ϸ�Ǿ��� �� ���͸� ����
+        // ������ ��ȯ�� �Ϸ�Ǿ���?�� ���͸� ����
         if (isNight && !monsterSpawned)
         {
             // ���� 5���� ����
@@ -112,7 +119,7 @@ public class DayCycle : MonoBehaviour
             {
                 MonsterSpawner.Instance.SpawnMonster();
             }
-            monsterSpawned = true; // ���Ͱ� �����Ǿ����� ���
+            monsterSpawned = true; // ���Ͱ� �����Ǿ����� ���?
         }
     }
 }

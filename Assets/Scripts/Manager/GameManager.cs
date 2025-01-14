@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public CharacterPlayData conditionData;
 
-    [SerializeField] private AudioClip _bgm;
-
     public GameObject UITab;
     public GameObject UIPause;
 
@@ -25,7 +23,6 @@ public class GameManager : MonoBehaviour
         isClear = false;
         isGameOver = false;
         Time.timeScale = 1.0f;
-        AudioManager.Instance.PlayBGM(_bgm);
     }
 
     // Start is called before the first frame update
