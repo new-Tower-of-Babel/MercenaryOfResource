@@ -24,5 +24,6 @@
 
         // Decrease player health
         PlayDataManager.Instance.characterPlayData.nowHealth--;
+        AudioManager.Instance.PlayHitSFX();
     }
 }

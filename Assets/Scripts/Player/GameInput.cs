@@ -71,6 +71,8 @@ public class GameInput : MonoBehaviour
     
     private void Interact (InputAction.CallbackContext context)
     {
+        if (DayCycle.instance.isNight) return;
+
         if (PlayDataManager.Instance.resourcePlayData.skull >= 5)
         {
             HexaZoneManager
@@ -78,6 +80,11 @@ public class GameInput : MonoBehaviour
                 .GetCurrentContacting()?
                 .Interact();
             PlayDataManager.Instance.resourcePlayData.skull -= 5;
-        }        
+            AudioManager.Instance.PlayOpenSFX();
+        }
+        else
+        {
+            AudioManager.Instance.PlayLockedSFX();
+        }
     }
 }
