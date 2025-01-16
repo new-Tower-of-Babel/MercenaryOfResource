@@ -14,7 +14,14 @@
 
     public virtual void UpdateState()
     {
-        // State change to chase state
-        zombie.SwitchState(zombie.chaseState);
+        // State change
+        if (zombie.IsPlayerInAttackRange())
+        {
+            zombie.SwitchState(zombie.attackState); // Change to attack state
+        }
+        else
+        {
+            zombie.SwitchState(zombie.chaseState);
+        }
     }
 }

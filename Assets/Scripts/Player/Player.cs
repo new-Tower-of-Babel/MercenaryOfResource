@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         if (!CanAttack)
             return;
         
-        if (GetClosestMonster (out GameObject monster, out Vector3 direction))
+        if (GetClosestZombie (out GameObject zombie, out Vector3 direction))
         {
             shooting = true;
             targetDirection = direction;
@@ -111,19 +111,19 @@ public class Player : MonoBehaviour
     }
     
     
-    private bool GetClosestMonster(out GameObject monster, out Vector3 direction)
+    private bool GetClosestZombie(out GameObject zombie, out Vector3 direction)
     {
         float closestDistance = float.MaxValue;
-        GameObject closestMonster = null;
+        GameObject closestZombie = null;
         Vector3 closestDirection = Vector3.zero;
 
-        var monsters = MonsterSpawner.Instance.ActiveMonsters;
-        for (int i = 0; i < monsters.Count; i++)
+        var zombieList = ZombieManager.Instance.ActiveZombieList;
+        for (int i = 0; i < zombieList.Count; i++)
         {
-            Vector3 dir = monsters[i].transform.position - transform.position;
+            Vector3 dir = zombieList[i].transform.position - transform.position;
             float dist = dir.sqrMagnitude;
 
-            // 교전 거리 안에있는 몬스터만 고려.
+            // 교전 거리 ?�에?�는 몬스?�만 고려.
             if (dist > engagementDistance * engagementDistance)
             {
                 continue;
@@ -132,20 +132,20 @@ public class Player : MonoBehaviour
             if (closestDistance > dist)
             {
                 closestDistance = dist;
-                closestMonster = monsters[i];
+                closestZombie = zombieList[i];
                 closestDirection = dir;
             }
         }
 
-        if (closestMonster == null)
+        if (closestZombie == null)
         {
-            monster = null;
+            zombie = null;
             direction = Vector3.zero;
             return false;
         }
         else
         {
-            monster = closestMonster;
+            zombie = closestZombie;
             direction = closestDirection.normalized;
             return true;
         }

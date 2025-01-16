@@ -8,6 +8,8 @@ using UnityEngine.Events;
 
 public class NormalZombie : ZombieBase
 {
+    public int chaseMotion;
+
     public override void Awake()
     {
         base.Awake();
@@ -52,6 +54,9 @@ public class NormalZombie : ZombieBase
         this.moveSpeed = 3.0f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
+
+        chaseMotion = Random.Range(1, 4);
+        this.animator.SetInteger("ChaseMotion", chaseMotion);
     }
 
     public void ResetZombie()

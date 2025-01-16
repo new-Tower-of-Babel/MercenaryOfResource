@@ -1,12 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ZombieManager : SingletonBase<ZombieManager>
 {
-    [SerializeField] private GameObject zombiePrefabA;
-    [SerializeField] private GameObject zombiePrefabB;
+    [Header("Normal Zombie")]
+    [SerializeField] private GameObject Actisdato;
+    [SerializeField] private GameObject Kurniawan;
+    [SerializeField] private GameObject Pedroso;
+
+    [Header("Special Zombie")]
+    [SerializeField] private GameObject Parasite_Starkie;
+    [SerializeField] private GameObject Whiteclown_Hallin;
 
     private Dictionary<string, ObjectPool> _zombiePools;
+
+    private List<GameObject> activeZombieList = new();
+    public IReadOnlyList<GameObject> ActiveZombieList => activeZombieList;
+    public int activeZombieCount => activeZombieList.Count;
+    public event Action OnAllZombieDied;
 
     public override void Awake()
     {
@@ -16,8 +29,13 @@ public class ZombieManager : SingletonBase<ZombieManager>
     public override void Start()
     {
         // 각 좀비 타입에 대해 풀을 초기화
-        InitializeZombiePool(zombiePrefabA, 10);
-        InitializeZombiePool(zombiePrefabB, 5);
+        InitializeZombiePool(Actisdato, 10);
+        InitializeZombiePool(Kurniawan, 10);
+        InitializeZombiePool(Pedroso, 10);
+
+        InitializeZombiePool(Parasite_Starkie, 5);
+        InitializeZombiePool(Whiteclown_Hallin, 3);
+
     }
 
     private void InitializeZombiePool(GameObject prefab, int poolSize)
@@ -30,18 +48,38 @@ public class ZombieManager : SingletonBase<ZombieManager>
     }
 
     // 풀 이름으로 좀비를 가져오고 활성화하는 메서드
-    public void SpawnZombie(string zombieType, Vector3 position)
+    public void SpawnZombie(string zombieType)
     {
         if (_zombiePools.ContainsKey(zombieType))
         {
             ObjectPool pool = _zombiePools[zombieType];
             GameObject zombie = pool.GetObject();
 
-            if (zombie != null)
-            {
-                zombie.SetActive(true);
-                zombie.transform.position = position;
-            }
+            zombie.GetComponent<ZombieBase>().OnDied.AddListener(ZombieBase_OnDied);
+            zombie.transform.position = GetSpawnPosition();
+            Debug.Log($"1    { zombie.transform.position}");
+            zombie.SetActive(true);
+            Debug.Log(zombie.transform.position);
+            activeZombieList.Add(zombie);
+        }
+    }
+
+    private Vector3 GetSpawnPosition()
+    {
+        float x = Random.Range(-40f, 40f);
+        float z = Random.Range(-40f, 40f);
+
+        return new Vector3(x, 0f, z);
+    }
+
+    private void ZombieBase_OnDied(GameObject obj)
+    {
+        obj.GetComponent<ZombieBase>().OnDied.RemoveListener(ZombieBase_OnDied);
+        activeZombieList.Remove(obj);
+        PlayDataManager.Instance.resourcePlayData.skull++;
+        if (activeZombieList.Count <= 0)
+        {
+            OnAllZombieDied?.Invoke();
         }
     }
 

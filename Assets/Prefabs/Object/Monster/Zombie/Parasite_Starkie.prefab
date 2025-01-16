@@ -581,7 +581,7 @@ Animator:
   m_GameObject: {fileID: 2026608713261736871}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 45ad7a444bb68414bace2bee64acdce8, type: 3}
-  m_Controller: {fileID: 9100000, guid: bf91920c38697e440a57579cfd8b8bce, type: 2}
+  m_Controller: {fileID: 9100000, guid: 844d9e34c196c0c4a899026e9c525e62, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -663,6 +663,7 @@ MonoBehaviour:
   moveSpeed: 0
   attackSpeed: 0
   attackRange: 0
+  isDead: 0
   zombieExplosion: {fileID: 9040039289276418259}
 --- !u!1 &2118413783959090600
 GameObject:

@@ -1721,7 +1721,7 @@ Animator:
   m_GameObject: {fileID: 4435680008134702303}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 52f512efc3d05af4da0ccb573e782770, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf91920c38697e440a57579cfd8b8bce, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1765,7 +1765,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4435680008134702303}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.36
   m_Speed: 3.5
@@ -1803,6 +1803,8 @@ MonoBehaviour:
   moveSpeed: 0
   attackSpeed: 0
   attackRange: 0
+  isDead: 0
+  chaseMotion: 0
 --- !u!1 &4464859473011889117
 GameObject:
   m_ObjectHideFlags: 0

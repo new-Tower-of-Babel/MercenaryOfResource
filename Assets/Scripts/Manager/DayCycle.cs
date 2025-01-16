@@ -5,17 +5,18 @@ using UnityEngine;
 public class DayCycle : MonoBehaviour
 {
     public static DayCycle instance;
+    public string[] normalZombieList = { "Actisdato", "Kurniawan", "Pedroso" };
 
     [SerializeField] private Light directionalLight;
     public float dayDuration = 24f;
     public float currentTime = 0f;
 
-    // ���� �� ���� �� ���?������
+    // ���� �� ���� �� ���?������
     private Color dayColor = new Color(1f, 1f, 1f);
     private Color nightColor = new Color(0.1f, 0.1f, 0.5f);
 
-    private float dayIntensity = 1f;     // ���� ���?
-    private float nightIntensity = 0.1f; // ���� ���?
+    private float dayIntensity = 1f;     // ���� ���?
+    private float nightIntensity = 0.1f; // ���� ���?
 
     [SerializeField] private AudioClip _bgm;
     [SerializeField] private AudioClip day;
@@ -24,7 +25,7 @@ public class DayCycle : MonoBehaviour
     [SerializeField] private AudioClip nightClip;
 
     public bool isNight = false;           // ������ ������ Ȯ��
-    private bool monsterSpawned = false;    // ���� ���� ���� Ȯ��
+    private bool zombieSpawned = false;    // ���� ���� ���� Ȯ��
 
     public int round = 10;
 
@@ -33,15 +34,15 @@ public class DayCycle : MonoBehaviour
         round = 1;
         currentTime = 0f;
 
-        // ���Ͱ� ���?�׾��� �� ������ ��ȯ�ϴ� �̺�Ʈ ����
-        MonsterSpawner.Instance.OnAllMonstersDied += ChangeToDay;
+        // ���Ͱ� ���?�׾��� �� ������ ��ȯ�ϴ� �̺�Ʈ ����
+        ZombieManager.Instance.OnAllZombieDied += ChangeToDay;
     }
 
     void OnDisable()
     {
 
         // �̺�Ʈ ���� ����
-        MonsterSpawner.Instance.OnAllMonstersDied -= ChangeToDay;
+        ZombieManager.Instance.OnAllZombieDied -= ChangeToDay;
     }
 
     void Start()
@@ -58,7 +59,7 @@ public class DayCycle : MonoBehaviour
     {
         if (!isNight)
         {
-            // ���� ���?�ð��� �����?��ŭ currentTime�� ������Ŵ
+            // ���� ���?�ð��� �����?��ŭ currentTime�� ������Ŵ
             currentTime += Time.deltaTime;
             if (currentTime >= dayDuration)
             {
@@ -79,7 +80,7 @@ public class DayCycle : MonoBehaviour
         StartCoroutine(ChangeLightGradually(nightColor, dayColor, nightIntensity, dayIntensity));
 
         currentTime = 0f;
-        monsterSpawned = false;
+        zombieSpawned = false;
         round++;
         if(round > 10)
         {
@@ -93,34 +94,34 @@ public class DayCycle : MonoBehaviour
         GameManager.instance.isClear = true;
     }
 
-    // �����?���?�ε巴�� ��ȯ�ϴ� �ڷ�ƾ
+    // �����?���?�ε巴�� ��ȯ�ϴ� �ڷ�ƾ
     private IEnumerator ChangeLightGradually(Color initialColor, Color targetColor, float initialIntensity, float targetIntensity)
     {
         float timeElapsed = 0f;
-        float duration = 1f; // ���� �� ���?��ȯ�� �ɸ��� �ð�
+        float duration = 1f; // ���� �� ���?��ȯ�� �ɸ��� �ð�
 
-        // ���� �����?��⿡��?��ǥ �����?���� ������ ����
+        // ���� �����?��⿡��?��ǥ �����?���� ������ ����
         while (timeElapsed < duration)
         {
             directionalLight.color = Color.Lerp(initialColor, targetColor, timeElapsed / duration);
             directionalLight.intensity = Mathf.Lerp(initialIntensity, targetIntensity, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
-            yield return null; // �� ������ ���?
+            yield return null; // �� ������ ���?
         }
 
-        // ���� ��ǥ �����?���� ����
+        // ���� ��ǥ �����?���� ����
         directionalLight.color = targetColor;
         directionalLight.intensity = targetIntensity;
 
-        // ������ ��ȯ�� �Ϸ�Ǿ���?�� ���͸� ����
-        if (isNight && !monsterSpawned)
+        // ������ ��ȯ�� �Ϸ�Ǿ���?�� ���͸� ����
+        if (isNight && !zombieSpawned)
         {
             // ���� 5���� ����
             for (int i = 0; i < 6 + 1 * round; i++)  // ���� 5���� ����
             {
-                MonsterSpawner.Instance.SpawnMonster();
+                ZombieManager.Instance.SpawnZombie(normalZombieList[Random.Range(0, 3)]);
             }
-            monsterSpawned = true; // ���Ͱ� �����Ǿ����� ���?
+            zombieSpawned = true; // ���Ͱ� �����Ǿ����� ���?
         }
     }
 }

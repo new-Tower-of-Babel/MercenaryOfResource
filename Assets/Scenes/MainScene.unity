@@ -592,6 +592,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63a5f17ccb76ff144af51186ac9c9e6d, type: 3}
+--- !u!1 &217700455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217700456}
+  - component: {fileID: 217700457}
+  m_Layer: 0
+  m_Name: ZombieManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &217700456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217700455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217700457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217700455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cc03d6dd8ae3a4c83d0f662514d9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Actisdato: {fileID: 4435680008134702303, guid: df3ca71151dec7d47bf37f15a153b61e,
+    type: 3}
+  Kurniawan: {fileID: 8452036965497679186, guid: 4998ba05e3905594a84cf999d7bc1349,
+    type: 3}
+  Pedroso: {fileID: 6425360319979712900, guid: a698892e3bc8ad743a1b5644dff2e77b, type: 3}
+  Parasite_Starkie: {fileID: 2026608713261736871, guid: cc819cde95a05c24c9094e5e776b3a56,
+    type: 3}
+  Whiteclown_Hallin: {fileID: 5757790790379615082, guid: 05185fba99ce6b345a0b947ce76c98bf,
+    type: 3}
 --- !u!1 &242594144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7032,6 +7085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792cdc3c415f45742ab2ea9b380fbae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalZombieList:
+  - Actisdato
+  - Kurniawan
+  - Pedroso
   directionalLight: {fileID: 15933512}
   dayDuration: 30
   currentTime: 0
@@ -8672,20 +8729,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6055416435511356555, guid: 0f26151d6ecf1214f9550a6cec2901ab,
-        type: 3}
-      propertyPath: m_Radius
-      value: 3.6
-      objectReference: {fileID: 0}
     - target: {fileID: 6078325810996260795, guid: 0f26151d6ecf1214f9550a6cec2901ab,
         type: 3}
       propertyPath: m_Name
       value: BaseCamp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6078325810996260795, guid: 0f26151d6ecf1214f9550a6cec2901ab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8662700495915692153, guid: 0f26151d6ecf1214f9550a6cec2901ab,
         type: 3}
@@ -8753,6 +8800,7 @@ SceneRoots:
   - {fileID: 505818937}
   - {fileID: 1573932374}
   - {fileID: 1840210341}
+  - {fileID: 217700456}
   - {fileID: 2095706497}
   - {fileID: 32583518}
   - {fileID: 1432368572}
