@@ -56,10 +56,11 @@ public class ZombieManager : SingletonBase<ZombieManager>
             GameObject zombie = pool.GetObject();
 
             zombie.GetComponent<ZombieBase>().OnDied.AddListener(ZombieBase_OnDied);
+            zombie.SetActive(false);
             zombie.transform.position = GetSpawnPosition();
-            Debug.Log($"1    { zombie.transform.position}");
+            
             zombie.SetActive(true);
-            Debug.Log(zombie.transform.position);
+            
             activeZombieList.Add(zombie);
         }
     }
