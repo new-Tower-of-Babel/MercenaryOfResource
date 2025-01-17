@@ -96,7 +96,7 @@ public class HexaZone : MonoBehaviour
         }
         
         if (m_RockPrefabs.Length > 0) {
-            if (!tree_spawned && Random.value < 0.5f) {
+            if (!tree_spawned && Random.value < 1f) {
                 int randNum = Random.Range (0, m_RockPrefabs.Length);
                 Instantiate (m_RockPrefabs[randNum], randomPos, Quaternion.identity);
             }
