@@ -110,6 +110,8 @@ public class HexaZone : MonoBehaviour
         if (index != -1) manager.RemoveContactingAt (index);
         manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
         Destroy (gameObject);
+        PlayDataManager.Instance.resourcePlayData.skull -= 5;
+        AudioManager.Instance.PlayOpenSFX();
     }
 
     private Vector3[] GetBottomLocalVertices()

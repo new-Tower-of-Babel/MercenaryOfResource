@@ -79,8 +79,6 @@ public class GameInput : MonoBehaviour
                 .GetInstance()
                 .GetCurrentContacting()?
                 .Interact();
-            PlayDataManager.Instance.resourcePlayData.skull -= 5;
-            AudioManager.Instance.PlayOpenSFX();
         }
         else
         {
