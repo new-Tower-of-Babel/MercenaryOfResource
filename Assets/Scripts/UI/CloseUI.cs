@@ -6,6 +6,7 @@ public class CloseUI : MonoBehaviour
 {
     public void PlayContinue()
     {
-
+        transform.root.gameObject.SetActive(false);
+        GameManager.instance.TimeToggle();
     }
 }

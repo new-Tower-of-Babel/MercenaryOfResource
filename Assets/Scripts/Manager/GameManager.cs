@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         isGameOver = conditionData.nowHealth <= 0;
     }
 
-    private void TimeToggle()
+    public void TimeToggle()
     {
         Time.timeScale = isPause ? 1.0f : 0.0f;
         isPause = !isPause;
