@@ -39,8 +39,6 @@ public class SkillBtnManager : MonoBehaviour
         {
             selectedBtn.GetComponent<Image>().color = Color.black;
         }
-
-        clickedButton.GetComponent<Image>().color = Color.green;
         selectedBtn = clickedButton;
         string skillInfo = selectedBtn.GetComponentInChildren<TextMeshProUGUI>().text;
         skillInfoText.text = skillInfo;
@@ -50,6 +48,9 @@ public class SkillBtnManager : MonoBehaviour
         currentNeedStone = GetSkillNeedStone<ISkill>(selectedBtn.gameObject);
         currentSkillAntecedentSkills = getSkillAntecedentSkills<ISkill>(selectedBtn.gameObject);
         UpgradeCheck(currentSkillKey);
+        if(SkillDataManagaer.haveSkillCheck(currentSkillKey))selectedBtn.GetComponent<Image>().color = Color.green;
+        else if(!SkillDataManagaer.haveSkillCheck(currentSkillKey))selectedBtn.GetComponent<Image>().color = Color.red;
+        
     }
 
     public int GetSkillKey<T>(GameObject target) where T : ISkill
@@ -105,6 +106,7 @@ public class SkillBtnManager : MonoBehaviour
             resourcePlayData.stone -= currentNeedStone;
             SkillDataManagaer.haveSkillKey.Add(currentSkillKey);
             upgradeBtn.SetActive(false);
+            selectedBtn.GetComponent<Image>().color = Color.green;
         }
     }
 }
