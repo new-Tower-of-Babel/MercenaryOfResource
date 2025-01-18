@@ -47,6 +47,7 @@ public class UIManager : SingletonBase<UIManager>
     public T OpenUI<T>() where T : UIBase
     {
         var ui = GetUI<T>();
+        ui.transform.SetParent(this.transform);
         ui.Open();
 
         _uiStack.Push(ui);
