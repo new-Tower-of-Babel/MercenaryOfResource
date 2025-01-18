@@ -96,7 +96,7 @@ public class HexaZone : MonoBehaviour
         }
         
         if (m_RockPrefabs.Length > 0) {
-            if (!tree_spawned && Random.value < 0.5f) {
+            if (!tree_spawned && Random.value < 1f) {
                 int randNum = Random.Range (0, m_RockPrefabs.Length);
                 Instantiate (m_RockPrefabs[randNum], randomPos, Quaternion.identity);
             }
@@ -110,6 +110,8 @@ public class HexaZone : MonoBehaviour
         if (index != -1) manager.RemoveContactingAt (index);
         manager.GetCurrentContacting()?.m_UnlockText.gameObject.SetActive (true);
         Destroy (gameObject);
+        PlayDataManager.Instance.resourcePlayData.skull -= 5;
+        AudioManager.Instance.PlayOpenSFX();
     }
 
     private Vector3[] GetBottomLocalVertices()

@@ -22,7 +22,7 @@ public class ChangeTab : MonoBehaviour
         for (int i = 0; i < tab.Length; i++)
         {
             int index = i;
-            tab[i].onClick.AddListener(() => TabClick(index));
+            if(tab[i]!=null) tab[i].onClick.AddListener(() => TabClick(index));
         }
     }
 
@@ -32,7 +32,7 @@ public class ChangeTab : MonoBehaviour
 
         for(int i = 0; i < content.Length; i++)
         {
-            content[i].SetActive(i == index);
+            if(content[i]!=null) content[i].SetActive(i == index);
         }
     }
 }
