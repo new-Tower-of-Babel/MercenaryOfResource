@@ -89,6 +89,15 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = isPause ? 1.0f : 0.0f;
         isPause = !isPause;
+        PauseAllZombies(isPause);
+    }
+
+    private void PauseAllZombies(bool isPause)
+    {
+        foreach (var zombie in ZombieManager.Instance.ActiveZombieList)
+        {
+            zombie.SetActive(!isPause);
+        }
     }
 
     private void GameOver()

@@ -94,4 +94,14 @@ public class ZombieManager : SingletonBase<ZombieManager>
             zombie.SetActive(false);
         }
     }
+
+    // 씬이 종료되기 전에 ObjectPool을 정리
+    private void OnDestroy()
+    {
+        // 모든 풀을 반환하여 메모리 누수 방지
+        foreach (var pool in _zombiePools.Values)
+        {
+            pool.ClearPool();
+        }
+    }
 }

@@ -7,6 +7,7 @@
         this.zombie = zombie;
 
         // Chase anim start (Walk or run)
+        zombie.agent.speed = zombie.moveSpeed;
         zombie.animator.SetBool("Chase", true);
     }
 

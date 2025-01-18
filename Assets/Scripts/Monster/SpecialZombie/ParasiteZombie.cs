@@ -45,7 +45,7 @@ public class ParasiteZombie : ZombieBase
     public override void Initialize()
     {
         this.health = 70.0f;
-        this.moveSpeed = 3.0f;
+        this.moveSpeed = 0.6f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
     }

@@ -53,4 +53,15 @@ public class ObjectPool : MonoBehaviour
         obj.transform.SetParent(transform);
         return obj;
     }
+
+    // Clear the pool (destroy all pooled objects)
+    public void ClearPool()
+    {
+        // Deactivate and destroy all objects in the pool
+        while (_pool.Count > 0)
+        {
+            GameObject obj = _pool.Dequeue();
+            Destroy(obj);  // Destroy each object in the pool
+        }
+    }
 }

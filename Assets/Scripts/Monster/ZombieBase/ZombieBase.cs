@@ -64,8 +64,17 @@ public abstract class ZombieBase : MonoBehaviour
             velocity.y += gravity * Time.fixedDeltaTime;
         }
 
-        // Controller move process (y axis)
-        controller.Move(velocity * Time.fixedDeltaTime);
+        if (this.agent.isActiveAndEnabled)
+        {
+            Vector3 agentVelocity = this.agent.velocity;
+            agentVelocity.y = velocity.y;
+            controller.Move(agentVelocity * Time.fixedDeltaTime);
+        }
+        else
+        {
+            // Controller move process (y axis)
+            controller.Move(velocity * Time.fixedDeltaTime);
+        }
     }
 
     public void SwitchState(IZombieState newState)
