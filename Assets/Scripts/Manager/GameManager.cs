@@ -46,12 +46,31 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!UITab.activeInHierarchy)
+            if (UITab.activeInHierarchy)
             {
                 TimeToggle();
+                UITab.SetActive(isPause);
+
+                return;
             }
 
-            UIPause.SetActive(!UIPause.activeInHierarchy);
+            if (UIPause.activeInHierarchy)
+            {
+                if(UIManager.Instance._uiStack.Count > 0)
+                {
+                    UIManager.Instance.CloseLastUI();
+                }
+                else
+                {
+                    TimeToggle();
+                    UIPause.SetActive(isPause);
+                }
+            }
+            else
+            {
+                TimeToggle();
+                UIPause.SetActive(isPause);
+            }
         }
 
         if (!UIPause.activeInHierarchy)
@@ -59,7 +78,6 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 TimeToggle();
-
                 UITab.SetActive(isPause);
             }
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetWaitAudio : MonoBehaviour
+public class SetWait : MonoBehaviour
 {
     [SerializeField] private AudioClip waitBGM;
 

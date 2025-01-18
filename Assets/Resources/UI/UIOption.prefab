@@ -267,8 +267,9 @@ GameObject:
   - component: {fileID: 9194064618551637488}
   - component: {fileID: 4099094422402662055}
   - component: {fileID: 344359050584548262}
+  - component: {fileID: -1141302126510542238}
   m_Layer: 5
-  m_Name: OptionUI
+  m_Name: UIOption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +316,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &4099094422402662055
 MonoBehaviour:
@@ -357,6 +358,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!114 &-1141302126510542238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530897150354476096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7378f5e2cf8027449aba5cfaa77e10e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationRoot: {fileID: 0}
+  btnScreen: {fileID: 4802835996743345754}
+  btnSound: {fileID: 4537603445611652372}
+  btnControl: {fileID: 4141705939782475917}
+  btnLanguage: {fileID: 556995375936267077}
 --- !u!1 &1029765449258902767
 GameObject:
   m_ObjectHideFlags: 0

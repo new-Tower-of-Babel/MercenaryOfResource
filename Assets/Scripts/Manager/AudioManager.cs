@@ -83,8 +83,13 @@ public class AudioManager : SingletonBase<AudioManager>
         _dayChange.loop = false;
 
         // Set volume
-        _bgm.volume = globalVolume * (bgmVolume / 100f);
-        _dayChange.volume = globalVolume * (sfxVolume / 100f);
+        _bgm.volume = (globalVolume / 100f) * (bgmVolume / 100f);
+        _dayChange.volume = (globalVolume / 100f) * (sfxVolume / 100f);
+    }
+
+    public void SetBGMVolume()
+    {
+        _bgm.volume = (globalVolume / 100f) * (bgmVolume / 100f);
     }
 
     public void PlayBGM(AudioClip clip)
@@ -96,12 +101,12 @@ public class AudioManager : SingletonBase<AudioManager>
             _bgm.Play();
         }
 
-        _bgm.volume = globalVolume * (bgmVolume / 100f);
+        _bgm.volume = (globalVolume / 100f) * (bgmVolume / 100f);
     }
 
     public void PlayClipOnce(AudioClip clip)
     {
-        _dayChange.volume = globalVolume * (sfxVolume / 100f);
+        _dayChange.volume = (globalVolume / 100f) * (sfxVolume / 100f);
         _dayChange.PlayOneShot(clip);
     }
 
@@ -116,7 +121,7 @@ public class AudioManager : SingletonBase<AudioManager>
             GameObject audioSourceObject = pool.GetObject();
             AudioSource audioSource = audioSourceObject.GetComponent<AudioSource>();
 
-            audioSource.volume = globalVolume * (sfxVolume / 100f);
+            audioSource.volume = (globalVolume / 100f) * (sfxVolume / 100f);
             audioSource.PlayOneShot(clip);
 
             StartCoroutine(ReturnAudioSourceAfterPlay(audioSourceObject, poolName, clip.length));

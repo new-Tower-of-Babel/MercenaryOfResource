@@ -146,8 +146,9 @@ GameObject:
   - component: {fileID: 2124750877358167133}
   - component: {fileID: 435262569171923305}
   - component: {fileID: 6561099530089845378}
+  - component: {fileID: 6984785649835434505}
   m_Layer: 5
-  m_Name: ScreenUI
+  m_Name: UIScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +195,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &435262569171923305
 MonoBehaviour:
@@ -236,6 +237,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!114 &6984785649835434505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921298912437400780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba18d205f9be7e45b74001bfd3fa0bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationRoot: {fileID: 0}
 --- !u!1 &9136247287319036233
 GameObject:
   m_ObjectHideFlags: 0
