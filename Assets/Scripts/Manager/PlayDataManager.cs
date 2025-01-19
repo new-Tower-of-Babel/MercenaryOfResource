@@ -8,6 +8,7 @@ public class PlayDataManager : MonoBehaviour
     public CharacterPlayData characterPlayData;
     public ResourcePlayData resourcePlayData;
     public WeaponPlayData weaponPlayData;
+
     private void Awake()
     {
         if (Instance == null)

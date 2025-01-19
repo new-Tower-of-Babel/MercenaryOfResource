@@ -23,7 +23,6 @@
         // Attack anim
 
         // Decrease player health
-        PlayDataManager.Instance.characterPlayData.nowHealth--;
-        AudioManager.Instance.PlayHitSFX();
+        PlayDataManager.Instance.characterPlayData.TakeDamage();
     }
 }

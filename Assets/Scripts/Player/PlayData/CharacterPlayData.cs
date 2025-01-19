@@ -1,17 +1,22 @@
 
 using UnityEngine;
 using System.Linq;
+using System.Collections;
 
 public class CharacterPlayData : MonoBehaviour
 {
     public int maxHealth;
     public int nowHealth;
+    public float hitInterval = 1.5f;
+    private bool isTakingDamage = false;
     public float moveSpeed;
     public int axeDamage;
     public int pickaxeDamage;
     public float rockHarvestingSpeed;
     public float woodHarvestingSpeed;
     public int resourceCarryLimit;
+
+    [SerializeField] private GameObject UIHit;
     
     private void Start()
     {
@@ -19,6 +24,7 @@ public class CharacterPlayData : MonoBehaviour
         StartCharacterStatsSeting();
         nowHealth = maxHealth;
     }
+
     private void StartCharacterStatsSeting()
     {
         string key = SelectList.instance.CharacterDic.FirstOrDefault(x => x.Value == true).Key;
@@ -31,5 +37,26 @@ public class CharacterPlayData : MonoBehaviour
         rockHarvestingSpeed = selectingCharacter.rockHarvestingSpeed;
         woodHarvestingSpeed = selectingCharacter.woodHarvestingSpeed;
         resourceCarryLimit = selectingCharacter.resourceCarryLimit;
+    }
+
+    private IEnumerator TakeDamageOverTime()
+    {
+        isTakingDamage = true;
+
+        AudioManager.Instance.PlayHitSFX();
+        UIHit.SetActive(true);
+        nowHealth -= 1;
+
+        yield return new WaitForSeconds(hitInterval);
+
+        isTakingDamage = false;
+    }
+
+    public void TakeDamage()
+    {
+        if (!isTakingDamage)
+        {
+            StartCoroutine(TakeDamageOverTime());
+        }
     }
 }
