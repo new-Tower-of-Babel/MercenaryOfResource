@@ -6,6 +6,7 @@ public class DayCycle : MonoBehaviour
 {
     public static DayCycle instance;
     public string[] normalZombieList = { "Actisdato", "Kurniawan", "Pedroso" };
+    public string[] specialZombieList = { "Parasite_Starkie", "Whiteclown_Hallin" };
 
     [SerializeField] private Light directionalLight;
     public float dayDuration = 24f;
@@ -120,6 +121,7 @@ public class DayCycle : MonoBehaviour
             for (int i = 0; i < 6 + 1 * round; i++)  // ���� 5���� ����
             {
                 ZombieManager.Instance.SpawnZombie(normalZombieList[Random.Range(0, 3)]);
+                // special zombie spawn
             }
             zombieSpawned = true; // ���Ͱ� �����Ǿ����� ���?
         }
