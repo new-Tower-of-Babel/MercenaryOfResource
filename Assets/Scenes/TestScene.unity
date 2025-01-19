@@ -259,6 +259,9 @@ MonoBehaviour:
   - Actisdato
   - Kurniawan
   - Pedroso
+  specialZombieList:
+  - Parasite_Starkie
+  - Whiteclown_Hallin
   directionalLight: {fileID: 15933512}
   dayDuration: 600
   currentTime: 0

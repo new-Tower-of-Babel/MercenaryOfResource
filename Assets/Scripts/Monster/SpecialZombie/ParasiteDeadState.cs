@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ParasiteDeadState : DeadStateBase
 {
     public GameObject explosionImage;
-    public ParticleSystem explosionEffect;
 
     public Image explosionRange;
     public Image explosionGauge;
@@ -76,10 +75,7 @@ public class ParasiteDeadState : DeadStateBase
     private void TriggerExplosion()
     {
         // 폭발 이펙트 생성
-        if (explosionEffect != null)
-        {
-            explosionEffect.Play();
-        }
+        ParticleManager.Instance.PlayParticleEffect("ExplosionEffect", zombie.gameObject.transform.position);
 
         // 폭발 범위 내의 객체에 데미지 주기
         Collider[] colliders = Physics.OverlapSphere(zombie.transform.position, collisionRange);

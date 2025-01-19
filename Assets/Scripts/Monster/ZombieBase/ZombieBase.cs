@@ -124,7 +124,7 @@ public abstract class ZombieBase : MonoBehaviour
         ObjectPools.Instance.Despawn(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Projectile>(out var bullet))
         {

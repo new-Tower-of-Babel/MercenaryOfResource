@@ -5,7 +5,7 @@ public class WhiteClownZombie : ZombieBase
 {
     public float healingAmount = 10f;
     public float healingRadius = 5f;
-    public float healingInterval = 3f;
+    public float healingInterval = 5f;
 
     public override void Awake()
     {
@@ -44,13 +44,15 @@ public class WhiteClownZombie : ZombieBase
     public override void Initialize()
     {
         this.health = 70.0f;
-        this.moveSpeed = 0.6f;
+        this.moveSpeed = 0.4f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
+
         if (other.CompareTag("Zombie"))
         {
             Heal(other.gameObject);
@@ -69,6 +71,7 @@ public class WhiteClownZombie : ZombieBase
                 if (col.CompareTag("Zombie"))
                 {
                     Heal(col.gameObject);
+                    ParticleManager.Instance.PlayParticleEffect("HealEffect", col.gameObject.transform.position);
                 }
             }
 

@@ -5,34 +5,39 @@ using UnityEngine;
 public class ParticleManager : SingletonBase<ParticleManager>
 {
     [Header("Particle Effects")]
-    [SerializeField] private ParticleSystem explosionEffect;
-    [SerializeField] private ParticleSystem healEffect;
+    [SerializeField] private GameObject ExplosionEffect;
+    [SerializeField] private GameObject HealEffect;
 
     private Dictionary<string, ObjectPool> _particlePools;
 
     public override void Awake()
     {
+        base.Awake();
         _particlePools = new Dictionary<string, ObjectPool>();
+        ExplosionEffect = Resources.Load<GameObject>("Particle/ExplosionEffect");
+        HealEffect = Resources.Load<GameObject>("Particle/HealEffect");
     }
 
     public override void Start()
     {
         // 각 파티클 효과에 대해 풀을 초기화
-        InitializeParticlePool(explosionEffect, 3);
-        InitializeParticlePool(healEffect, 3);
+        InitializeParticlePool(ExplosionEffect, 3);
+        InitializeParticlePool(HealEffect, 15);
     }
 
     // 파티클 풀을 초기화하고 딕셔너리에 추가
-    private void InitializeParticlePool(ParticleSystem prefab, int poolSize)
+    private void InitializeParticlePool(GameObject prefab, int poolSize)
     {
-        ObjectPool pool = new ObjectPool();
+        if (_particlePools.ContainsKey(prefab.name)) return;
+
+        ObjectPool pool = new GameObject(prefab.name + "Pool").AddComponent<ObjectPool>();
         pool.transform.SetParent(this.transform);
         pool.Initialize(prefab.gameObject, poolSize);
         _particlePools.Add(prefab.name, pool);
     }
 
     // 파티클 효과를 풀에서 가져와서 재생
-    public void PlayParticleEffect(string effectName, Vector3 position, Quaternion rotation)
+    public void PlayParticleEffect(string effectName, Vector3 position)
     {
         if (_particlePools.ContainsKey(effectName))
         {
@@ -45,20 +50,19 @@ public class ParticleManager : SingletonBase<ParticleManager>
                 if (particleSystem != null)
                 {
                     particleSystem.transform.position = position;
-                    particleSystem.transform.rotation = rotation;
                     particleSystem.Play();  // 파티클 효과 재생
 
                     // 파티클이 끝난 후 풀로 반환
-                    StartCoroutine(ReturnParticleToPoolAfterPlay(particleSystem, effectName));
+                    StartCoroutine(ReturnParticleToPoolAfterPlay(particleObject, particleSystem, effectName));
                 }
             }
         }
     }
 
     // 파티클 효과가 끝난 후 풀에 반환하는 코루틴
-    private IEnumerator<WaitForSeconds> ReturnParticleToPoolAfterPlay(ParticleSystem particleSystem, string poolName)
+    private IEnumerator<WaitForSeconds> ReturnParticleToPoolAfterPlay(GameObject particleObject, ParticleSystem particleSystem, string poolName)
     {
         yield return new WaitForSeconds(particleSystem.main.duration);
-        _particlePools[poolName].ReturnObject(particleSystem.gameObject);
+        _particlePools[poolName].ReturnObject(particleObject);
     }
 }

@@ -23,6 +23,7 @@ public class ZombieManager : SingletonBase<ZombieManager>
 
     public override void Awake()
     {
+        base.Awake();
         _zombiePools = new Dictionary<string, ObjectPool>();
     }
 
@@ -36,6 +37,7 @@ public class ZombieManager : SingletonBase<ZombieManager>
         InitializeZombiePool(Parasite_Starkie, 5);
         InitializeZombiePool(Whiteclown_Hallin, 3);
 
+        ParticleManager.Instance.Start();
     }
 
     private void InitializeZombiePool(GameObject prefab, int poolSize)
