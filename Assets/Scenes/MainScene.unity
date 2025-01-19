@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 8722cab8598ae4140984683a38bfe019
-  m_OcclusionCullingData: {fileID: 36300000, guid: 52cef3910a601c242bfd900731d200bc,
+  m_SceneGUID: 15fc499297233684fb55d74f4a2046be
+  m_OcclusionCullingData: {fileID: 36300000, guid: f47738f0de926304ebd71e157aa4ae03,
     type: 2}
 --- !u!104 &2
 RenderSettings:
@@ -6899,6 +6899,9 @@ MonoBehaviour:
   - Actisdato
   - Kurniawan
   - Pedroso
+  specialZombieList:
+  - Parasite_Starkie
+  - Whiteclown_Hallin
   directionalLight: {fileID: 15933512}
   dayDuration: 30
   currentTime: 0
