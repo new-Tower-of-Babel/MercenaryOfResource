@@ -5,7 +5,7 @@
 2. [팀소개](#팀소개)
 3. [개발기간](#개발기간)
 4. [주요기능](#주요기능)
-5. [UML](#uml)
+5. [WireFrame](#WireFrame)
 6. [기술스택](#기술스택)
 7. [발표자료](#발표자료)
 8. [라이선스](#라이선스)
@@ -43,9 +43,10 @@
 낮에는 자원을 채집하고 밤에는 공격해 오는 몬스터를 사냥하여 자원을 흭득하고 흭득한 자원으로는 더욱 좋은 성능을 가진 캐릭터와 무기를 구매하는 게임입니다. 
 
 ## 팀소개
-<a href="https://github.com/new-Tower-of-Babel/MercenaryOfResource/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=new-Tower-of-Babel/MercenaryOfResource&refresh=true">
-</a>
+| 팀원   | 역할            | GitHub 프로필                     |
+|--------|-----------------|------------------------------------|
+| <img src="https://avatars.githubusercontent.com/new-Tower-of-Babel" width="50"> | 리더 | [최인석](https://github.com/new-Tower-of-Babel) |
+| <img src="https://avatars.githubusercontent.com/ojs0124" width="50"> | 부리더 | [오주성](https://github.com/ojs0124) |
 
 ## 개발기간
 2024.11.25(금) - 2025.1.21(금)
@@ -72,7 +73,7 @@
   라운드가 종료되었을때 얻은 코인으로 캐릭터와 무기를 해금 할 수 있습니다.
 
 
-## UML
+## WireFrame
 
 ![Type Dependencies Diagram for Arrow and other elements]()
 
@@ -91,10 +92,7 @@
 
 ## 발표자료
 
-팀 노션: <>
-
-
-WireFrame: <>
+팀 노션: <https://harmonious-key-ee5.notion.site/149f6b1a43af80ca8118c352d3fa39b2>
 
 
 영상: <>
