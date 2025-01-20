@@ -3,6 +3,7 @@
     public override void EnterState(ZombieBase zombie)
     {
         this.zombie = zombie;
+        zombie.Die();
     }
 
     public override void ExitState()
@@ -12,7 +13,7 @@
 
     public override void UpdateState()
     {
-        zombie.SwitchState(zombie.deadState);
+
     }
 
     protected override void Attack()

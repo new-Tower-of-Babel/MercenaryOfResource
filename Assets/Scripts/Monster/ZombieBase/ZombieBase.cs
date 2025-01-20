@@ -117,7 +117,7 @@ public abstract class ZombieBase : MonoBehaviour
         }
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         SwitchState(deadState);
         OnDied?.Invoke(gameObject);
