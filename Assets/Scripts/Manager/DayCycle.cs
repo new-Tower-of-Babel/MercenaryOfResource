@@ -123,9 +123,14 @@ public class DayCycle : MonoBehaviour
                 ZombieManager.Instance.SpawnZombie(normalZombieList[Random.Range(0, 3)]);
 
                 // special zombie spawn
-                if(Random.Range(0, 120) < 45)
+                if(Random.Range(0, 130) < 45)
                 {
-                    ZombieManager.Instance.SpawnZombie(specialZombieList[Random.Range(0, 2)]);
+                    ZombieManager.Instance.SpawnZombie(specialZombieList[0]);
+                }
+
+                if (Random.Range(0, 150) < 20)
+                {
+                    ZombieManager.Instance.SpawnZombie(specialZombieList[1]);
                 }
             }
             zombieSpawned = true; // ���Ͱ� �����Ǿ����� ���?
