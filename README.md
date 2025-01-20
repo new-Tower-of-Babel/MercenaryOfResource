@@ -75,7 +75,7 @@
 
 ## WireFrame
 
-![Type Dependencies Diagram for Arrow and other elements]()
+![Image](https://github.com/user-attachments/assets/e64cb4af-bd56-4d4d-9ffb-c476d9aceca9)
 
 
 ---
