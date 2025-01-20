@@ -5,7 +5,10 @@ public class WhiteClownZombie : ZombieBase
 {
     public float healingAmount = 10f;
     public float healingRadius = 5f;
-    public float healingInterval = 15f;
+    public float healingInterval = 5f;
+
+    private Coroutine healingCoroutine;
+
 
     public override void Awake()
     {
@@ -35,7 +38,10 @@ public class WhiteClownZombie : ZombieBase
         // Set Idle state first time
         SwitchState(idleState);
 
-        StartCoroutine(HealingCoroutine());
+        if (healingCoroutine == null)
+        {
+            healingCoroutine = StartCoroutine(HealingCoroutine());
+        }
     }
 
     void Update()
@@ -102,5 +108,10 @@ public class WhiteClownZombie : ZombieBase
     {
         base.Initialize();
         Initialize();
+
+        if (healingCoroutine == null)
+        {
+            healingCoroutine = StartCoroutine(HealingCoroutine());
+        }
     }
 }
