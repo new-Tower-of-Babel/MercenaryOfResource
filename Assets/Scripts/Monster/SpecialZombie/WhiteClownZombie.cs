@@ -49,7 +49,7 @@ public class WhiteClownZombie : ZombieBase
 
     public override void Initialize()
     {
-        this.health = 70.0f;
+        this.health = 120.0f;
         this.moveSpeed = 0.4f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
