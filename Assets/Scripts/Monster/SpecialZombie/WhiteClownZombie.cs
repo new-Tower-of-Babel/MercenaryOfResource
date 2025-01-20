@@ -5,7 +5,7 @@ public class WhiteClownZombie : ZombieBase
 {
     public float healingAmount = 10f;
     public float healingRadius = 5f;
-    public float healingInterval = 5f;
+    public float healingInterval = 15f;
 
     public override void Awake()
     {
