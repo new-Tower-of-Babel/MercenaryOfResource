@@ -5,7 +5,7 @@ public class WhiteClownZombie : ZombieBase
 {
     public float healingAmount = 10f;
     public float healingRadius = 5f;
-    public float healingInterval = 10f;
+    public float healingInterval = 5f;
 
     public override void Awake()
     {
@@ -57,16 +57,6 @@ public class WhiteClownZombie : ZombieBase
     void OnDisable()
     {
         StopCoroutine(HealingCoroutine());
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-        if (other.CompareTag("Zombie"))
-        {
-            Heal(other.gameObject);
-        }
     }
 
     private IEnumerator HealingCoroutine()
