@@ -13,7 +13,7 @@
 ---  
 ## 프로젝트 소개
 
-<img width="960" alt="...">
+![Image](https://github.com/user-attachments/assets/76b891f7-2f49-4c39-b939-eb98ac1b1638)
 
 ### 게임 소개 
 
