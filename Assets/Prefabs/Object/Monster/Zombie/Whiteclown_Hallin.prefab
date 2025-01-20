@@ -1707,7 +1707,7 @@ MonoBehaviour:
   isDead: 0
   healingAmount: 10
   healingRadius: 5
-  healingInterval: 2
+  healingInterval: 5
 --- !u!1 &5783748926268661886
 GameObject:
   m_ObjectHideFlags: 0
