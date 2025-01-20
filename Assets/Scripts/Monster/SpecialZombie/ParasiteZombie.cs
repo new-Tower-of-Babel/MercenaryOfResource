@@ -7,6 +7,19 @@ public class ParasiteZombie : ZombieBase
     public override void Awake()
     {
         base.Awake();
+
+        // Initialize states
+        this.idleState = new IdleState();
+        this.chaseState = new ChaseState();
+        this.attackState = new ParasiteAttackState();
+        this.hitState = new HitStateBase();
+        this.deadState = new ParasiteDeadState();
+    }
+
+    void OnEnable()
+    {
+        // When object be active
+        ResetZombie();
     }
 
     public override void Start()
@@ -15,13 +28,6 @@ public class ParasiteZombie : ZombieBase
 
         // override 
         Initialize();
-
-        // Initialize states
-        this.idleState = new IdleState();
-        this.chaseState = new ChaseState();
-        this.attackState = new ParasiteAttackState();
-        this.hitState = new HitStateBase();
-        this.deadState = new ParasiteDeadState();
 
         // Call method by type casting
         if (this.deadState is ParasiteDeadState parasiteDeadState)
@@ -44,9 +50,15 @@ public class ParasiteZombie : ZombieBase
 
     public override void Initialize()
     {
-        this.health = 70.0f;
+        this.health = 100.0f;
         this.moveSpeed = 0.6f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
+    }
+
+    public void ResetZombie()
+    {
+        base.Initialize();
+        Initialize();
     }
 }

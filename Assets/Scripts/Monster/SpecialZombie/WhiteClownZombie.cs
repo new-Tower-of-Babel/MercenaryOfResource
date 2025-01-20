@@ -10,6 +10,19 @@ public class WhiteClownZombie : ZombieBase
     public override void Awake()
     {
         base.Awake();
+
+        // Initialize states
+        this.idleState = new IdleState();
+        this.chaseState = new ChaseState();
+        this.attackState = new AttackState();
+        this.hitState = new HitStateBase();
+        this.deadState = new DeadState();
+    }
+
+    void OnEnable()
+    {
+        // When object be active
+        ResetZombie();
     }
 
     public override void Start()
@@ -18,13 +31,6 @@ public class WhiteClownZombie : ZombieBase
 
         // override 
         Initialize();
-
-        // Initialize states
-        this.idleState = new IdleState();
-        this.chaseState = new ChaseState();
-        this.attackState = new AttackState();
-        this.hitState = new HitStateBase();
-        this.deadState = new DeadState();
 
         // Set Idle state first time
         SwitchState(idleState);
@@ -43,20 +49,10 @@ public class WhiteClownZombie : ZombieBase
 
     public override void Initialize()
     {
-        this.health = 70.0f;
+        this.health = 120.0f;
         this.moveSpeed = 0.4f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-        if (other.CompareTag("Zombie"))
-        {
-            Heal(other.gameObject);
-        }
     }
 
     private IEnumerator HealingCoroutine()
@@ -68,6 +64,7 @@ public class WhiteClownZombie : ZombieBase
 
             foreach (Collider col in colliders)
             {
+                if (col.gameObject == this.gameObject) continue;
                 if (col.CompareTag("Zombie"))
                 {
                     Heal(col.gameObject);
@@ -90,5 +87,11 @@ public class WhiteClownZombie : ZombieBase
             // 추후 좀비의 최대 체력을 초과하여 회복하는 것 방지
             //targetZombie.health = Mathf.Min(targetZombie.health + healingAmount, targetZombie.maxHealth);
         }
+    }
+
+    public void ResetZombie()
+    {
+        base.Initialize();
+        Initialize();
     }
 }
