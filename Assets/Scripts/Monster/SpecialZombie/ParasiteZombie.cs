@@ -7,6 +7,13 @@ public class ParasiteZombie : ZombieBase
     public override void Awake()
     {
         base.Awake();
+
+        // Initialize states
+        this.idleState = new IdleState();
+        this.chaseState = new ChaseState();
+        this.attackState = new ParasiteAttackState();
+        this.hitState = new HitStateBase();
+        this.deadState = new ParasiteDeadState();
     }
 
     void OnEnable()
@@ -21,13 +28,6 @@ public class ParasiteZombie : ZombieBase
 
         // override 
         Initialize();
-
-        // Initialize states
-        this.idleState = new IdleState();
-        this.chaseState = new ChaseState();
-        this.attackState = new ParasiteAttackState();
-        this.hitState = new HitStateBase();
-        this.deadState = new ParasiteDeadState();
 
         // Call method by type casting
         if (this.deadState is ParasiteDeadState parasiteDeadState)

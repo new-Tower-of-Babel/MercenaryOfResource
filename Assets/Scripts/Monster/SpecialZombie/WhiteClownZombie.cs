@@ -13,6 +13,13 @@ public class WhiteClownZombie : ZombieBase
     public override void Awake()
     {
         base.Awake();
+
+        // Initialize states
+        this.idleState = new IdleState();
+        this.chaseState = new ChaseState();
+        this.attackState = new AttackState();
+        this.hitState = new HitStateBase();
+        this.deadState = new DeadState();
     }
 
     void OnEnable()
@@ -27,13 +34,6 @@ public class WhiteClownZombie : ZombieBase
 
         // override 
         Initialize();
-
-        // Initialize states
-        this.idleState = new IdleState();
-        this.chaseState = new ChaseState();
-        this.attackState = new AttackState();
-        this.hitState = new HitStateBase();
-        this.deadState = new DeadState();
 
         // Set Idle state first time
         SwitchState(idleState);
