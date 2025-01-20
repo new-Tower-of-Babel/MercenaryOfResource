@@ -9,6 +9,12 @@ public class ParasiteZombie : ZombieBase
         base.Awake();
     }
 
+    void OnEnable()
+    {
+        // When object be active
+        ResetZombie();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -48,5 +54,11 @@ public class ParasiteZombie : ZombieBase
         this.moveSpeed = 0.6f;
         this.attackSpeed = 3.0f;
         this.attackRange = 1.5f;
+    }
+
+    public void ResetZombie()
+    {
+        base.Initialize();
+        Initialize();
     }
 }

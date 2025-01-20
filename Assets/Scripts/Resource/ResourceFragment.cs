@@ -61,7 +61,6 @@ public class ResourceFragment : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(PlayDataManager.Instance.characterPlayData.resourceCarryLimit);
         if (collision.gameObject.CompareTag("Player") && !isBeingPulled&&
             PlayDataManager.Instance.characterPlayData.resourceCarryLimit>0)
         {

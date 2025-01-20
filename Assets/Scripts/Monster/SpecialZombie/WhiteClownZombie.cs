@@ -12,6 +12,12 @@ public class WhiteClownZombie : ZombieBase
         base.Awake();
     }
 
+    void OnEnable()
+    {
+        // When object be active
+        ResetZombie();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -90,5 +96,11 @@ public class WhiteClownZombie : ZombieBase
             // 추후 좀비의 최대 체력을 초과하여 회복하는 것 방지
             //targetZombie.health = Mathf.Min(targetZombie.health + healingAmount, targetZombie.maxHealth);
         }
+    }
+
+    public void ResetZombie()
+    {
+        base.Initialize();
+        Initialize();
     }
 }
