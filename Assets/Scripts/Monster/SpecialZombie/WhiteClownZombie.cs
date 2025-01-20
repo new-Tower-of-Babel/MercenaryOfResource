@@ -23,7 +23,6 @@ public class WhiteClownZombie : ZombieBase
     {
         // When object be active
         ResetZombie();
-        StartCoroutine(HealingCoroutine());
     }
 
     public override void Start()
@@ -35,6 +34,8 @@ public class WhiteClownZombie : ZombieBase
 
         // Set Idle state first time
         SwitchState(idleState);
+
+        StartCoroutine(HealingCoroutine());
     }
 
     void Update()
@@ -54,11 +55,6 @@ public class WhiteClownZombie : ZombieBase
         this.attackRange = 1.5f;
     }
 
-    void OnDisable()
-    {
-        StopCoroutine(HealingCoroutine());
-    }
-
     private IEnumerator HealingCoroutine()
     {
         while (true)
@@ -68,6 +64,7 @@ public class WhiteClownZombie : ZombieBase
 
             foreach (Collider col in colliders)
             {
+                if (col.gameObject == this.gameObject) continue;
                 if (col.CompareTag("Zombie"))
                 {
                     Heal(col.gameObject);
