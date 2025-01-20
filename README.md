@@ -43,10 +43,10 @@
 낮에는 자원을 채집하고 밤에는 공격해 오는 몬스터를 사냥하여 자원을 흭득하고 흭득한 자원으로는 더욱 좋은 성능을 가진 캐릭터와 무기를 구매하는 게임입니다. 
 
 ## 팀소개
-| 팀원   | 역할            | GitHub 프로필                     |
-|--------|-----------------|------------------------------------|
-| <img src="https://avatars.githubusercontent.com/new-Tower-of-Babel" width="50"> | 리더 | [최인석](https://github.com/new-Tower-of-Babel) |
-| <img src="https://avatars.githubusercontent.com/ojs0124" width="50"> | 부리더 | [오주성](https://github.com/ojs0124) |
+| 팀원   | 역할            | GitHub 프로필                     | 담당            |
+|--------|-----------------|------------------------------------|-----------------|
+| <img src="https://avatars.githubusercontent.com/new-Tower-of-Babel" width="50"> | 리더 | [최인석](https://github.com/new-Tower-of-Babel) |스킬, 캐릭터, 무기, 자원 및 재화 데이터, 해금기능, UI|
+| <img src="https://avatars.githubusercontent.com/ojs0124" width="50"> | 부리더 | [오주성](https://github.com/ojs0124) |몬스터, 밤낮사이클, 오브젝트풀, 파티클, 사운드, 자원, UI|
 
 ## 개발기간
 2024.11.25(금) - 2025.1.21(금)
